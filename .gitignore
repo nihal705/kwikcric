@@ -1,0 +1,114 @@
+# Environment files
+.env
+.env.local
+.env.*.local
+*.backup
+backend/.env
+frontend/.env
+
+# Files with passwords - EXCLUDE FROM PUSH
+backend/src/config/database/postgres.ts
+backend/src/router/v1/authRoutes.js
+backend/src/router/v1/kwikCricketRoutes.js
+backend/src/router/v1/pollRoutes.js
+backend/src/utils/weeklyPollReset.js
+backend/src/server.js
+scripts/bulkMapPlayers.js
+scripts/find-passwords.js
+scripts/
+
+data/
+*.yaml
+*.yml
+
+# Dependencies
+node_modules/
+
+# Build files
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.*
+
+# IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Backup files
+*.backup
+*.bak
+# ML and data ingestion
+backend/src/services/ml-services/
+backend/src/services/data-ingestion/
+
+# Email templates
+backend/src/templates/
+
+# Sockets (if not used)
+backend/src/sockets/
+
+# Test files
+*server-test.js
+
+# Root files
+package-lock.json
+package.json
+
+# Deployment and documentation files
+DEPLOYMENT.md
+CHANGELOG.md
+Dockerfile
+Dockerfile.frontend
+ecosystem.config.js
+*.Dockerfile
+
+# Backend deployment files
+backend/Dockerfile
+backend/ecosystem.config.js
+
+# Nginx configs
+nginx/
+docker/
+
+# Docs folder
+docs/
+
+# GitHub workflows
+.github/
+
+backend/src/services/external/
+
+# Test files
+*server-test.js
+
+# Large database files
+database/seeds/real_*.json
+database/champions_trophy.sql
+database/icc_wtc.sql
+database/odi_world_cup_all_details.sql
+database/player_ranking.sql
+database/players_*.sql
+database/schema.sql
+database/t20_wc_match_details.sql
+
+# Root files
+package-lock.json
+package.json
+players_overall_goat_ranking.md

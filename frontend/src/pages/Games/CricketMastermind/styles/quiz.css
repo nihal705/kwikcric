@@ -1,0 +1,278 @@
+/* frontend/src/pages/Games/CricketMastermind/styles/quiz.css */
+
+/* Animations */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.8; }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Animation Classes */
+.animate-pulse-slow {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.animate-shake {
+    animation: shake 0.3s ease-in-out;
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+}
+
+.animate-slide-in {
+    animation: slideIn 0.3s ease-out;
+}
+
+.animate-bounce {
+    animation: bounce 0.5s ease-in-out;
+}
+
+.animate-spin-slow {
+    animation: spin 1s linear infinite;
+}
+
+/* Timer Bar */
+.timer-bar {
+    transition: width 1s linear;
+}
+
+.timer-bar-warning {
+    transition: width 1s linear;
+    background: linear-gradient(90deg, #ef4444, #dc2626);
+}
+
+/* Question Card Styles */
+.question-card {
+    transition: all 0.3s ease;
+}
+
+.question-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Option Styles */
+.question-option {
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.question-option:hover:not(:disabled) {
+    transform: translateX(4px);
+    background-color: rgba(34, 197, 94, 0.05);
+}
+
+.question-option.correct {
+    background-color: rgba(34, 197, 94, 0.1);
+    border-color: rgb(34, 197, 94);
+}
+
+.question-option.wrong {
+    background-color: rgba(239, 68, 68, 0.1);
+    border-color: rgb(239, 68, 68);
+}
+
+/* Score Update Effect */
+.score-update {
+    animation: pulse 0.3s ease-in-out;
+}
+
+/* Streak Fire Effect */
+.streak-fire {
+    animation: bounce 0.5s ease-in-out;
+    text-shadow: 0 0 10px rgba(249, 115, 22, 0.8);
+}
+
+/* Life Heart Animation */
+.life-heart {
+    transition: all 0.2s ease;
+}
+
+.life-heart.lost {
+    opacity: 0.3;
+    transform: scale(0.8);
+}
+
+/* Timer Countdown Warning */
+.timer-warning {
+    color: #ef4444;
+    font-weight: bold;
+    animation: pulse 1s ease-in-out infinite;
+}
+
+/* Correct Answer Celebration */
+.celebration {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(34, 197, 94, 0.9);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.25rem;
+    z-index: 100;
+    animation: fadeIn 0.3s ease-out, pulse 0.5s ease-in-out;
+}
+
+/* Wrong Answer Effect */
+.wrong-effect {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(239, 68, 68, 0.9);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.25rem;
+    z-index: 100;
+    animation: shake 0.3s ease-in-out, fadeIn 0.3s ease-out;
+}
+
+/* Table Styles for Fill The Table Mode */
+.fill-table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+}
+
+.fill-table th {
+    background-color: #f3f4f6;
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.dark .fill-table th {
+    background-color: #374151;
+    border-bottom-color: #4b5563;
+}
+
+.fill-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.dark .fill-table td {
+    border-bottom-color: #374151;
+}
+
+.fill-table input {
+    width: 100%;
+    padding: 6px 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background: white;
+    transition: all 0.2s ease;
+}
+
+.dark .fill-table input {
+    background: #1f2937;
+    border-color: #4b5563;
+    color: white;
+}
+
+.fill-table input:focus {
+    outline: none;
+    border-color: #22c55e;
+    box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.2);
+}
+
+.fill-table input.correct-highlight {
+    border-color: #22c55e;
+    background-color: rgba(34, 197, 94, 0.05);
+}
+
+.fill-table input.wrong-highlight {
+    border-color: #ef4444;
+    background-color: rgba(239, 68, 68, 0.05);
+}
+
+/* Lifeline Button Styles */
+.lifeline-btn {
+    transition: all 0.2s ease;
+}
+
+.lifeline-btn:active:not(:disabled) {
+    transform: scale(0.95);
+}
+
+.lifeline-btn.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Progress Bar */
+.progress-bar {
+    transition: width 0.3s ease;
+}
+
+/* Confetti Effect for Victory */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background-color: #22c55e;
+    position: absolute;
+    animation: confetti-fall 3s linear forwards;
+}
+
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 640px) {
+    .question-option {
+        padding: 12px;
+        font-size: 14px;
+    }
+    
+    .fill-table th,
+    .fill-table td {
+        padding: 8px;
+        font-size: 12px;
+    }
+    
+    .lifeline-btn {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+}

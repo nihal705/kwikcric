@@ -1,0 +1,330 @@
+/* ============================================
+   CRICKET UNIVERSE - GAMES STYLES
+   ============================================ */
+
+/* Cricket Ball Animation */
+@keyframes ball-flight {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(100px, -50px);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(200px, 0);
+    opacity: 0;
+  }
+}
+
+.ball-flight {
+  animation: ball-flight 0.5s ease-out forwards;
+}
+
+/* Six Animation */
+@keyframes six-animation {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+.six-animation {
+  animation: six-animation 1s ease-out forwards;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  font-weight: bold;
+  color: gold;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  white-space: nowrap;
+  z-index: 100;
+}
+
+/* Boundary Animation */
+@keyframes boundary-animation {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  30% {
+    transform: scale(1.2) rotate(15deg);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0) rotate(-15deg);
+    opacity: 0;
+  }
+}
+
+.boundary-animation {
+  animation: boundary-animation 1s ease-out forwards;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #ff6b35;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  white-space: nowrap;
+  z-index: 100;
+}
+
+/* Wicket Animation */
+@keyframes wicket-animation {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-30px);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
+
+.wicket-animation {
+  animation: wicket-animation 0.8s ease-out forwards;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ff4444;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  white-space: nowrap;
+  z-index: 100;
+}
+
+/* Stadium Flash Effect */
+@keyframes stadium-flash {
+  0% {
+    background-color: rgba(255, 255, 255, 0);
+  }
+  50% {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  100% {
+    background-color: rgba(255, 255, 255, 0);
+  }
+}
+
+.stadium-flash {
+  animation: stadium-flash 0.3s ease-out;
+}
+
+/* Cricket Ground Pattern */
+.cricket-ground-pattern {
+  background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Score Update Animation */
+@keyframes score-update {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+    color: #ffd700;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.score-update {
+  animation: score-update 0.3s ease-out;
+}
+
+/* Wicket Shake Effect */
+@keyframes wicket-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.wicket-shake {
+  animation: wicket-shake 0.2s ease-out;
+}
+
+/* Boundary Flash */
+@keyframes boundary-flash {
+  0% { background-color: rgba(255, 107, 53, 0); }
+  50% { background-color: rgba(255, 107, 53, 0.3); }
+  100% { background-color: rgba(255, 107, 53, 0); }
+}
+
+.boundary-flash {
+  animation: boundary-flash 0.3s ease-out;
+}
+
+/* Six Celebration */
+@keyframes six-celebration {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.8; text-shadow: 0 0 20px gold; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.six-celebration {
+  animation: six-celebration 0.5s ease-out;
+}
+
+/* Game Card Hover Effect */
+.game-card-hover {
+  transition: all 0.3s ease;
+}
+
+.game-card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Loading Spinner for Games */
+.game-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid rgba(76, 175, 80, 0.2);
+  border-top: 4px solid #4caf50;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Countdown Timer Animation */
+@keyframes countdown-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.countdown-critical {
+  animation: countdown-pulse 0.5s ease-in-out infinite;
+  color: #ff4444;
+}
+
+/* Quiz Option Hover */
+.quiz-option {
+  transition: all 0.2s ease;
+}
+
+.quiz-option:hover:not(:disabled) {
+  transform: translateX(8px);
+  border-color: #4caf50;
+}
+
+/* Correct Answer Celebration */
+@keyframes correct-celebration {
+  0% { background-color: rgba(76, 175, 80, 0); }
+  50% { background-color: rgba(76, 175, 80, 0.3); }
+  100% { background-color: rgba(76, 175, 80, 0); }
+}
+
+.correct-celebration {
+  animation: correct-celebration 0.5s ease-out;
+}
+
+/* Wrong Answer Effect */
+@keyframes wrong-shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-10px); }
+  40% { transform: translateX(10px); }
+  60% { transform: translateX(-5px); }
+  80% { transform: translateX(5px); }
+}
+
+.wrong-shake {
+  animation: wrong-shake 0.4s ease-out;
+}
+
+/* Leaderboard Row Hover */
+.leaderboard-row {
+  transition: all 0.2s ease;
+}
+
+.leaderboard-row:hover {
+  background-color: rgba(76, 175, 80, 0.1);
+  transform: scale(1.01);
+}
+
+/* Trophy Gradient */
+.trophy-gradient {
+  background: linear-gradient(135deg, #ffd700, #ffed4a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Cricket Pitch Texture */
+.pitch-texture {
+  background-image: linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px),
+                    linear-gradient(0deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Responsive Game Controls */
+@media (max-width: 640px) {
+  .game-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+  
+  .cricket-stadium {
+    height: 200px;
+  }
+  
+  .score-number {
+    font-size: 2rem;
+  }
+}
+
+/* Dark Mode Overrides */
+.dark .game-card {
+  background: linear-gradient(135deg, #1f2937, #111827);
+}
+
+.dark .quiz-option:not(:disabled):hover {
+  background-color: rgba(76, 175, 80, 0.2);
+}
+
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .ball-flight,
+  .six-animation,
+  .boundary-animation,
+  .wicket-animation,
+  .stadium-flash,
+  .score-update,
+  .wicket-shake,
+  .boundary-flash,
+  .six-celebration,
+  .quiz-option:hover:not(:disabled),
+  .leaderboard-row:hover {
+    animation: none;
+    transform: none;
+    transition: none;
+  }
+}
