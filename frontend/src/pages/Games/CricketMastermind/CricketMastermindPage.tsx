@@ -6,24 +6,73 @@ import { DifficultySelector } from './components/DifficultySelector';
 import { QuickQuizMode } from './components/QuickQuizMode';
 import { ChallengeMode } from './components/ChallengeMode';
 import { FillTheTableMode } from './components/FillTheTableMode';
+import { KnowledgeHub } from './components/KnowledgeHub';
 import { GameMode, Difficulty } from './types/quiz.types';
 import { useAuth } from '../../../contexts/AuthContext';
 import { motion } from 'framer-motion';
+
+// Storage keys
+const STATS_KEY = 'quiz_mastermind_stats';
+
+interface QuizStats {
+    totalScore: number;
+    totalQuestions: number;
+    totalCorrect: number;
+    bestStreak: number;
+    gamesPlayed: number;
+}
 
 const CricketMastermindPage: React.FC = () => {
     const [gameMode, setGameMode] = useState<GameMode | null>(null);
     const [selectedCategory, setSelectedCategory] = useState<string>('All-Mode');
     const [selectedDifficulty, setSelectedDifficulty] = useState<Difficulty>('medium');
+    const [stats, setStats] = useState<QuizStats>({
+        totalScore: 0,
+        totalQuestions: 0,
+        totalCorrect: 0,
+        bestStreak: 0,
+        gamesPlayed: 0
+    });
     const { user } = useAuth();
 
-    // Load user's quiz stats
+    // Load stats on mount
     useEffect(() => {
-        // Load stats from localStorage or API
-        const savedStats = localStorage.getItem('quiz_stats');
-        if (savedStats) {
-            // Set stats
-        }
+        loadStats();
     }, []);
+
+    const loadStats = () => {
+        const saved = localStorage.getItem(STATS_KEY);
+        if (saved) {
+            try {
+                const parsed = JSON.parse(saved);
+                setStats({
+                    totalScore: parsed.totalScore || 0,
+                    totalQuestions: parsed.totalQuestions || 0,
+                    totalCorrect: parsed.totalCorrect || 0,
+                    bestStreak: parsed.bestStreak || 0,
+                    gamesPlayed: parsed.gamesPlayed || 0
+                });
+            } catch (e) {
+                console.error('Failed to load stats:', e);
+            }
+        }
+    };
+
+    const saveStats = (newStats: QuizStats) => {
+        localStorage.setItem(STATS_KEY, JSON.stringify(newStats));
+        setStats(newStats);
+    };
+
+    const updateStats = (correct: number, total: number, streak: number, score: number) => {
+        const newStats = {
+            totalScore: stats.totalScore + score,
+            totalQuestions: stats.totalQuestions + total,
+            totalCorrect: stats.totalCorrect + correct,
+            bestStreak: Math.max(stats.bestStreak, streak),
+            gamesPlayed: stats.gamesPlayed + 1
+        };
+        saveStats(newStats);
+    };
 
     const handleModeSelect = (mode: GameMode) => {
         setGameMode(mode);
@@ -31,6 +80,7 @@ const CricketMastermindPage: React.FC = () => {
 
     const handleBack = () => {
         setGameMode(null);
+        loadStats(); // Refresh stats when returning
     };
 
     if (gameMode === 'quick') {
@@ -39,6 +89,7 @@ const CricketMastermindPage: React.FC = () => {
                 category={selectedCategory}
                 difficulty={selectedDifficulty}
                 onExit={handleBack}
+                onUpdateStats={updateStats}
             />
         );
     }
@@ -49,6 +100,7 @@ const CricketMastermindPage: React.FC = () => {
                 category={selectedCategory}
                 difficulty={selectedDifficulty}
                 onExit={handleBack}
+                onUpdateStats={updateStats}
             />
         );
     }
@@ -57,59 +109,64 @@ const CricketMastermindPage: React.FC = () => {
         return (
             <FillTheTableMode
                 onExit={handleBack}
+                onUpdateStats={updateStats}
             />
         );
     }
 
+    // Calculate accuracy
+    const accuracy = stats.totalQuestions > 0 
+        ? Math.round((stats.totalCorrect / stats.totalQuestions) * 100) 
+        : 0;
+
     return (
-        <div className="min-h-screen bg-gray-100 dark:bg-gray-900 py-6">
-            <div className="max-w-4xl mx-auto px-4">
+        <div className="min-h bg-gray-100 dark:bg-gray-900 ">
+            <div className="max-w-6xl mx-auto px-3">
                 {/* Header */}
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="text-center mb-6"
+                    className="text-center mb-4"
                 >
-                    <div className="text-5xl mb-2">🧠</div>
-                    <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+                    <h1 className="text-xl font-bold text-gray-900 dark:text-white">
                         Cricket Mastermind
                     </h1>
-                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
                         Test your cricket knowledge with 1000+ questions!
                     </p>
                     {user?.isGuest && (
-                        <p className="text-xs text-yellow-600 dark:text-yellow-400 mt-2">
+                        <p className="text-[10px] text-yellow-600 dark:text-yellow-400 mt-1">
                             Guest Mode • Stats saved locally
                         </p>
                     )}
                 </motion.div>
 
-                {/* Stats Summary */}
+                {/* Stats Summary - Corrected display */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 }}
-                    className="grid grid-cols-4 gap-3 mb-6"
+                    className="grid grid-cols-5 gap-2 mb-4"
                 >
-                    <div className="bg-white dark:bg-gray-800 rounded-lg p-3 text-center shadow-sm border border-gray-200 dark:border-gray-700">
-                        <div className="text-lg mb-1">📊</div>
-                        <div className="text-lg font-bold text-gray-900 dark:text-white">0</div>
-                        <div className="text-[10px] text-gray-500">Questions</div>
+                    <div className="bg-white dark:bg-gray-800 rounded-lg p-2 text-center shadow-sm border border-gray-200 dark:border-gray-700">
+                        <div className="text-sm font-bold text-gray-900 dark:text-white">{stats.totalScore}</div>
+                        <div className="text-[8px] text-gray-500">Total Score</div>
                     </div>
-                    <div className="bg-white dark:bg-gray-800 rounded-lg p-3 text-center shadow-sm border border-gray-200 dark:border-gray-700">
-                        <div className="text-lg mb-1">✅</div>
-                        <div className="text-lg font-bold text-green-600">0</div>
-                        <div className="text-[10px] text-gray-500">Correct</div>
+                    <div className="bg-white dark:bg-gray-800 rounded-lg p-2 text-center shadow-sm border border-gray-200 dark:border-gray-700">
+                        <div className="text-sm font-bold text-gray-900 dark:text-white">{stats.totalQuestions}</div>
+                        <div className="text-[8px] text-gray-500">Questions</div>
                     </div>
-                    <div className="bg-white dark:bg-gray-800 rounded-lg p-3 text-center shadow-sm border border-gray-200 dark:border-gray-700">
-                        <div className="text-lg mb-1">🔥</div>
-                        <div className="text-lg font-bold text-orange-600">0</div>
-                        <div className="text-[10px] text-gray-500">Best Streak</div>
+                    <div className="bg-white dark:bg-gray-800 rounded-lg p-2 text-center shadow-sm border border-gray-200 dark:border-gray-700">
+                        <div className="text-sm font-bold text-green-600">{stats.totalCorrect}</div>
+                        <div className="text-[8px] text-gray-500">Correct</div>
                     </div>
-                    <div className="bg-white dark:bg-gray-800 rounded-lg p-3 text-center shadow-sm border border-gray-200 dark:border-gray-700">
-                        <div className="text-lg mb-1">🏆</div>
-                        <div className="text-lg font-bold text-purple-600">0</div>
-                        <div className="text-[10px] text-gray-500">High Score</div>
+                    <div className="bg-white dark:bg-gray-800 rounded-lg p-2 text-center shadow-sm border border-gray-200 dark:border-gray-700">
+                        <div className="text-sm font-bold text-orange-600">{stats.bestStreak}</div>
+                        <div className="text-[8px] text-gray-500">Best Streak</div>
+                    </div>
+                    <div className="bg-white dark:bg-gray-800 rounded-lg p-2 text-center shadow-sm border border-gray-200 dark:border-gray-700">
+                        <div className="text-sm font-bold text-purple-600">{accuracy}%</div>
+                        <div className="text-[8px] text-gray-500">Accuracy</div>
                     </div>
                 </motion.div>
 
@@ -118,17 +175,17 @@ const CricketMastermindPage: React.FC = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.15 }}
-                    className="mb-6"
+                    className="mb-4"
                 >
                     <ModeSelector onSelect={handleModeSelect} />
                 </motion.div>
 
-                {/* Category Selector */}
+                {/* Category Selector - Compact */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
-                    className="mb-6"
+                    className="mb-3"
                 >
                     <CategorySelector
                         selectedCategory={selectedCategory}
@@ -136,11 +193,12 @@ const CricketMastermindPage: React.FC = () => {
                     />
                 </motion.div>
 
-                {/* Difficulty Selector */}
+                {/* Difficulty Selector - Compact */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.25 }}
+                    className="mb-4"
                 >
                     <DifficultySelector
                         selectedDifficulty={selectedDifficulty}
@@ -148,17 +206,8 @@ const CricketMastermindPage: React.FC = () => {
                     />
                 </motion.div>
 
-                {/* Info Section */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3 }}
-                    className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800"
-                >
-                    <div className="text-xs text-blue-700 dark:text-blue-300">
-                        <span className="font-semibold">💡 Did you know?</span> The first Cricket World Cup was held in 1975 in England. West Indies won the final against Australia by 17 runs at Lord's Cricket Ground.
-                    </div>
-                </motion.div>
+                {/* Knowledge Hub */}
+                <KnowledgeHub />
             </div>
         </div>
     );

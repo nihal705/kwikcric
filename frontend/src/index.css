@@ -155,3 +155,43 @@
 .animate-fade {
     animation: fade 0.4s ease-out forwards;
 }
+
+/* Add to frontend/src/index.css or frontend/src/App.css */
+
+/* 3D Flip Card Styles */
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Card flip transition */
+.flip-card {
+  transition: transform 0.6s ease-in-out;
+}
+
+.flip-card-front, .flip-card-back {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flip-card-front {
+  transform: rotateY(180deg);
+}
+
+.flip-card-back {
+  transform: rotateY(0deg);
+}
+
+/* Card hover effect */
+.card-hover:hover {
+  transform: scale(1.02);
+  transition: transform 0.2s ease;
+}

@@ -26,7 +26,7 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
     onExit
 }) => {
     return (
-        <div className="min-h-screen bg-gray-100 dark:bg-gray-900 flex items-center justify-center py-6">
+        <div className="min-h bg-gray-100 dark:bg-gray-900 flex items-center justify-center py-6">
             <div className="max-w-md w-full mx-auto px-4">
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
@@ -34,7 +34,6 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
                     className="bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden"
                 >
                     <div className="bg-gradient-to-r from-purple-600 to-pink-600 px-6 py-4 text-center">
-                        <div className="text-4xl mb-2">🏆</div>
                         <h2 className="text-xl font-bold text-white">Quiz Complete!</h2>
                     </div>
                     
@@ -70,7 +69,7 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
                             <div className="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-3 text-center">
                                 <div className="text-sm text-gray-500">Best Streak</div>
                                 <div className="text-lg font-bold text-orange-600">
-                                    🔥 {maxStreak}
+                                     {maxStreak}
                                 </div>
                             </div>
                         </div>

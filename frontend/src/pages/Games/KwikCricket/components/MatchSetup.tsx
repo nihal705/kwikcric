@@ -60,7 +60,7 @@ export const MatchSetup: React.FC<MatchSetupProps> = ({
                     to="/games/kwik-cricket/history"
                     className="absolute top-2 right-2 px-2 py-0.5 bg-white/20 hover:bg-white/30 text-white text-[10px] font-medium rounded transition"
                 >
-                    📜 History
+                    History
                 </Link>
             </div>
 

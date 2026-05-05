@@ -11,21 +11,21 @@ const modes: { id: GameMode; title: string; icon: string; description: string; c
     {
         id: 'quick',
         title: 'Quick Quiz',
-        icon: '⚡',
+        icon: '',
         description: 'Endless questions • 3 lives • Streak bonus',
         color: 'from-yellow-500 to-orange-500'
     },
     {
         id: 'challenge',
         title: 'Challenge Mode',
-        icon: '🏆',
+        icon: '',
         description: '20 questions • 2 minute timer • Bonus points',
         color: 'from-purple-500 to-pink-500'
     },
     {
         id: 'filltable',
         title: 'Fill The Table',
-        icon: '📋',
+        icon: '',
         description: 'Complete tables • Guess players • Time pressure',
         color: 'from-green-500 to-teal-500'
     }

@@ -12,6 +12,7 @@ backend/src/router/v1/authRoutes.js
 backend/src/router/v1/kwikCricketRoutes.js
 backend/src/router/v1/pollRoutes.js
 backend/src/utils/weeklyPollReset.js
+backend/src/utils/gameHistoryRoutes.js
 backend/src/server.js
 scripts/bulkMapPlayers.js
 scripts/find-passwords.js
@@ -112,3 +113,4 @@ database/t20_wc_match_details.sql
 package-lock.json
 package.json
 players_overall_goat_ranking.md
+

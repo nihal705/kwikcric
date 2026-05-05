@@ -12,7 +12,6 @@ export const Footer: React.FC = () => {
         { label: 'Player Rankings', path: '/players/rankings' },
         { label: 'Team Rankings', path: '/teams/rankings' },
         { label: 'Tournaments', path: '/tournaments' },
-        { label: 'Live Scores', path: '/live' },
       ]
     },
     {
@@ -38,19 +37,15 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div>
-            <div className="flex items-center space-x-2 mb-4">
-              <span className="text-2xl">🏏</span>
-              <span className="text-xl font-bold">Cricket Universe</span>
-            </div>
+            <Link to="/" className="flex-shrink-0">
+                        <span className="text-xl font-bold tracking-tight text-white-900 dark:text-white">
+                          Kwik<span className="text-green-600 dark:text-green-500">Cric</span>
+                        </span>
+                      </Link>
             <p className="text-gray-400 text-sm">
               The ultimate cricket analytics platform featuring player rankings, team statistics, 
               tournament history, and interactive games.
             </p>
-            <div className="flex space-x-4 mt-4">
-              <span className="text-2xl">🐦</span>
-              <span className="text-2xl">📘</span>
-              <span className="text-2xl">📷</span>
-            </div>
           </div>
 
           {/* Links */}
@@ -72,7 +67,6 @@ export const Footer: React.FC = () => {
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
           <p>&copy; {currentYear} Cricket Universe. All rights reserved.</p>
-          <p className="mt-1">Data sourced from Cricsheet and official cricket archives</p>
         </div>
       </div>
     </footer>

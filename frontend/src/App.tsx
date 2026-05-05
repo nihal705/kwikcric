@@ -11,7 +11,6 @@ import PlayerRankingsPage from './pages/Players/PlayerRankingsPage';
 import TournamentsPage from './pages/Tournaments/TournamentsPage';
 import { GamesPage } from './pages/Games/GamesPage';
 import { QuickCricketPage } from './pages/Games/QuickCricketPage';
-import { QuizPage } from './pages/Games/QuizPage';
 import { LiveScoresPage } from './pages/Live/LiveScoresPage';
 import { WorldCupHub } from './pages/Tournaments/WorldCupHub';
 import { WorldCupDetailPage } from './pages/Tournaments/WorldCupDetailPage';
@@ -34,7 +33,8 @@ import { RegisterPage } from './pages/Auth/RegisterPage';
 import { ProtectedRoute } from './components/common/ProtectedRoute';
 import KwikCricketHistoryPage from './pages/Games/KwikCricket/KwikCricketHistoryPage';
 import CricketMastermindPage from './pages/Games/CricketMastermind/CricketMastermindPage';
-
+import GamesHistoryHubPage from './pages/Games/GamesHistoryHubPage';
+import ImposterPage from './pages/Games/Imposter/ImposterPage';
 
 function App() {
   const [darkMode, setDarkMode] = useState(() => {
@@ -57,54 +57,58 @@ function App() {
 
   return (
     <AuthProvider>
-    <BrowserRouter>
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex flex-col">
-        <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
-        <main className="flex-1">
-          <Routes>
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/register" element={<RegisterPage />} />
-            <Route path="/" element={<HomePage />} />
-            <Route path="/players" element={<PlayersPage />} />
-            <Route path="/player/:id" element={<PlayerDetailPage />} />
-            <Route path="/players/rankings" element={<PlayerRankingsPage />} />
-            <Route path="/tournaments" element={<TournamentsPage />} />
-            <Route path="/ipl" element={<TournamentsPage />} />
-            {/* ODI World Cup Routes */}
-            <Route path="/world-cup" element={<WorldCupHub />} />
-            <Route path="/world-cup/:year" element={<WorldCupDetailPage />} />
-            <Route path="/world-cup/team/:teamName" element={<TeamDetailPage />} />
-            
-            {/* T20 World Cup Routes - Using dedicated component */}
-            <Route path="/world-cup/t20" element={<T20WorldCupHub />} />
-            <Route path="/world-cup/t20/:year" element={<T20WorldCupDetailPage />} />
-            <Route path="/world-cup/t20/team/:teamName" element={<T20TeamDetailPage />} />
-            
-            <Route path="/games" element={<GamesPage />} />
-            <Route path="/games/quick-cricket" element={<QuickCricketPage />} />
-            <Route path="/games/quiz" element={<QuizPage />} />
-            <Route path="/live" element={<LiveScoresPage />} />
-            <Route path="/tournaments/hub" element={<TournamentHubPage />} />
-            <Route path="/history" element={<HistoryPage />} />
-            <Route path="/champions-trophy" element={<ChampionsTrophyHub />} />
-            <Route path="/champions-trophy/:year" element={<ChampionsTrophyDetailPage />} />
-            <Route path="/champions-trophy/team/:teamName" element={<ChampionsTrophyTeamDetailPage />} />
-            <Route path="/wtc" element={<WTCHub />} />
-            <Route path="/wtc/:year" element={<WTCDetailPage />} />
-            <Route path="/wtc/team/:teamName" element={<WTCTeamDetailPage />} />
-            <Route path="/games/kwik-cricket/history" element={<KwikCricketHistoryPage />} />
-             <Route path="/games/kwik-cricket" element={
-                        <ProtectedRoute>
-                            <KwikCricketPage />
-                        </ProtectedRoute>
-                    } />
-          </Routes>
-          <Route path="/games/quiz" element={<CricketMastermindPage />} />
-        </main>
-        <Footer />
-        <Toaster position="top-right" />
-      </div>
-    </BrowserRouter>
+      <BrowserRouter>
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex flex-col">
+          <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+          <main className="flex-1">
+            <Routes>
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/register" element={<RegisterPage />} />
+              <Route path="/" element={<HomePage />} />
+              <Route path="/players" element={<PlayersPage />} />
+              <Route path="/player/:id" element={<PlayerDetailPage />} />
+              <Route path="/players/rankings" element={<PlayerRankingsPage />} />
+              <Route path="/tournaments" element={<TournamentsPage />} />
+              <Route path="/ipl" element={<TournamentsPage />} />
+              {/* ODI World Cup Routes */}
+              <Route path="/world-cup" element={<WorldCupHub />} />
+              <Route path="/world-cup/:year" element={<WorldCupDetailPage />} />
+              <Route path="/world-cup/team/:teamName" element={<TeamDetailPage />} />
+              
+              {/* T20 World Cup Routes - Using dedicated component */}
+              <Route path="/world-cup/t20" element={<T20WorldCupHub />} />
+              <Route path="/world-cup/t20/:year" element={<T20WorldCupDetailPage />} />
+              <Route path="/world-cup/t20/team/:teamName" element={<T20TeamDetailPage />} />
+              
+              {/* Games Routes */}
+              <Route path="/games" element={<GamesPage />} />
+              <Route path="/games/quick-cricket" element={<QuickCricketPage />} />
+              <Route path="/games/quiz" element={<CricketMastermindPage />} />
+              <Route path="/games/kwik-cricket" element={
+                <ProtectedRoute>
+                  <KwikCricketPage />
+                </ProtectedRoute>
+              } />
+              <Route path="/games/kwik-cricket/history" element={<KwikCricketHistoryPage />} />
+              <Route path="/games/history" element={<GamesHistoryHubPage />} />
+              
+              {/* Other Routes */}
+              <Route path="/live" element={<LiveScoresPage />} />
+              <Route path="/tournaments/hub" element={<TournamentHubPage />} />
+              <Route path="/history" element={<HistoryPage />} />
+              <Route path="/champions-trophy" element={<ChampionsTrophyHub />} />
+              <Route path="/champions-trophy/:year" element={<ChampionsTrophyDetailPage />} />
+              <Route path="/champions-trophy/team/:teamName" element={<ChampionsTrophyTeamDetailPage />} />
+              <Route path="/wtc" element={<WTCHub />} />
+              <Route path="/wtc/:year" element={<WTCDetailPage />} />
+              <Route path="/wtc/team/:teamName" element={<WTCTeamDetailPage />} />
+              <Route path="/games/imposter" element={<ImposterPage />} />
+            </Routes>
+          </main>
+          <Footer />
+          <Toaster position="top-right" />
+        </div>
+      </BrowserRouter>
     </AuthProvider>
   );
 }

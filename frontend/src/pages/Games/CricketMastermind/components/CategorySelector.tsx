@@ -1,6 +1,5 @@
 // frontend/src/pages/Games/CricketMastermind/components/CategorySelector.tsx
 import React from 'react';
-import { motion } from 'framer-motion';
 
 interface CategorySelectorProps {
     selectedCategory: string;
@@ -8,13 +7,13 @@ interface CategorySelectorProps {
 }
 
 const categories = [
-    { name: 'All-Mode', icon: '🎲', color: 'bg-gray-500' },
-    { name: 'ODI World Cup', icon: '🏏', color: 'bg-blue-500' },
-    { name: 'T20 World Cup', icon: '⚡', color: 'bg-yellow-500' },
-    { name: 'Test Cricket', icon: '📋', color: 'bg-red-500' },
-    { name: 'IPL', icon: '💪', color: 'bg-purple-500' },
-    { name: 'Women\'s Cricket', icon: '👩', color: 'bg-pink-500' },
-    { name: 'Records', icon: '📊', color: 'bg-indigo-500' },
+    { name: 'All-Mode', icon: '', color: 'bg-gray-500' },
+    { name: 'ODI World Cup', icon: '', color: 'bg-blue-500' },
+    { name: 'T20 World Cup', icon: '', color: 'bg-yellow-500' },
+    { name: 'Test Cricket', icon: '', color: 'bg-red-500' },
+    { name: 'IPL', icon: '', color: 'bg-purple-500' },
+    { name: 'Women\'s Cricket', icon: '', color: 'bg-pink-500' },
+    { name: 'Records', icon: '', color: 'bg-indigo-500' },
 ];
 
 export const CategorySelector: React.FC<CategorySelectorProps> = ({ selectedCategory, onSelectCategory }) => {

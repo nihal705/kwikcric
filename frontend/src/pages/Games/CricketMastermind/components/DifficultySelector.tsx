@@ -8,11 +8,11 @@ interface DifficultySelectorProps {
 }
 
 const difficulties: { id: Difficulty; label: string; icon: string; color: string; time: string; points: string }[] = [
-    { id: 'easy', label: 'Easy', icon: '🟢', color: 'bg-green-500', time: '30 sec', points: '10 pts' },
-    { id: 'medium', label: 'Medium', icon: '🟡', color: 'bg-yellow-500', time: '20 sec', points: '20 pts' },
-    { id: 'hard', label: 'Hard', icon: '🔴', color: 'bg-red-500', time: '15 sec', points: '50 pts' },
-    { id: 'random', label: 'Random', icon: '🎲', color: 'bg-purple-500', time: 'Variable', points: 'Bonus' },
-    { id: 'all', label: 'All-Mode', icon: '🌟', color: 'bg-indigo-500', time: 'Mixed', points: 'Varied' },
+    { id: 'easy', label: 'Easy', icon: '', color: 'bg-green-500', time: '30 sec', points: '10 pts' },
+    { id: 'medium', label: 'Medium', icon: '', color: 'bg-yellow-500', time: '20 sec', points: '20 pts' },
+    { id: 'hard', label: 'Hard', icon: '', color: 'bg-red-500', time: '15 sec', points: '50 pts' },
+    { id: 'random', label: 'Random', icon: '', color: 'bg-purple-500', time: 'Variable', points: 'Bonus' },
+    { id: 'all', label: 'All-Mode', icon: '', color: 'bg-indigo-500', time: 'Mixed', points: 'Varied' },
 ];
 
 export const DifficultySelector: React.FC<DifficultySelectorProps> = ({ selectedDifficulty, onSelectDifficulty }) => {
