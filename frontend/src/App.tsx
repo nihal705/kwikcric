@@ -35,6 +35,7 @@ import KwikCricketHistoryPage from './pages/Games/KwikCricket/KwikCricketHistory
 import CricketMastermindPage from './pages/Games/CricketMastermind/CricketMastermindPage';
 import GamesHistoryHubPage from './pages/Games/GamesHistoryHubPage';
 import ImposterPage from './pages/Games/Imposter/ImposterPage';
+import CricketCardsPage from './pages/Games/CricketCards/CricketCardsPage';
 
 function App() {
   const [darkMode, setDarkMode] = useState(() => {
@@ -103,6 +104,7 @@ function App() {
               <Route path="/wtc/:year" element={<WTCDetailPage />} />
               <Route path="/wtc/team/:teamName" element={<WTCTeamDetailPage />} />
               <Route path="/games/imposter" element={<ImposterPage />} />
+              <Route path="/games/cricket-cards" element={<CricketCardsPage />} />
             </Routes>
           </main>
           <Footer />

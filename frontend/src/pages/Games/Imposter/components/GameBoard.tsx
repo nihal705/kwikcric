@@ -1,6 +1,6 @@
 // frontend/src/pages/Games/Imposter/components/GameBoard.tsx
 import React, { useState, useEffect, useRef } from 'react';
-import { BotAI } from '../Logic/BotAI';
+import { BotAI } from '../Logic/BotAI'; // Make sure folder is 'logic' (lowercase)
 
 interface GameBoardProps {
   gameMode: 'local' | 'bots';
@@ -15,32 +15,34 @@ interface GameBoardProps {
 // Card data
 const cardData: Record<string, any[]> = {
   'Cricket Players': [
-    { name: 'Virat Kohli', keywords: ['King', 'Chase', 'RCB', 'Aggressive', 'CoverDrive'], hints: ['King of Cricket', 'Run Machine'] },
-    { name: 'MS Dhoni', keywords: ['Captain', 'Finisher', 'Helicopter', 'CSK', 'Calm'], hints: ['Captain Cool', 'Thala'] },
-    { name: 'Sachin Tendulkar', keywords: ['Master', 'Mumbai', 'StraightDrive', 'Legend'], hints: ['Master Blaster'] },
-    { name: 'Rohit Sharma', keywords: ['Hitman', 'Double', 'Mumbai', 'Sixer'], hints: ['Hitman'] },
-    { name: 'Hardik Pandya', keywords: ['Allrounder', 'Aggressive', 'Baroda', 'Finisher'], hints: ['Kung Fu Pandya'] },
-    { name: 'Jasprit Bumrah', keywords: ['Yorker', 'Mumbai', 'Death', 'Accuracy'], hints: ['Boom Boom'] }
+    { name: 'Virat Kohli', keywords: ['King', 'Chase', 'RCB', 'Aggressive', 'CoverDrive', 'Fitness', 'Captain', 'Delhi'], hints: ['King of Cricket', 'Run Machine', 'Chase Master'] },
+    { name: 'MS Dhoni', keywords: ['Captain', 'Finisher', 'Helicopter', 'CSK', 'Calm', 'Thala', 'Wicketkeeper', 'Ranchi'], hints: ['Captain Cool', 'Thala', 'Mahi', 'The Finisher'] },
+    { name: 'Sachin Tendulkar', keywords: ['Master', 'Mumbai', 'StraightDrive', 'Legend', 'LittleMaster', 'God', 'BharatRatna'], hints: ['Master Blaster', 'Little Master', 'God of Cricket'] },
+    { name: 'Rohit Sharma', keywords: ['Hitman', 'Double', 'Mumbai', 'Sixer', 'Captain', 'Opener', 'ViceCaptain', 'Nagpur'], hints: ['Hitman', 'Double Century King'] },
+    { name: 'Hardik Pandya', keywords: ['Allrounder', 'Aggressive', 'Baroda', 'Finisher', 'Power', 'Gujarat', 'Dance', 'Sixer'], hints: ['Kung Fu Pandya', 'HP'] },
+    { name: 'Jasprit Bumrah', keywords: ['Yorker', 'Mumbai', 'Death', 'Accuracy', 'Bowler', 'Gujarat', 'Slinger', 'NoBall'], hints: ['Boom Boom Bumrah', 'Yorker King'] }
   ],
   'IPL Teams': [
-    { name: 'Mumbai Indians', keywords: ['Blue', '5Titles', 'Rohit', 'Wankhede'], hints: ['MI', 'Paltan'] },
-    { name: 'Chennai Super Kings', keywords: ['Yellow', 'Dhoni', 'Whistle', 'Chepauk'], hints: ['CSK', 'Super Kings'] },
-    { name: 'Royal Challengers Bangalore', keywords: ['Red', 'Kohli', 'RCB', 'Chinnaswamy'], hints: ['RCB', 'Challengers'] }
+    { name: 'Mumbai Indians', keywords: ['Blue', '5Titles', 'Rohit', 'Wankhede', 'Ambani', 'Paltan', 'Champions', 'Bumrah'], hints: ['MI', 'Paltan', 'Blue Army'] },
+    { name: 'Chennai Super Kings', keywords: ['Yellow', 'Dhoni', 'Whistle', 'Chepauk', 'Comeback', 'Lions', 'CSK', 'SuperKing'], hints: ['CSK', 'Super Kings', 'Yellow Army'] },
+    { name: 'Royal Challengers Bangalore', keywords: ['Red', 'Kohli', 'RCB', 'Chinnaswamy', 'Challenger', 'Bangalore', 'ABD', 'Gayle'], hints: ['RCB', 'Challengers', 'Bengaluru'] }
   ],
   'World Cups': [
-    { name: '2011 World Cup', keywords: ['India', 'Dhoni', 'Six', 'Mumbai'], hints: ['India victory'] },
-    { name: '2019 World Cup', keywords: ['England', 'SuperOver', 'Boundary', 'Stokes'], hints: ['Tied final'] }
+    { name: '2011 World Cup', keywords: ['India', 'Dhoni', 'Six', 'Mumbai', 'Wankhede', 'Victory', '28Years', 'Tendulkar'], hints: ['India won after 28 years', 'Dhoni six'] },
+    { name: '2019 World Cup', keywords: ['England', 'SuperOver', 'Boundary', 'Stokes', "Lord's", 'Final', 'Tie', 'Boult'], hints: ['Tied final', 'Super Over drama'] }
   ],
   'Mixed': [
-    { name: 'Virat Kohli', keywords: ['King', 'Chase', 'RCB'], hints: ['King of Cricket'] },
-    { name: 'MS Dhoni', keywords: ['Captain', 'Finisher', 'CSK'], hints: ['Captain Cool'] },
-    { name: 'Mumbai Indians', keywords: ['Blue', '5Titles', 'Rohit'], hints: ['MI'] },
-    { name: '2011 World Cup', keywords: ['India', 'Dhoni', 'Six'], hints: ['India victory'] }
+    { name: 'Virat Kohli', keywords: ['King', 'Chase', 'RCB', 'Aggressive'], hints: ['King of Cricket'] },
+    { name: 'MS Dhoni', keywords: ['Captain', 'Finisher', 'CSK', 'Calm'], hints: ['Captain Cool'] },
+    { name: 'Mumbai Indians', keywords: ['Blue', '5Titles', 'Rohit', 'Wankhede'], hints: ['MI'] },
+    { name: '2011 World Cup', keywords: ['India', 'Dhoni', 'Six', 'Mumbai'], hints: ['India victory'] }
   ]
 };
 
+// Unique bot names
 const botNames = [
-  'Sparky', 'Byte', 'Neo', 'Atlas', 'Echo', 'Pixel', 'Nexus', 'Orion', 'Nova', 'Vega'
+  'Sparky', 'Vexa', 'Megtet', 'Netta', 'Ullalda', 'Zorvik', 'Kaelen', 'Thorne', 'Lyra', 'Dorian',
+  'Sylas', 'Morwen', 'Elara', 'Caspian', 'Seraphina', 'Oberon', 'Titania', 'Lysander', 'Calista', 'Draven'
 ];
 
 // Player colors for cards
@@ -68,6 +70,7 @@ export const GameBoard: React.FC<GameBoardProps> = ({
   const [allDescriptions, setAllDescriptions] = useState<any[]>([]);
   const [currentRound, setCurrentRound] = useState(1);
   const [currentPlayerIndex, setCurrentPlayerIndex] = useState(0);
+  const [gamePlayers, setGamePlayers] = useState<string[]>([]);
   const [timeLeft, setTimeLeft] = useState(30);
   const [phase, setPhase] = useState('playing');
   const [selectedCard, setSelectedCard] = useState<any>(null);
@@ -85,11 +88,9 @@ export const GameBoard: React.FC<GameBoardProps> = ({
   const [playerVotes, setPlayerVotes] = useState<Map<string, string>>(new Map());
   const [votingPlayerIndex, setVotingPlayerIndex] = useState(0);
   const [showVotingScreen, setShowVotingScreen] = useState(false);
-  const [isProcessingTurn, setIsProcessingTurn] = useState(false);
-  const [isBotProcessing, setIsBotProcessing] = useState(false);
+  const [isProcessing, setIsProcessing] = useState(false);
 
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const currentPlayers = initialPlayers;
 
   useEffect(() => {
     initializeGame();
@@ -102,13 +103,18 @@ export const GameBoard: React.FC<GameBoardProps> = ({
     let displayPlayers = [...initialPlayers];
     
     if (gameMode === 'bots') {
-      displayPlayers = displayPlayers.map((name, idx) => {
-        if (idx > 0 && name.startsWith('Bot')) {
-          return botNames[(idx - 1) % botNames.length];
+      let botIndex = 0;
+      displayPlayers = displayPlayers.map((name) => {
+        if (name.toLowerCase().includes('bot')) {
+          const uniqueName = botNames[botIndex % botNames.length];
+          botIndex++;
+          return uniqueName;
         }
         return name;
       });
     }
+    
+    setGamePlayers(displayPlayers);
     
     const cards = cardData[theme] || cardData['Cricket Players'];
     const selectedCardItem = cards[Math.floor(Math.random() * cards.length)];
@@ -165,7 +171,7 @@ export const GameBoard: React.FC<GameBoardProps> = ({
       setTimeLeft(prev => {
         if (prev <= 1) {
           if (timerRef.current) clearInterval(timerRef.current);
-          if (!isProcessingTurn && !isBotProcessing) {
+          if (!isProcessing) {
             handleTimeout();
           }
           return 0;
@@ -176,29 +182,116 @@ export const GameBoard: React.FC<GameBoardProps> = ({
   };
 
   const handleTimeout = () => {
-    if (currentDescription.trim() && !isProcessingTurn && !isBotProcessing) {
+    if (currentDescription.trim() && !isProcessing) {
       handleSubmitDescription(currentDescription.trim());
-    } else if (!isProcessingTurn && !isBotProcessing) {
+    } else if (!isProcessing) {
       handleSubmitDescription('...');
     }
   };
 
-  const handleSubmitDescription = (description: string, customPlayerName?: string) => {
-    if (isProcessingTurn) return;
-    if (isBotProcessing) return;
+  const getAvailableKeyword = (keywords: string[]): string => {
+    const usedWords = allDescriptions
+      .filter(d => d.round === currentRound)
+      .map(d => d.description.toLowerCase());
     
-    const playerName = customPlayerName || currentPlayers[currentPlayerIndex];
+    const availableKeywords = keywords.filter(k => !usedWords.includes(k.toLowerCase()));
     
-    // Check if this player already submitted for this round
-    const alreadySubmitted = allDescriptions.some(d => d.playerName === playerName && d.round === currentRound);
-    if (alreadySubmitted) return;
+    if (availableKeywords.length > 0) {
+      return availableKeywords[Math.floor(Math.random() * availableKeywords.length)];
+    }
     
-    setIsProcessingTurn(true);
+    const relatedWords = ['Star', 'Player', 'Legend', 'Icon', 'Champion'];
+    return relatedWords[Math.floor(Math.random() * relatedWords.length)];
+  };
+
+  const moveToNextPlayer = () => {
+    const nextIndex = currentPlayerIndex + 1;
+    
+    if (nextIndex >= gamePlayers.length) {
+      if (currentRound < totalRounds) {
+        setCurrentRound(prev => prev + 1);
+        setCurrentPlayerIndex(0);
+        setCurrentTurnPlayer(gamePlayers[0]);
+        setFlippedCard(false);
+        startTimer();
+      } else {
+        setPhase('voting');
+      }
+    } else {
+      setCurrentPlayerIndex(nextIndex);
+      setCurrentTurnPlayer(gamePlayers[nextIndex]);
+      setFlippedCard(false);
+      
+      if (gameMode === 'bots' && nextIndex > 0) {
+        setTimeout(() => processBotTurn(nextIndex), 1000);
+      } else {
+        startTimer();
+      }
+    }
+  };
+
+  const processBotTurn = (botIndex: number) => {
+    if (isProcessing) return;
+    setIsProcessing(true);
+    
+    const botPlayerName = gamePlayers[botIndex];
+    const botCard = playerCards.get(botPlayerName);
+    const isBotImposter = botCard?.cardType === 'imposter';
+    
+    let botDesc: string;
+    if (isBotImposter) {
+      const currentRoundDescs = allDescriptions.filter(d => d.round === currentRound);
+      const realDescriptions = currentRoundDescs.map(d => d.description);
+      botDesc = botAI.getImposterDescription(realDescriptions);
+    } else {
+      const availableKeyword = getAvailableKeyword(selectedCard?.keywords || []);
+      botDesc = availableKeyword;
+    }
+    
+    setAllDescriptions(prev => [...prev, {
+      playerName: botPlayerName,
+      description: botDesc,
+      round: currentRound
+    }]);
+    
+    const nextAfterBot = botIndex + 1;
+    
+    if (nextAfterBot >= gamePlayers.length) {
+      if (currentRound < totalRounds) {
+        setCurrentRound(prev => prev + 1);
+        setCurrentPlayerIndex(0);
+        setCurrentTurnPlayer(gamePlayers[0]);
+        setFlippedCard(false);
+        setIsProcessing(false);
+        startTimer();
+      } else {
+        setPhase('voting');
+        setIsProcessing(false);
+      }
+    } else {
+      setCurrentPlayerIndex(nextAfterBot);
+      setCurrentTurnPlayer(gamePlayers[nextAfterBot]);
+      setFlippedCard(false);
+      setIsProcessing(false);
+      
+      if (gameMode === 'bots' && nextAfterBot > 0) {
+        setTimeout(() => processBotTurn(nextAfterBot), 1000);
+      } else {
+        startTimer();
+      }
+    }
+  };
+
+  const handleSubmitDescription = (description: string) => {
+    if (isProcessing) return;
+    setIsProcessing(true);
     
     if (timerRef.current) {
       clearInterval(timerRef.current);
       timerRef.current = null;
     }
+    
+    const playerName = gamePlayers[currentPlayerIndex];
     
     setAllDescriptions(prev => [...prev, {
       playerName: playerName,
@@ -209,89 +302,8 @@ export const GameBoard: React.FC<GameBoardProps> = ({
     setCurrentDescription('');
     setFlippedCard(false);
     
-    const nextIndex = currentPlayerIndex + 1;
-    
-    if (nextIndex >= currentPlayers.length) {
-      if (currentRound < totalRounds) {
-        setCurrentRound(prev => prev + 1);
-        setCurrentPlayerIndex(0);
-        setCurrentTurnPlayer(currentPlayers[0]);
-        setFlippedCard(false);
-        setIsProcessingTurn(false);
-        startTimer();
-      } else {
-        setPhase('voting');
-        setIsProcessingTurn(false);
-      }
-    } else {
-      setCurrentPlayerIndex(nextIndex);
-      setCurrentTurnPlayer(currentPlayers[nextIndex]);
-      setFlippedCard(false);
-      setIsProcessingTurn(false);
-      
-      // Handle next player's turn
-      if (gameMode === 'bots' && nextIndex > 0) {
-        // Bot's turn - auto submit after delay
-        setTimeout(() => {
-          if (!isBotProcessing) {
-            setIsBotProcessing(true);
-            
-            const botPlayerName = currentPlayers[nextIndex];
-            const botCard = playerCards.get(botPlayerName);
-            const isBotImposter = botCard?.cardType === 'imposter';
-            
-            let botDesc: string;
-            if (isBotImposter) {
-              const currentRoundDescs = allDescriptions.filter(d => d.round === currentRound);
-              const realDescriptions = currentRoundDescs.map(d => d.description);
-              botDesc = botAI.getImposterDescription(realDescriptions);
-            } else {
-              const currentRoundDescs = allDescriptions.filter(d => d.round === currentRound);
-              const descriptionTexts = currentRoundDescs.map(d => d.description);
-              botDesc = botAI.getRealPlayerDescription(
-                selectedCard?.name || '',
-                selectedCard?.keywords || [],
-                descriptionTexts
-              );
-            }
-            
-            // Submit bot description
-            setAllDescriptions(prev => [...prev, {
-              playerName: botPlayerName,
-              description: botDesc,
-              round: currentRound
-            }]);
-            
-            // Move to next after bot
-            const afterBotIndex = nextIndex + 1;
-            
-            if (afterBotIndex >= currentPlayers.length) {
-              if (currentRound < totalRounds) {
-                setCurrentRound(prev => prev + 1);
-                setCurrentPlayerIndex(0);
-                setCurrentTurnPlayer(currentPlayers[0]);
-              } else {
-                setPhase('voting');
-              }
-            } else {
-              setCurrentPlayerIndex(afterBotIndex);
-              setCurrentTurnPlayer(currentPlayers[afterBotIndex]);
-              
-              // Recursive bot call if next is also bot
-              if (gameMode === 'bots' && afterBotIndex > 0 && afterBotIndex < currentPlayers.length) {
-                // Will be handled by the next iteration
-              }
-            }
-            
-            setFlippedCard(false);
-            setIsBotProcessing(false);
-            startTimer();
-          }
-        }, 1500);
-      } else {
-        startTimer();
-      }
-    }
+    moveToNextPlayer();
+    setIsProcessing(false);
   };
 
   const handleVote = (playerName: string) => {
@@ -314,7 +326,7 @@ export const GameBoard: React.FC<GameBoardProps> = ({
     });
     
     const isImposterCaught = suspectedImposter === imposterName;
-    const currentUserCard = playerCards.get(initialPlayers[0]);
+    const currentUserCard = playerCards.get(gamePlayers[0]);
     const isUserImposter = currentUserCard?.cardType === 'imposter';
     const didIWin = isUserImposter ? !isImposterCaught : isImposterCaught;
     
@@ -333,12 +345,12 @@ export const GameBoard: React.FC<GameBoardProps> = ({
     if (!voteFor) return;
     
     const newVotes = new Map(votes);
-    newVotes.set(initialPlayers[0], voteFor);
+    newVotes.set(gamePlayers[0], voteFor);
     
-    for (let i = 1; i < initialPlayers.length; i++) {
-      const otherPlayers = initialPlayers.filter((_, idx) => idx !== i);
+    for (let i = 1; i < gamePlayers.length; i++) {
+      const otherPlayers = gamePlayers.filter((_, idx) => idx !== i);
       const randomVote = otherPlayers[Math.floor(Math.random() * otherPlayers.length)];
-      newVotes.set(initialPlayers[i], randomVote);
+      newVotes.set(gamePlayers[i], randomVote);
     }
     
     setVotes(newVotes);
@@ -358,7 +370,7 @@ export const GameBoard: React.FC<GameBoardProps> = ({
     });
     
     const isImposterCaught = suspectedImposter === imposterName;
-    const currentUserCard = playerCards.get(initialPlayers[0]);
+    const currentUserCard = playerCards.get(gamePlayers[0]);
     const isUserImposter = currentUserCard?.cardType === 'imposter';
     const didIWin = isUserImposter ? !isImposterCaught : isImposterCaught;
     
@@ -407,7 +419,7 @@ export const GameBoard: React.FC<GameBoardProps> = ({
       <div className="min-h-screen bg-gray-100 dark:bg-gray-900 py-6">
         <div className="max-w-4xl mx-auto px-4">
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 text-center">
-            <div className="text-5xl mb-4">{result.isImposterCaught ? '🏆' : '😔'}</div>
+            <div className="text-5xl mb-4">{result.isImposterCaught ? '' : ''}</div>
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
               {winText}
             </h2>
@@ -468,7 +480,7 @@ export const GameBoard: React.FC<GameBoardProps> = ({
             <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
               <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Vote for the Imposter</h2>
               
-              {currentPlayers.map((player, idx) => (
+              {gamePlayers.map((player, idx) => (
                 <label key={idx} className={`flex items-center p-3 rounded-lg cursor-pointer transition mb-2 ${
                   voteFor === player ? 'bg-purple-100 dark:bg-purple-900/30 border-2 border-purple-500' : 'bg-gray-50 dark:bg-gray-700/50 hover:bg-gray-100'
                 }`}>
@@ -533,20 +545,19 @@ export const GameBoard: React.FC<GameBoardProps> = ({
       );
     }
 
-    if (showVotingScreen && votingPlayerIndex < currentPlayers.length) {
-      const currentVotingPlayer = currentPlayers[votingPlayerIndex];
+    if (showVotingScreen && votingPlayerIndex < gamePlayers.length) {
+      const currentVotingPlayer = gamePlayers[votingPlayerIndex];
       
       return (
         <div className="min-h-screen bg-gray-100 dark:bg-gray-900 py-6">
           <div className="max-w-4xl mx-auto px-4">
             <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
               <div className="text-center mb-6">
-                <div className="text-4xl mb-2">🗳️</div>
                 <h2 className="text-xl font-bold text-gray-900 dark:text-white">
                   {currentVotingPlayer}'s Vote
                 </h2>
                 <p className="text-sm text-gray-500 mt-1">
-                  Player {votingPlayerIndex + 1} of {currentPlayers.length}
+                  Player {votingPlayerIndex + 1} of {gamePlayers.length}
                 </p>
               </div>
               
@@ -554,7 +565,7 @@ export const GameBoard: React.FC<GameBoardProps> = ({
                 <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Who do you think is the imposter?
                 </p>
-                {currentPlayers.map((player, idx) => {
+                {gamePlayers.map((player, idx) => {
                   if (player === currentVotingPlayer) return null;
                   const isSelected = playerVotes.get(currentVotingPlayer) === player;
                   return (
@@ -596,7 +607,7 @@ export const GameBoard: React.FC<GameBoardProps> = ({
                 <button
                   onClick={() => {
                     if (playerVotes.has(currentVotingPlayer)) {
-                      if (votingPlayerIndex + 1 >= currentPlayers.length) {
+                      if (votingPlayerIndex + 1 >= gamePlayers.length) {
                         calculateVoteResults();
                       } else {
                         setVotingPlayerIndex(prev => prev + 1);
@@ -607,7 +618,7 @@ export const GameBoard: React.FC<GameBoardProps> = ({
                   }}
                   className="flex-1 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-500 transition"
                 >
-                  {votingPlayerIndex + 1 >= currentPlayers.length ? 'Finish Voting' : 'Next Player →'}
+                  {votingPlayerIndex + 1 >= gamePlayers.length ? 'Finish Voting' : 'Next Player →'}
                 </button>
               </div>
             </div>
@@ -690,7 +701,7 @@ export const GameBoard: React.FC<GameBoardProps> = ({
             <div className="text-center mb-4">
               <div className="text-sm text-gray-500">Round {currentRound} of {totalRounds}</div>
               <div className="text-xl font-bold">{currentPlayerName}'s Turn</div>
-              <div className="text-xs text-gray-500">Player {currentPlayerIndex + 1} of {currentPlayers.length}</div>
+              <div className="text-xs text-gray-500">Player {currentPlayerIndex + 1} of {gamePlayers.length}</div>
               {isBot && <div className="mt-2 text-sm text-blue-600 animate-pulse">Bot is thinking...</div>}
             </div>
             
