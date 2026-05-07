@@ -80,7 +80,7 @@ export const PackSelector: React.FC<PackSelectorProps> = ({ onOpenPack, gems, co
                     <span className={getRarityColor('epic')}>{Math.round(pack.probabilities.epic * 100)}%</span>
                   </div>
                   <div className="flex justify-between text-xs">
-                    <span className="text-gray-400">Legendary</span>
+                    <span className="text-gray-400">Exclusive</span>
                     <span className={getRarityColor('legendary')}>{Math.round(pack.probabilities.legendary * 100)}%</span>
                   </div>
                   <div className="flex justify-between text-xs">

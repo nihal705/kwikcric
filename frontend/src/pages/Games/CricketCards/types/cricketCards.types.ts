@@ -1,6 +1,6 @@
 // frontend/src/pages/Games/CricketCards/types/cricketCards.types.ts
 
-export type Rarity = 'common' | 'rare' | 'epic' | 'legendary' | 'mythic';
+export type Rarity = 'common' | 'standard' | 'rare' | 'epic' | 'elite' | 'legendary' | 'mythic';
 export type PlayerRole = 'batsman' | 'bowler' | 'allrounder' | 'wicketkeeper';
 export type PackType = 'standard' | 'premium' | 'legendary';
 
@@ -63,6 +63,8 @@ export interface Pack {
     epic: number;
     legendary: number;
     mythic: number;
+    elite: number;
+    standard: number;
   };
   cardCount: number;
   imageUrl: string;
@@ -124,17 +126,29 @@ export const RARITY_COLORS: Record<Rarity, { border: string; glow: string; badge
     badge: 'bg-gray-400',
     text: 'text-gray-300'
   },
+  standard: {
+    border: 'border-slate-400',
+    glow: 'shadow-slate-400/25',
+    badge: 'bg-gradient-to-r from-slate-500 to-gray-600',
+    text: 'text-slate-300'
+  },
   rare: {
     border: 'border-blue-500',
     glow: 'shadow-blue-500/30',
-    badge: 'bg-blue-500',
+    badge: 'bg-gradient-to-r from-blue-500 to-cyan-600',
     text: 'text-blue-400'
   },
   epic: {
     border: 'border-purple-500',
     glow: 'shadow-purple-500/40',
-    badge: 'bg-purple-500',
+    badge: 'bg-gradient-to-r from-purple-500 to-fuchsia-600',
     text: 'text-purple-400'
+  },
+  elite: {
+    border: 'border-cyan-500',
+    glow: 'shadow-cyan-500/45',
+    badge: 'bg-gradient-to-r from-cyan-500 to-teal-600',
+    text: 'text-cyan-400'
   },
   legendary: {
     border: 'border-yellow-500',
@@ -152,8 +166,10 @@ export const RARITY_COLORS: Record<Rarity, { border: string; glow: string; badge
 
 export const RARITY_STARS: Record<Rarity, number> = {
   common: 1,
+  standard: 2,
   rare: 2,
   epic: 3,
+  elite: 4,
   legendary: 4,
   mythic: 5
 };

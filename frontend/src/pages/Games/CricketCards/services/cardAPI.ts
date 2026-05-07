@@ -30,7 +30,7 @@ export const openPack = async (packType: PackType): Promise<Card[]> => {
   if (!pack) throw new Error('Invalid pack type');
   
   const cards: Card[] = [];
-  const probabilities = pack.probabilities;
+  const probabilities = pack.probabilities as Record<Rarity, number>;
   
   for (let i = 0; i < pack.cardCount; i++) {
     const rarity = getRarityFromProbability(probabilities);

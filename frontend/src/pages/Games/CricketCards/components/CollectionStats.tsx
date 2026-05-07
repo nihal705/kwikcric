@@ -10,8 +10,10 @@ interface CollectionStatsProps {
 export const CollectionStats: React.FC<CollectionStatsProps> = ({ stats }) => {
   const rarityStats = [
     { name: 'Common', color: 'bg-gray-500', count: stats.cards.filter(c => c.rarity === 'common').length, icon: '⬤' },
+    { name: 'Standard', color: 'bg-slate-500', count: stats.cards.filter(c => c.rarity === 'standard').length, icon: '⬟' },
     { name: 'Rare', color: 'bg-blue-500', count: stats.cards.filter(c => c.rarity === 'rare').length, icon: '◆' },
     { name: 'Epic', color: 'bg-purple-500', count: stats.cards.filter(c => c.rarity === 'epic').length, icon: '◈' },
+    { name: 'Elite', color: 'bg-cyan-500', count: stats.cards.filter(c => c.rarity === 'elite').length, icon: '✧' },
     { name: 'Legendary', color: 'bg-amber-500', count: stats.cards.filter(c => c.rarity === 'legendary').length, icon: '★' },
     { name: 'Mythic', color: 'bg-red-500', count: stats.cards.filter(c => c.rarity === 'mythic').length, icon: '⚜' },
   ];

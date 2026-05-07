@@ -18,8 +18,10 @@ export const CardComponent: React.FC<CardComponentProps> = ({ card, onClick, onT
     switch (card.rarity) {
       case 'mythic': return 'mythic-text';
       case 'legendary': return 'legendary-text';
+      case 'elite': return 'elite-text';
       case 'epic': return 'epic-text';
       case 'rare': return 'rare-text';
+      case 'standard': return 'standard-text';
       default: return 'common-text';
     }
   };
@@ -28,8 +30,10 @@ export const CardComponent: React.FC<CardComponentProps> = ({ card, onClick, onT
     switch (card.rarity) {
       case 'mythic': return 'card-frame-mythic';
       case 'legendary': return 'card-frame-legendary';
+      case 'elite': return 'card-frame-elite';
       case 'epic': return 'card-frame-epic';
       case 'rare': return 'card-frame-rare';
+      case 'standard': return 'card-frame-standard';
       default: return 'card-frame-common';
     }
   };
@@ -38,8 +42,10 @@ export const CardComponent: React.FC<CardComponentProps> = ({ card, onClick, onT
     switch (card.rarity) {
       case 'mythic': return 'from-red-950/80 via-purple-950/80 to-blue-950/80';
       case 'legendary': return 'from-amber-950/80 to-yellow-950/80';
+      case 'elite': return 'from-cyan-950/80 to-teal-950/80';
       case 'epic': return 'from-purple-950/80 to-fuchsia-950/80';
       case 'rare': return 'from-blue-950/80 to-cyan-950/80';
+      case 'standard': return 'from-slate-800/80 to-gray-800/80';
       default: return 'from-gray-800 to-gray-900';
     }
   };
@@ -48,8 +54,10 @@ export const CardComponent: React.FC<CardComponentProps> = ({ card, onClick, onT
     switch (card.rarity) {
       case 'mythic': return 'bg-gradient-to-r from-red-500 via-yellow-500 to-purple-500';
       case 'legendary': return 'bg-gradient-to-r from-yellow-500 to-amber-600';
+      case 'elite': return 'bg-gradient-to-r from-cyan-500 to-teal-600';
       case 'epic': return 'bg-gradient-to-r from-purple-500 to-fuchsia-600';
       case 'rare': return 'bg-gradient-to-r from-blue-500 to-cyan-600';
+      case 'standard': return 'bg-gradient-to-r from-slate-500 to-gray-600';
       default: return 'bg-gray-500';
     }
   };
@@ -98,6 +106,11 @@ export const CardComponent: React.FC<CardComponentProps> = ({ card, onClick, onT
         </>
       )}
       
+      {/* Elite diamond */}
+      {card.rarity === 'elite' && (
+        <div className="elite-diamond" />
+      )}
+      
       {/* Card Art Section */}
       <div className={`aspect-square bg-gradient-to-br ${getRarityBgColor()} relative overflow-hidden`}>
         <div className="absolute inset-0 flex items-center justify-center">
@@ -105,24 +118,32 @@ export const CardComponent: React.FC<CardComponentProps> = ({ card, onClick, onT
             src={getCardArtUrl(card)}
             alt={card.playerName}
             className="w-24 h-24 rounded-full object-cover shadow-lg"
-            style={{ border: `2px solid ${card.rarity === 'mythic' ? '#FBBF24' : card.rarity === 'legendary' ? '#FBBF24' : card.rarity === 'epic' ? '#A855F7' : card.rarity === 'rare' ? '#3B82F6' : '#6B7280'}` }}
+            style={{ border: `2px solid ${
+              card.rarity === 'mythic' ? '#FBBF24' : 
+              card.rarity === 'legendary' ? '#FBBF24' : 
+              card.rarity === 'elite' ? '#06B6D4' :
+              card.rarity === 'epic' ? '#A855F7' : 
+              card.rarity === 'rare' ? '#3B82F6' : 
+              card.rarity === 'standard' ? '#64748B' : '#6B7280'
+            }` }}
           />
         </div>
         
         {/* Rarity Badge */}
         <div className={`absolute top-2 left-2 w-6 h-6 rounded-full ${getRarityBadgeBg()} flex items-center justify-center text-xs font-bold text-white shadow-lg z-10`}>
-        {card.rarity === 'common' && '⬤'}
-        {card.rarity === 'rare' && '◆'}
-        {card.rarity === 'epic' && '◈'}
-        {card.rarity === 'legendary' && '★'}
-        {card.rarity === 'mythic' && '⚜'}
+          {card.rarity === 'common' && '⬤'}
+          {card.rarity === 'standard' && '⬟'}
+          {card.rarity === 'rare' && '◆'}
+          {card.rarity === 'epic' && '◈'}
+          {card.rarity === 'elite' && '✧'}
+          {card.rarity === 'legendary' && '★'}
+          {card.rarity === 'mythic' && '✦'}
         </div>
 
         {/* Card Rarity Display */}
         <div className="p-3">
-            <h3 className="text-sm font-bold text-white truncate text-center">{card.rarity.charAt(0).toUpperCase() + card.rarity.slice(1)}</h3>
+          <h3 className="text-sm font-bold text-white truncate text-center">{card.rarity.charAt(0).toUpperCase() + card.rarity.slice(1)}</h3>
         </div>
-
         
         {/* Favorite Button */}
         <button
@@ -158,28 +179,35 @@ export const CardComponent: React.FC<CardComponentProps> = ({ card, onClick, onT
         <div className="flex justify-between items-center mt-2 text-[10px]">
           <span className="text-gray-400 capitalize px-2 py-0.5 bg-black/30 rounded">{card.role}</span>
           <span className="text-gray-400 flex items-center gap-1">
-            <span className="text-[12px]">{card.country === 'India' ? '🇮🇳' : card.country === 'Australia' ? '🇦🇺' : card.country === 'England' ? '🏴󠁧󠁢󠁥󠁮󠁧󠁿' : card.country === 'South Africa' ? '🇿🇦' : card.country === 'New Zealand' ? '🇳🇿' : card.country === 'Pakistan' ? '🇵🇰' : '🌍'}</span>
+            <span className="text-[12px]">
+              {card.country === 'India' ? '🇮🇳' : 
+               card.country === 'Australia' ? '🇦🇺' : 
+               card.country === 'England' ? '🏴󠁧󠁢󠁥󠁮󠁧󠁿' : 
+               card.country === 'South Africa' ? '🇿🇦' : 
+               card.country === 'New Zealand' ? '🇳🇿' : 
+               card.country === 'Pakistan' ? '🇵🇰' : '🌍'}
+            </span>
             <span>{card.country}</span>
           </span>
         </div>
         
         {/* Stats */}
-        <div className="card-stats">
-          <div className="card-stat">
-            <div className="card-stat-label">BAT</div>
-            <div className="card-stat-value">{card.stats.batting}</div>
+        <div className="grid grid-cols-4 gap-1 mt-2 pt-2 border-t border-gray-700">
+          <div className="text-center">
+            <div className="text-[8px] text-gray-500 uppercase tracking-wide">BAT</div>
+            <div className="text-sm font-bold text-white">{card.stats.batting}</div>
           </div>
-          <div className="card-stat">
-            <div className="card-stat-label">BOWL</div>
-            <div className="card-stat-value">{card.stats.bowling}</div>
+          <div className="text-center">
+            <div className="text-[8px] text-gray-500 uppercase tracking-wide">BOWL</div>
+            <div className="text-sm font-bold text-white">{card.stats.bowling}</div>
           </div>
-          <div className="card-stat">
-            <div className="card-stat-label">FLD</div>
-            <div className="card-stat-value">{card.stats.fielding}</div>
+          <div className="text-center">
+            <div className="text-[8px] text-gray-500 uppercase tracking-wide">FLD</div>
+            <div className="text-sm font-bold text-white">{card.stats.fielding}</div>
           </div>
-          <div className="card-stat">
-            <div className="card-stat-label">POP</div>
-            <div className="card-stat-value">{card.stats.popularity}</div>
+          <div className="text-center">
+            <div className="text-[8px] text-gray-500 uppercase tracking-wide">POP</div>
+            <div className="text-sm font-bold text-white">{card.stats.popularity}</div>
           </div>
         </div>
         

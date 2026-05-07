@@ -527,3 +527,231 @@
 .epic-text { color: #C084FC; }
 .legendary-text { color: #FCD34D; }
 .mythic-text { color: #F87171; }
+
+/* Light Mode Variables */
+:root {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-card: #1e293b;
+  --bg-card-hover: #334155;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --border-color: #334155;
+  --border-light: #1e293b;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --gradient-from: #1e293b;
+  --gradient-to: #0f172a;
+}
+
+/* Dark Mode (default) */
+[data-theme="dark"] {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-card: #1e293b;
+  --bg-card-hover: #334155;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --border-color: #334155;
+  --border-light: #1e293b;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --gradient-from: #1e293b;
+  --gradient-to: #0f172a;
+}
+
+/* Light Mode */
+[data-theme="light"] {
+  --bg-primary: #f1f5f9;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f8fafc;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+  --border-light: #cbd5e1;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --gradient-from: #ffffff;
+  --gradient-to: #f1f5f9;
+}
+
+/* Apply theme variables to all components */
+.cricket-cards-container {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Page Background */
+.min-h-screen {
+  background: linear-gradient(to bottom right, var(--gradient-from), var(--gradient-to));
+}
+
+/* Cards */
+.bg-gray-800 {
+  background-color: var(--bg-card) !important;
+}
+
+.bg-gray-900 {
+  background-color: var(--bg-primary) !important;
+}
+
+.bg-gray-700 {
+  background-color: var(--border-light) !important;
+}
+
+/* Text Colors */
+.text-white {
+  color: var(--text-primary) !important;
+}
+
+.text-gray-400, .text-gray-500 {
+  color: var(--text-secondary) !important;
+}
+
+.text-gray-300 {
+  color: var(--text-muted) !important;
+}
+
+/* Borders */
+.border-gray-700, .border-gray-800 {
+  border-color: var(--border-color) !important;
+}
+
+/* Gradients */
+.bg-gradient-to-br {
+  background: linear-gradient(to bottom right, var(--gradient-from), var(--gradient-to));
+}
+
+/* Hover effects */
+.hover\:bg-gray-700:hover {
+  background-color: var(--bg-card-hover) !important;
+}
+
+/* Modal backgrounds */
+.fixed.inset-0 {
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+[data-theme="light"] .fixed.inset-0 {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Card Component specific */
+.card-frame-common,
+.card-frame-rare,
+.card-frame-epic,
+.card-frame-legendary,
+.card-frame-mythic {
+  background: var(--bg-card);
+}
+
+/* Stats section */
+.card-stats {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="light"] .card-stats {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Progress bars */
+.bg-gray-700 {
+  background-color: var(--border-light) !important;
+}
+
+/* Scrollbar for light mode */
+[data-theme="light"] ::-webkit-scrollbar-track {
+  background: #e2e8f0;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* ---------- STANDARD CARDS - Slate Theme ---------- */
+.card-frame-standard {
+  background: linear-gradient(145deg, #334155 0%, #1E293B 100%);
+  border: 1px solid #64748B;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-frame-standard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #64748B, #94A3B8, #64748B, transparent);
+}
+
+.card-frame-standard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px -5px rgba(100,116,139,0.3);
+  border-color: #94A3B8;
+}
+
+/* ---------- ELITE CARDS - Cyan/Teal Theme ---------- */
+.card-frame-elite {
+  background: linear-gradient(145deg, #0F3A40 0%, #062E33 100%);
+  border: 2px solid #06B6D4;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(6,182,212,0.3);
+}
+
+.card-frame-elite::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 30px,
+    rgba(6,182,212,0.08) 30px,
+    rgba(6,182,212,0.08) 60px
+  );
+  pointer-events: none;
+}
+
+.card-frame-elite::after {
+  content: '✧';
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 10px;
+  color: #06B6D4;
+  opacity: 0.7;
+  animation: elite-sparkle 2s ease-in-out infinite;
+}
+
+.card-frame-elite .elite-diamond {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 16px;
+  height: 16px;
+  background: linear-gradient(135deg, #06B6D4, #0EA5E9);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.card-frame-elite:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px -5px rgba(6,182,212,0.4), 0 0 0 1px rgba(6,182,212,0.5);
+  border-color: #22D3EE;
+}
+
+/* Elite animations */
+@keyframes elite-sparkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+

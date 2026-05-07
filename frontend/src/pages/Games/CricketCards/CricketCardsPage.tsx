@@ -44,20 +44,59 @@ const CricketCardsPage: React.FC = () => {
   const { rewards: dailyRewards, streak, claimReward } = useDailyRewards();
   const { achievements, updateProgress, checkAchievements } = useAchievements();
 
-  // Load data on mount
-  useEffect(() => {
-    const init = async () => {
-      await loadCurrency();
-      await loadCards();
-      
-      // Check for daily rewards
-      const lastClaimDate = localStorage.getItem('lastDailyClaim');
-      const today = new Date().toDateString();
-      if (lastClaimDate !== today) {
-        setShowDailyRewards(true);
+  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+
+useEffect(() => {
+  const init = async () => {
+    await loadCurrency();
+    await loadCards();
+    
+    // Check if daily rewards should be shown
+    const saved = localStorage.getItem('cricket_cards_daily');
+    const today = new Date().toDateString();
+    let shouldShowDaily = false;
+    
+    if (saved) {
+      const data = JSON.parse(saved);
+      // Only show if last claim date is not today
+      if (data.lastClaimDate !== today) {
+        shouldShowDaily = true;
       }
+    } else {
+      // No data yet, first time user
+      shouldShowDaily = true;
+    }
+    
+    if (shouldShowDaily) {
+      setShowDailyRewards(true);
+    }
+  };
+  init();
+}, []);
+
+  // Listen for theme changes from navbar
+  useEffect(() => {
+    const checkTheme = () => {
+      const htmlElement = document.documentElement;
+      const themeAttr = htmlElement.getAttribute('data-theme');
+      setTheme(themeAttr === 'light' ? 'light' : 'dark');
     };
-    init();
+    
+    // Check initial theme
+    checkTheme();
+    
+    // Create observer to watch for theme changes
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'data-theme') {
+          checkTheme();
+        }
+      });
+    });
+    
+    observer.observe(document.documentElement, { attributes: true });
+    
+    return () => observer.disconnect();
   }, []);
 
   const handleOpenPack = async (packType: PackType) => {
@@ -183,7 +222,11 @@ const CricketCardsPage: React.FC = () => {
   // Get sets from collectionStats
   const sets = (collectionStats as any).sets || [];
 
+    // Apply theme class to container
+  const containerClass = `cricket-cards-container min-h-screen ${theme === 'light' ? 'theme-light' : 'theme-dark'}`;
+
   return (
+    <div className={containerClass}>
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
       <Header 
         gems={currency.gems} 
@@ -367,6 +410,7 @@ const CricketCardsPage: React.FC = () => {
           />
         )}
       </AnimatePresence>
+    </div>
     </div>
   );
 };

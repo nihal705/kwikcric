@@ -11,7 +11,6 @@ interface DailyRewardsProps {
 }
 
 export const DailyRewards: React.FC<DailyRewardsProps> = ({ rewards, streak, onClaim, onClose }) => {
-  const currentDay = (streak % 7) + 1;
   const completedDays = rewards.filter(r => r.isClaimed).length;
 
   return (
@@ -49,18 +48,15 @@ export const DailyRewards: React.FC<DailyRewardsProps> = ({ rewards, streak, onC
         <div className="grid grid-cols-7 gap-2 mb-6">
           {rewards.map((reward, index) => {
             const dayNum = index + 1;
-            const isCurrent = dayNum === currentDay && !reward.isClaimed;
-            const isPast = reward.isClaimed;
-            const isFuture = dayNum > currentDay && !reward.isClaimed;
             
             return (
               <div
                 key={dayNum}
                 className={`p-3 rounded-xl text-center transition-all ${
-                  isCurrent
-                    ? 'bg-gradient-to-br from-amber-600 to-yellow-600 ring-2 ring-yellow-400'
-                    : isPast
-                    ? 'bg-gray-800 border border-emerald-500/30'
+                  reward.isClaimed
+                    ? 'bg-gray-800 border border-green-500/30 opacity-70'
+                    : reward.canClaim
+                    ? 'bg-gradient-to-br from-amber-600 to-yellow-600 ring-2 ring-yellow-400 cursor-pointer hover:scale-105 transition-transform'
                     : 'bg-gray-800 opacity-50'
                 }`}
               >
@@ -69,18 +65,17 @@ export const DailyRewards: React.FC<DailyRewardsProps> = ({ rewards, streak, onC
                 <div className="text-xs text-amber-400">Coins</div>
                 <div className="text-xs text-purple-400">+{reward.gems} Gems</div>
                 {reward.freePack && <div className="text-[10px] text-blue-400 mt-1">Free Pack</div>}
-                {isCurrent && (
+                
+                {reward.isClaimed ? (
+                  <div className="mt-2 text-[10px] text-green-400">✓ Claimed</div>
+                ) : reward.canClaim ? (
                   <button
                     onClick={() => onClaim(dayNum)}
                     className="mt-2 px-3 py-1 bg-white/20 rounded-lg text-xs text-white hover:bg-white/30 transition w-full"
                   >
                     Claim
                   </button>
-                )}
-                {isPast && (
-                  <div className="mt-2 text-[10px] text-emerald-400">✓ Claimed</div>
-                )}
-                {isFuture && (
+                ) : (
                   <div className="mt-2 text-[10px] text-gray-500">Locked</div>
                 )}
               </div>
