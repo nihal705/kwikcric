@@ -114,9 +114,11 @@ export interface CardCollection {
   cards: Card[];
   totalCards: number;
   uniqueCards: number;
+  mythicCards:number;
   completionRate: number;
   setsCompleted: number;
   totalSets: number;
+  sets?: CollectionSet[];
 }
 
 export const RARITY_COLORS: Record<Rarity, { border: string; glow: string; badge: string; text: string }> = {

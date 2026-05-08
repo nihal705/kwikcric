@@ -12,6 +12,7 @@ export const useCardCollection = () => {
     cards: [],
     totalCards: 0,
     uniqueCards: 0,
+    mythicCards:0,
     completionRate: 0,
     setsCompleted: 0,
     totalSets: collectionSetsData.length,
@@ -45,16 +46,24 @@ export const useCardCollection = () => {
   }, []);
 
   const updateOwnedCards = useCallback((allCards: Card[]) => {
-    // Get unique cards
-    const unique = allCards.filter((card, index, self) => 
-      index === self.findIndex(c => c.id === card.id)
-    );
-    setOwnedCards(unique);
-    
-    // Update collection stats
-    const totalUniqueCards = unique.length;
-    const totalCardsInGame = cardsData.length;
-    const completionRate = totalCardsInGame > 0 ? Math.round((totalUniqueCards / totalCardsInGame) * 100) : 0;
+  // Get unique cards
+  const unique = allCards.filter((card, index, self) => 
+    index === self.findIndex(c => c.id === card.id)
+  );
+  setOwnedCards(unique);
+  
+  // DEBUG: Check the actual length
+  console.log('cardsData.length:', cardsData.length);
+  console.log('Last few card IDs:', cardsData.slice(-5).map(c => c.id));
+  
+  // Update collection stats
+  const totalUniqueCards = unique.length;
+  const totalCardsInGame = cardsData.length; // This should be 555
+  const completionRate = totalCardsInGame > 0 ? Math.round((totalUniqueCards / totalCardsInGame) * 100) : 0;
+  
+  console.log('Total cards in game:', totalCardsInGame);
+  console.log('Unique cards owned:', totalUniqueCards);
+  console.log('Completion rate:', completionRate);
     
     // Calculate sets completed
     let setsCompleted = 0;

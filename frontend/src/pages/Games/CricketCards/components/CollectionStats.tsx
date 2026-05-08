@@ -27,10 +27,6 @@ export const CollectionStats: React.FC<CollectionStatsProps> = ({ stats }) => {
             <div className="text-xs text-gray-500 mt-0.5">Total Cards</div>
           </div>
           <div className="w-px h-10 bg-gray-700 hidden sm:block" />
-          <div className="text-center">
-            <div className="text-3xl font-bold text-white">{stats.uniqueCards}</div>
-            <div className="text-xs text-gray-500 mt-0.5">Unique Cards</div>
-          </div>
           <div className="w-px h-10 bg-gray-700 hidden sm:block" />
           <div className="text-center">
             <div className="text-3xl font-bold text-emerald-400">{stats.completionRate}%</div>

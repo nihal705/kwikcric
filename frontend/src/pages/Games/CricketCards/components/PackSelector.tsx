@@ -72,6 +72,10 @@ export const PackSelector: React.FC<PackSelectorProps> = ({ onOpenPack, gems, co
                     <span className={getRarityColor('common')}>{Math.round(pack.probabilities.common * 100)}%</span>
                   </div>
                   <div className="flex justify-between text-xs">
+                    <span className="text-gray-400">Standard</span>
+                    <span className={getRarityColor('standard')}>{Math.round(pack.probabilities.standard * 100)}%</span>
+                  </div>
+                  <div className="flex justify-between text-xs">
                     <span className="text-gray-400">Rare</span>
                     <span className={getRarityColor('rare')}>{Math.round(pack.probabilities.rare * 100)}%</span>
                   </div>
@@ -80,7 +84,11 @@ export const PackSelector: React.FC<PackSelectorProps> = ({ onOpenPack, gems, co
                     <span className={getRarityColor('epic')}>{Math.round(pack.probabilities.epic * 100)}%</span>
                   </div>
                   <div className="flex justify-between text-xs">
-                    <span className="text-gray-400">Exclusive</span>
+                    <span className="text-gray-400">Elite</span>
+                    <span className={getRarityColor('elite')}>{Math.round(pack.probabilities.elite * 100)}%</span>
+                  </div>
+                  <div className="flex justify-between text-xs">
+                    <span className="text-gray-400">Legendary</span>
                     <span className={getRarityColor('legendary')}>{Math.round(pack.probabilities.legendary * 100)}%</span>
                   </div>
                   <div className="flex justify-between text-xs">

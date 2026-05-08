@@ -383,11 +383,11 @@ useEffect(() => {
         {showShop && (
           <ShopModal 
             onClose={() => setShowShop(false)}
-            onPurchase={async (gems) => {
-              await addCurrency(0, gems);
-              setShowShop(false);
+            onPurchase={async (gems, coins) => {
+                await addCurrency(coins, gems);
+                setShowShop(false);
             }}
-          />
+           />
         )}
       </AnimatePresence>
 

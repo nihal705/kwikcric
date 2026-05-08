@@ -31,7 +31,7 @@ export const Header: React.FC<HeaderProps> = ({
               <h1 className="text-xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
                 Cricket Champions
               </h1>
-              <p className="text-[10px] text-gray-500 -mt-0.5">Trading Card Game</p>
+              <p className="text-[10px] text-gray-500 -mt-0.5">Collect Your Card</p>
             </div>
           </div>
 
