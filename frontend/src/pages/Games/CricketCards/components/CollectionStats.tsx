@@ -24,7 +24,7 @@ export const CollectionStats: React.FC<CollectionStatsProps> = ({ stats }) => {
         <div className="flex items-center gap-6 flex-wrap">
           <div className="text-center">
             <div className="text-3xl font-bold text-white">{stats.totalCards}</div>
-            <div className="text-xs text-gray-500 mt-0.5">Total Cards</div>
+            <div className="text-xs text-gray-500 mt-0.5">Total Cards Collected</div>
           </div>
           <div className="w-px h-10 bg-gray-700 hidden sm:block" />
           <div className="w-px h-10 bg-gray-700 hidden sm:block" />

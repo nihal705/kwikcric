@@ -32,6 +32,8 @@ interface GamePlayProps {
     battingOrder: Player[];
     onUpdate: (updates: any) => void;
     onEndMatch: (result: string, winner: string, margin: string, userScore: number, userWickets: number, opponentScore: number, opponentWickets: number, userBattingStats: BattingStats[], userBowlingStats: BowlingStats[], opponentBattingStats: BattingStats[], opponentBowlingStats: BowlingStats[]) => void;
+    onRunsMilestone?: (runs: number) => void;
+    onWicketsMilestone?: (wickets: number) => void;
 }
 
 // Helper function to format overs from balls bowled

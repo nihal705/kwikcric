@@ -1,7 +1,7 @@
 // frontend/src/pages/Games/CricketCards/types/cricketCards.types.ts
 
 export type Rarity = 'common' | 'standard' | 'rare' | 'epic' | 'elite' | 'legendary' | 'mythic';
-export type PlayerRole = 'batsman' | 'bowler' | 'allrounder' | 'wicketkeeper';
+export type PlayerRole = 'batsman' | 'bowler' | 'fielder' | 'allrounder' | 'wicketkeeper';
 export type PackType = 'standard' | 'premium' | 'legendary';
 
 export interface CardStats {

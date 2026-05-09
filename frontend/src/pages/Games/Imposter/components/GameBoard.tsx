@@ -10,6 +10,10 @@ interface GameBoardProps {
   onExit: () => void;
   onPlayAgain?: () => void;
   botCount?: number;
+  onWinAsReal?: () => void;
+  onWinAsImposter?: () => void;
+  onCorrectImposterCatch?: () => void;
+  onSurviveAsImposter?: () => void;
 }
 
 // Card data

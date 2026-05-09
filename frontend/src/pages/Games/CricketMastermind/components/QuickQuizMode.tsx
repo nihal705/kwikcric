@@ -11,6 +11,7 @@ interface QuickQuizModeProps {
     difficulty: Difficulty;
     onExit: () => void;
     onUpdateStats: (correct: number, total: number, streak: number, score: number) => void;
+    onCorrectAnswerReward?: (streak: number) => void;
 }
 
 export const QuickQuizMode: React.FC<QuickQuizModeProps> = ({ 

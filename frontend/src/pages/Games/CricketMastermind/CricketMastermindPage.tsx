@@ -10,6 +10,8 @@ import { KnowledgeHub } from './components/KnowledgeHub';
 import { GameMode, Difficulty } from './types/quiz.types';
 import { useAuth } from '../../../contexts/AuthContext';
 import { motion } from 'framer-motion';
+import { useRewards } from '../../../hooks/useRewards';
+
 
 // Storage keys
 const STATS_KEY = 'quiz_mastermind_stats';
@@ -34,11 +36,37 @@ const CricketMastermindPage: React.FC = () => {
         gamesPlayed: 0
     });
     const { user } = useAuth();
-
+    const { claimReward, claimDailyReward } = useRewards();
+    
+    // ========== NEW REWARD FUNCTIONS ==========
+    const handleCorrectAnswerReward = async (currentStreak: number) => {
+        // Every correct answer
+        await claimReward('cricket-mastermind', 'correct_answer', 1);
+        
+        // Every streak of 10
+        if (currentStreak >= 10 && currentStreak % 10 === 0) {
+            await claimReward('cricket-mastermind', 'streak_10', Math.floor(currentStreak / 10));
+        }
+    };
+    
+    const handlePerfectRoundReward = async (totalCorrect: number, totalQuestions: number) => {
+        if (totalCorrect === totalQuestions && totalQuestions === 10) {
+            await claimReward('cricket-mastermind', 'perfect_round', 1);
+        }
+    };
+    
+    const handleDailyFirstQuizReward = async () => {
+        await claimDailyReward('cricket-mastermind', 'daily_first_quiz');
+    };
+    
     // Load stats on mount
     useEffect(() => {
-        loadStats();
-    }, []);
+    loadStats();
+    // Only claim daily reward for authenticated (non-guest) users
+    if (user && !user.isGuest) {
+        handleDailyFirstQuizReward();
+    }
+}, [user])
 
     const loadStats = () => {
         const saved = localStorage.getItem(STATS_KEY);
@@ -63,7 +91,7 @@ const CricketMastermindPage: React.FC = () => {
         setStats(newStats);
     };
 
-    const updateStats = (correct: number, total: number, streak: number, score: number) => {
+    const updateStats = async (correct: number, total: number, streak: number, score: number) => {
         const newStats = {
             totalScore: stats.totalScore + score,
             totalQuestions: stats.totalQuestions + total,
@@ -72,6 +100,10 @@ const CricketMastermindPage: React.FC = () => {
             gamesPlayed: stats.gamesPlayed + 1
         };
         saveStats(newStats);
+        
+        // ========== CLAIM REWARDS ==========
+        await handleCorrectAnswerReward(streak);
+        await handlePerfectRoundReward(correct, total);
     };
 
     const handleModeSelect = (mode: GameMode) => {
@@ -90,6 +122,7 @@ const CricketMastermindPage: React.FC = () => {
                 difficulty={selectedDifficulty}
                 onExit={handleBack}
                 onUpdateStats={updateStats}
+                onCorrectAnswerReward={handleCorrectAnswerReward}
             />
         );
     }
