@@ -64,3 +64,45 @@ CREATE TABLE quiz_history (
     played_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+-- Categories table
+CREATE TABLE IF NOT EXISTS quiz_categories (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) UNIQUE NOT NULL,
+    description TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Questions table
+CREATE TABLE IF NOT EXISTS quiz_questions (
+    id SERIAL PRIMARY KEY,
+    category_id INTEGER REFERENCES quiz_categories(id),
+    sub_category VARCHAR(100),
+    difficulty VARCHAR(20) CHECK (difficulty IN ('easy', 'medium', 'hard')),
+    question_type VARCHAR(20) DEFAULT 'mcq',
+    question_text TEXT NOT NULL,
+    options JSONB NOT NULL, -- Stores array of options
+    correct_answer TEXT NOT NULL,
+    explanation TEXT,
+    points INTEGER DEFAULT 10,
+    hint TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Game history table (for tracking)
+CREATE TABLE IF NOT EXISTS game_history (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(id),
+    game_type VARCHAR(50),
+    category VARCHAR(100),
+    difficulty VARCHAR(20),
+    score INTEGER,
+    total_questions INTEGER,
+    correct_answers INTEGER,
+    time_taken INTEGER, -- in seconds
+    played_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Indexes for performance
+CREATE INDEX idx_questions_category ON quiz_questions(category_id);
+CREATE INDEX idx_questions_difficulty ON quiz_questions(difficulty);
+CREATE INDEX idx_game_history_user ON game_history(user_id);

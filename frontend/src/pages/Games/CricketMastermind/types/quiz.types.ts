@@ -34,7 +34,7 @@ export interface FillTableChallenge {
 export interface FillTableRow {
     rank?: number;
     playerName?: string;
-    runs?: number;
+    runs?: number | string;
     country?: string;
     team?: string;
     score?: string;
