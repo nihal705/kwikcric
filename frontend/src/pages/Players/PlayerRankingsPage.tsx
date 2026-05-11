@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { motion, AnimatePresence } from 'framer-motion';
 import toast from 'react-hot-toast';
+import { getPlayerImageUrl, getPlayerFallbackImage } from '../../utils/playerImage';
 
 interface Ranking {
   rank: number;
@@ -109,7 +110,7 @@ const PlayerRankingsPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen bg-white dark:bg-gray-900">
       {/* Hero Section */}
       <div className={`relative bg-gradient-to-r ${formatsList.find(f => f.id === format)?.color || 'from-blue-600 to-purple-600'} py-12`}>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -379,9 +380,14 @@ const PlayerRankingsPage: React.FC = () => {
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap">
                             <div className="flex items-center gap-3">
-                              <div className="w-10 h-10 bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600 rounded-full flex items-center justify-center text-xl">
-                                
-                              </div>
+                              <img 
+                                src={getPlayerImageUrl(player.player_name)}
+                                alt={player.player_name}
+                                className="w-10 h-10 rounded-full object-cover"
+                                onError={(e) => {
+                                  e.currentTarget.src = getPlayerFallbackImage(player.player_name);
+                                }}
+                              />
                               <span className="font-semibold text-gray-900 dark:text-white">{player.player_name}</span>
                             </div>
                           </td>

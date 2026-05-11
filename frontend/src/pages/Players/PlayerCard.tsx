@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FiMapPin, FiBarChart2, FiTarget, FiZap, FiAward } from 'react-icons/fi';
+import { getPlayerImageUrl, getPlayerFallbackImage } from '../../utils/playerImage';
 
 interface PlayerCardProps {
   player: {
@@ -243,20 +244,14 @@ export const PlayerCard: React.FC<PlayerCardProps> = ({ player }) => {
       <Link to={`/player/${player.id}`}>
         <div className={`relative h-44 bg-gradient-to-br ${roleConfig.gradient}`}>
           <div className="absolute inset-0 flex items-center justify-center">
-            {player.image_url ? (
-              <img 
-                src={player.image_url} 
-                alt={playerName}
-                className="w-28 h-28 rounded-full object-cover shadow-xl border-4 border-white/30"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).style.display = 'none';
-                }}
-              />
-            ) : (
-              <div className="w-28 h-28 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-5xl shadow-xl">
-                🏏
-              </div>
-            )}
+            <img 
+              src={getPlayerImageUrl(player.full_name || player.name || '')}
+              alt={playerName}
+              className="w-28 h-28 rounded-full object-cover shadow-xl border-4 border-white/30"
+              onError={(e) => {
+                e.currentTarget.src = getPlayerFallbackImage(player.full_name || player.name || 'Player');
+              }}
+            />
           </div>
           
           <div className="absolute top-3 right-3">

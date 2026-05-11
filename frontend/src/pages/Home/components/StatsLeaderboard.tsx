@@ -129,6 +129,3 @@ export const StatsLeaderboard: React.FC = () => {
     </div>
   );
 };
-
-
-

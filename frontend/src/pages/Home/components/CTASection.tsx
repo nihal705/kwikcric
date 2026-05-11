@@ -15,13 +15,16 @@ export const CTASection: React.FC = () => {
           className="space-y-3"
         >
           <div className="text-yellow-400 text-4xl mb-1">"</div>
-          <p className="text-base md:text-lg font-light text-white italic leading-relaxed">
-            History isn't just pages in a book.
-            <br />
-            It's every boundary, every wicket, every moment
-            <br />
-            that made cricket what it is today.
-          </p>
+            <p 
+              className="text-base md:text-lg font-light italic leading-relaxed"
+              style={{ color: '#ffffff' }}
+            >
+              History isn't just pages in a book.
+              <br />
+              It's every boundary, every wicket, every moment
+              <br />
+              that made cricket what it is today.
+            </p>
           <div className="text-yellow-400 text-4xl mt-1 transform rotate-180">"</div>
           
           <motion.div

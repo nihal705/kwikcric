@@ -9,9 +9,6 @@ import { Player, getBalancedSquad, getRandomOpponentSquad } from './data/players
 import { saveMatch } from '../../../services/kwikCricketAPI';
 import { useAuth } from '../../../contexts/AuthContext';
 import { saveGameState, loadGameState, clearGameState, getUserStats, saveMatchAuth } from '../../../services/authAPI';
-// ========== NEW IMPORTS FOR REWARDS ==========
-import { useRewards } from '../../../hooks/useRewards';
-import { useCurrency } from '../../../contexts/CurrencyContext';
 
 // Guest storage keys
 const GUEST_STATS_KEY = 'kwik_cricket_guest_stats';
@@ -83,10 +80,6 @@ const KwikCricketPage: React.FC = () => {
         userInningsComplete: false,
     });
     const [stats, setStats] = useState<any>(null);
-    
-    // ========== NEW REWARDS HOOKS ==========
-    const { claimReward, claimDailyReward } = useRewards();
-    const { refreshCurrency } = useCurrency();
 
     // Auto-save game state on every update
     useEffect(() => {
@@ -239,37 +232,6 @@ const KwikCricketPage: React.FC = () => {
         }
     };
 
-    // ========== NEW REWARD FUNCTIONS ==========
-    const handleRunsMilestone = async (inningsRuns: number) => {
-        if (inningsRuns >= 10 && inningsRuns % 10 === 0) {
-            await claimReward('kwik-cricket', 'runs_10', Math.floor(inningsRuns / 10));
-        }
-        if (inningsRuns >= 50 && inningsRuns % 50 === 0) {
-            await claimReward('kwik-cricket', 'runs_50', Math.floor(inningsRuns / 50));
-        }
-        if (inningsRuns >= 100 && inningsRuns % 100 === 0) {
-            await claimReward('kwik-cricket', 'runs_100', Math.floor(inningsRuns / 100));
-        }
-    };
-
-    const handleWicketsMilestone = async (inningsWickets: number) => {
-        if (inningsWickets >= 1) {
-            await claimReward('kwik-cricket', 'wicket_1', inningsWickets);
-        }
-        if (inningsWickets >= 3 && inningsWickets % 3 === 0) {
-            await claimReward('kwik-cricket', 'wicket_3', Math.floor(inningsWickets / 3));
-        }
-        if (inningsWickets >= 5 && inningsWickets % 5 === 0) {
-            await claimReward('kwik-cricket', 'wicket_5', Math.floor(inningsWickets / 5));
-        }
-    };
-
-    const handleMatchWin = async () => {
-        await claimReward('kwik-cricket', 'match_win', 1);
-        await claimDailyReward('kwik-cricket', 'daily_first_game');
-        await claimDailyReward('global', 'daily_first_win');
-    };
-
     const endMatch = async (
         result: string, 
         winner: string, 
@@ -322,15 +284,6 @@ const KwikCricketPage: React.FC = () => {
                     result: result === 'win' ? 'win' : 'loss'
                 });
             }
-            
-            // ========== CLAIM REWARDS ON WIN ==========
-            if (result === 'win') {
-                await handleMatchWin();
-            }
-            
-            // Refresh currency after match
-            await refreshCurrency();
-            
         } catch (error) {
             console.error('Failed to save match:', error);
         }
@@ -369,8 +322,6 @@ const KwikCricketPage: React.FC = () => {
             isGameOver: true,
         }));
         setGameMode('result');
-        // Refresh currency after kwikplay
-        refreshCurrency();
     };
 
     const resetGame = () => {
@@ -437,8 +388,6 @@ const KwikCricketPage: React.FC = () => {
                                 battingOrder={battingOrder}
                                 onUpdate={updateMatchState}
                                 onEndMatch={endMatch}
-                                onRunsMilestone={handleRunsMilestone}
-                                onWicketsMilestone={handleWicketsMilestone}
                             />
                         </div>
                         

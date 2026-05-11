@@ -74,7 +74,7 @@ export const HeroSection: React.FC = () => {
                 <span className="w-6 h-px bg-yellow-400" />
                 <span>Since 1877</span>
               </div>
-              <h2 className="text-2xl md:text-3xl font-bold text-white leading-tight">
+              <h2 className="text-2xl md:text-3xl font-bold leading-tight" style={{ color: '#ffffff' }}>
                 Where Legends Are Made,
                 <span className="block text-yellow-400">Records Are Broken</span>
               </h2>
@@ -104,13 +104,15 @@ export const HeroSection: React.FC = () => {
             <div className="flex flex-wrap gap-3 pt-3">
               <Link
                 to="/history"
-                className="px-5 py-2.5 bg-gradient-to-r from-yellow-500 to-amber-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 transform hover:scale-105 text-sm"
+                className="px-5 py-2.5 bg-gradient-to-r from-yellow-500 to-amber-600 font-semibold rounded-lg hover:shadow-lg transition-all duration-300 transform hover:scale-105 text-sm"
+                style={{ color: '#ffffff' }}
               >
                 Explore History →
               </Link>
               <Link
                 to="/players/rankings"
-                className="px-5 py-2.5 border border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300 text-sm"
+                className="px-5 py-2.5 border border-white/30 font-semibold rounded-lg hover:bg-white/10 transition-all duration-300 text-sm"
+                style={{ color: '#ffffff' }}
               >
                 View Rankings
               </Link>

@@ -1,3 +1,12 @@
+/* OVERRIDE ANY DIRECT BODY STYLES - ADD THIS AT THE VERY TOP */
+body {
+  background-color: #f8fafc !important;
+}
+
+.dark body {
+  background-color: #0f172a !important;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -156,8 +165,6 @@
     animation: fade 0.4s ease-out forwards;
 }
 
-/* Add to frontend/src/index.css or frontend/src/App.css */
-
 /* 3D Flip Card Styles */
 .preserve-3d {
   transform-style: preserve-3d;
@@ -194,4 +201,41 @@
 .card-hover:hover {
   transform: scale(1.02);
   transition: transform 0.2s ease;
+}
+
+/* FORCE DARK/LIGHT MODE BACKGROUNDS - FIXED */
+html:not(.dark) body {
+  background-color: #f8fafc !important;
+}
+
+html.dark body {
+  background-color: #0f172a !important;
+}
+
+html:not(.dark) #root {
+  background-color: #f8fafc !important;
+}
+
+html.dark #root {
+  background-color: #0f172a !important;
+}
+
+/* Force all background classes */
+.bg-gray-50, .bg-gray-100, .bg-gray-200 {
+  background-color: #f8fafc !important;
+}
+
+html.dark .bg-gray-50,
+html.dark .bg-gray-100,
+html.dark .bg-gray-200 {
+  background-color: #1e293b !important;
+}
+
+/* Force white background cards */
+.bg-white {
+  background-color: #ffffff !important;
+}
+
+html.dark .bg-white {
+  background-color: #1e293b !important;
 }

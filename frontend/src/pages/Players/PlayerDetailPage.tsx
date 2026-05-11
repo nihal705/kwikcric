@@ -6,6 +6,7 @@ import {
   FiInfo, FiActivity
 } from 'react-icons/fi';
 import { playerAPI } from '../../services/api/playerAPI';
+import { getPlayerImageUrl, getPlayerFallbackImage } from '../../utils/playerImage';
 import toast from 'react-hot-toast';
 
 // ============================================
@@ -504,13 +505,14 @@ const BioCard: React.FC<{ bio: PlayerBio; name: string; country: string }> = ({ 
     <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow border">
       <div className="flex flex-col md:flex-row gap-6">
         <div className="flex-shrink-0">
-          {bio.image_url ? (
-            <img src={bio.image_url} alt={name} className="w-32 h-32 rounded-full object-cover shadow-lg" />
-          ) : (
-            <div className="w-32 h-32 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center text-5xl shadow-lg">
-              🏏
-            </div>
-          )}
+          <img 
+            src={getPlayerImageUrl(name)}
+            alt={name}
+            className="w-32 h-32 rounded-full object-cover shadow-lg"
+            onError={(e) => {
+              e.currentTarget.src = getPlayerFallbackImage(name);
+            }}
+          />
         </div>
 
         <div className="flex-1">

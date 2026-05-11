@@ -40,6 +40,16 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+  if (darkMode) {
+    document.documentElement.classList.add('dark');
+    localStorage.setItem('theme', 'dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+    localStorage.setItem('theme', 'light');
+  }
+}, [darkMode]);
+
   const handleLogout = async () => {
     await logout();
     setIsUserDropdownOpen(false);
@@ -49,17 +59,10 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
   const navLinks: NavLink[] = [
     { path: '/', label: 'Home' },
     { path: '/players', label: 'Players' },
-    { 
-      label: 'Rankings', 
-      dropdown: [
-        { path: '/players/rankings', label: 'Player Rankings' },
-        { path: '/teams/rankings', label: 'Team Rankings' },
-      ]
-    },
+    { path: '/players/rankings', label: 'Player Rankings' },
     { 
       label: 'Tournaments', 
       dropdown: [
-        { path: '/ipl', label: 'IPL' },
         { path: '/world-cup', label: 'ODI World Cup' },
         { path: '/world-cup/t20', label: 'T20I World Cup' },
         { path: '/champions-trophy', label: 'Champions Trophy' },
@@ -72,7 +75,6 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
         { path: '/games/kwik-cricket', label: 'Kwik Cricket' },
         { path: '/games/quiz', label: 'Cricket Quiz' },
         { path: '/games/imposter', label: 'Imposter' },
-        { path: '/games/guess-legend', label: 'Guess the Legend' },
         { path: '/games/cricket-cards', label: 'Cricket Cards'},
       ]
     },

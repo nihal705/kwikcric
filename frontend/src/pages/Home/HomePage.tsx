@@ -19,11 +19,13 @@ const HomePage: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
+    // CHANGE THIS LINE - REMOVE dark:bg-gray-900
+    <div className="min-h-screen bg-gray-50">
       <HeroSection />
       <StatsDashboard />
       
-      {/* New Features Row 1 */}
+     {/* New Features Row 1 */}
+    <div className="bg-gray-50 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <StatsLeaderboard />
@@ -31,14 +33,17 @@ const HomePage: React.FC = () => {
           <TournamentCountdown />
         </div>
       </div>
-      
-      {/* New Features Row 2 */}
+    </div>
+
+    {/* New Features Row 2 */}
+    <div className="bg-gray-50 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <BirthdayReminder />
           <WeeklyPoll />
         </div>
       </div>
+    </div>
       
       <HistoricalTimeline />
       <ChampionsWall />

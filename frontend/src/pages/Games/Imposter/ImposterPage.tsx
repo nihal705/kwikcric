@@ -5,8 +5,6 @@ import { ThemeSelector } from './components/ThemeSelector';
 import { PlayerSetup } from './components/PlayerSetup';
 import { GameBoard } from './components/GameBoard';
 import { useAuth } from '../../../contexts/AuthContext';
-// ========== NEW IMPORT FOR REWARDS ==========
-import { useRewards } from '../../../hooks/useRewards';
 
 type GameMode = 'local' | 'bots';
 type GamePhase = 'mode-select' | 'theme-select' | 'player-setup' | 'playing';
@@ -20,33 +18,6 @@ const ImposterPage: React.FC = () => {
   const [players, setPlayers] = useState<string[]>([]);
   const [botCount, setBotCount] = useState(3);
   const [gameKey, setGameKey] = useState(0);
-  
-  // ========== NEW REWARDS HOOK ==========
-  const { claimReward, claimDailyReward } = useRewards();
-  
-  // ========== NEW REWARD FUNCTIONS ==========
-  const handleWinAsReal = async () => {
-    await claimReward('imposter', 'win_real', 1);
-  };
-  
-  const handleWinAsImposter = async () => {
-    await claimReward('imposter', 'win_imposter', 1);
-  };
-  
-  const handleCorrectImposterCatch = async () => {
-    await claimReward('imposter', 'catch_imposter', 1);
-  };
-  
-  const handleSurviveAsImposter = async () => {
-    await claimReward('imposter', 'survive_imposter', 1);
-  };
-  
-  const handleDailyFirstGame = async () => {
-    // Only claim for bot games (earning only with bots as per requirement)
-    if (gameMode === 'bots') {
-      await claimDailyReward('imposter', 'daily_first_game');
-    }
-  };
 
   const handleModeSelect = (mode: GameMode) => {
     setGameMode(mode);
@@ -59,12 +30,10 @@ const ImposterPage: React.FC = () => {
     setPhase('player-setup');
   };
 
-  const handlePlayerSetup = async (playerNames: string[], botCountParam?: number) => {
+  const handlePlayerSetup = (playerNames: string[], botCountParam?: number) => {
     setPlayers(playerNames);
     if (botCountParam !== undefined) setBotCount(botCountParam);
     setPhase('playing');
-    // Claim daily first game reward when starting a bot game
-    await handleDailyFirstGame();
   };
 
   const handleBack = () => {
@@ -123,10 +92,6 @@ const ImposterPage: React.FC = () => {
         onExit={handleExit}
         onPlayAgain={handlePlayAgain}
         botCount={botCount}
-        onWinAsReal={handleWinAsReal}
-        onWinAsImposter={handleWinAsImposter}
-        onCorrectImposterCatch={handleCorrectImposterCatch}
-        onSurviveAsImposter={handleSurviveAsImposter}
       />
     );
   }
