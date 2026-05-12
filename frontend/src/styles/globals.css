@@ -1,220 +1,28 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100;
-    font-family: 'Inter', sans-serif;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', sans-serif;
-  }
-}
-
-@layer components {
-  .container-cricket {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
-
-  .card {
-    @apply bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden;
-  }
-
-  .btn-primary {
-    @apply bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
-  }
-
-  .btn-secondary {
-    @apply bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-medium py-2 px-4 rounded-lg transition-colors duration-200;
-  }
-
-  .input {
-    @apply w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100;
-  }
-
-  .stat-card {
-    @apply bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 rounded-lg p-4 border border-green-200 dark:border-green-800;
-  }
-
-  .live-indicator {
-    @apply flex items-center space-x-2;
-  }
-
-  .live-dot {
-    @apply w-2 h-2 bg-red-500 rounded-full animate-pulse;
-  }
-}
-
-@layer utilities {
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.3s ease-out;
-}
-
-/* Cricket-specific styles */
-.cricket-bg {
-  background: linear-gradient(135deg, #1a472a 0%, #2d5a3b 50%, #1a472a 100%);
-}
-
-.pitch-pattern {
-  background-image: repeating-linear-gradient(
-    90deg,
-    transparent,
-    transparent 49px,
-    rgba(255, 255, 255, 0.1) 49px,
-    rgba(255, 255, 255, 0.1) 50px
-  );
-}
-
-.backface-hidden { backface-visibility: hidden; }
-.preserve-3d { transform-style: preserve-3d; }
-.rotateY-180 { transform: rotateY(180deg); }
-
-/* Add to your global CSS file */
-.perspective-1000 {
-  perspective: 1000px;
-}
-
-.preserve-3d {
-  transform-style: preserve-3d;
-}
-
-.backface-hidden {
-  backface-visibility: hidden;
-}
-
-.rotateY-180 {
-  transform: rotateY(180deg);
-}
-
-/* Smooth scrolling */
+/* SINGLE BACKGROUND SOURCE */
 html {
-  scroll-behavior: smooth;
+  background-color: #ffffff;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+html.dark {
+  background-color: #0f172a;
 }
 
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 4px;
+body {
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 4px;
+/* Remove ALL other background styles from body and main */
+.bg-gray-50, .bg-gray-100, .bg-white, .dark\:bg-gray-900 {
+  background-color: transparent !important;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
+/* Keep card backgrounds */
+.card, .bg-white {
+  background-color: #ffffff !important;
 }
 
-.dark ::-webkit-scrollbar-track {
-  background: #1f2937;
-}
-
-.dark ::-webkit-scrollbar-thumb {
-  background: #4b5563;
-}
-
-.dark ::-webkit-scrollbar-thumb:hover {
-  background: #6b7280;
-}
-
-/* frontend/src/index.css - Add these for better text handling */
-.whitespace-normal {
-  white-space: normal;
-}
-
-.break-words {
-  word-break: break-word;
-  overflow-wrap: break-word;
-}
-
-/* For tournament card stats */
-.grid-cols-1 .flex {
-  min-width: 0;
-}
-
-.truncate {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-/* For small screens */
-@media (max-width: 640px) {
-  .text-sm {
-    font-size: 0.75rem;
-  }
-  .text-xs {
-    font-size: 0.7rem;
-  }
-}
-
-/* Add these to your globals.css file */
-
-/* Flip Card Styles - Make sure these are present */
-.perspective-1000 {
-  perspective: 1000px;
-}
-
-.preserve-3d {
-  transform-style: preserve-3d;
-}
-
-.backface-hidden {
-  backface-visibility: hidden;
-}
-
-.rotateY-180 {
-  transform: rotateY(180deg);
-}
-
-/* Ensure flip cards work properly */
-.flip-card {
-  perspective: 1000px;
-}
-
-.flip-card-inner {
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-}
-
-.flip-card-front, .flip-card-back {
-  backface-visibility: hidden;
-}
-
-.flip-card-back {
-  transform: rotateY(180deg);
+.dark .card, .dark .bg-white {
+  background-color: #1f2937 !important;
 }

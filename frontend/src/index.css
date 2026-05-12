@@ -1,241 +1,141 @@
-/* OVERRIDE ANY DIRECT BODY STYLES - ADD THIS AT THE VERY TOP */
-body {
-  background-color: #f8fafc !important;
-}
-
-.dark body {
-  background-color: #0f172a !important;
-}
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  body {
-    @apply bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100;
-    font-family: 'Inter', system-ui, sans-serif;
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', system-ui, sans-serif;
-  }
+/* SINGLE SOURCE OF TRUTH FOR BACKGROUNDS */
+html, body, #root {
+  background-color: #ffffff;
+  min-height: 100vh;
 }
 
-@layer components {
-  .container-cricket {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
-  
-  .card {
-    @apply bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:shadow-xl;
-  }
-  
-  .btn-primary {
-    @apply bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg;
-  }
-  
-  .btn-secondary {
-    @apply bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-semibold py-3 px-6 rounded-xl transition-all duration-300;
-  }
-  
-  .stat-card {
-    @apply bg-gradient-to-br from-primary-50 to-primary-100 dark:from-primary-900/20 dark:to-primary-800/20 rounded-2xl p-6 border border-primary-200 dark:border-primary-800;
-  }
-  
-  .live-indicator {
-    @apply flex items-center space-x-2;
-  }
-  
-  .live-dot {
-    @apply w-2.5 h-2.5 bg-red-500 rounded-full animate-pulse;
-  }
+html.dark, html.dark body, html.dark #root {
+  background-color: #0f172a;
 }
 
-@layer utilities {
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-  
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  
-  .text-gradient {
-    @apply bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent;
-  }
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Your component styles */
+.container-cricket {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.card {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+}
+
+.dark .card {
+  background-color: #1f2937;
+  border-color: #374151;
+}
+
+.btn-primary {
+  background-color: #059669;
+  color: white;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.btn-primary:hover {
+  background-color: #047857;
+}
+
+.btn-secondary {
+  background-color: #e5e7eb;
+  color: #1f2937;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.dark .btn-secondary {
+  background-color: #374151;
+  color: #e5e7eb;
+}
+
+.input {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  background-color: white;
+}
+
+.dark .input {
+  background-color: #1f2937;
+  border-color: #4b5563;
+  color: white;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #bbf7d0;
+}
+
+.dark .stat-card {
+  background: rgba(34, 197, 94, 0.1);
+  border-color: #166534;
 }
 
 /* Animations */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-10px); }
-  75% { transform: translateX(10px); }
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
 }
 
-.animate-float {
-  animation: float 3s ease-in-out infinite;
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-.animate-shake {
-  animation: shake 0.3s ease-in-out;
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
 }
 
-/* Add to frontend/src/index.css */
-
-@keyframes bounce {
-    0%, 100% { transform: translate(-50%, -50%) scale(1); }
-    50% { transform: translate(-50%, -50%) scale(1.3); }
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
 }
 
-@keyframes pulse {
-    0%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-    50% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.2); }
+.dark ::-webkit-scrollbar-track {
+  background: #1f2937;
 }
 
-@keyframes shake {
-    0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
-    25% { transform: translate(-50%, -50%) rotate(-10deg); }
-    75% { transform: translate(-50%, -50%) rotate(10deg); }
+.dark ::-webkit-scrollbar-thumb {
+  background: #4b5563;
 }
 
-@keyframes fade {
-    0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-    100% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
-}
-
-.animate-bounce {
-    animation: bounce 0.5s ease-in-out;
-}
-
-.animate-pulse {
-    animation: pulse 0.5s ease-in-out;
-}
-
-.animate-shake {
-    animation: shake 0.3s ease-in-out;
-}
-
-.animate-fade {
-    animation: fade 0.5s ease-out forwards;
-}
-
-/* Add to frontend/src/index.css */
-
-@keyframes bounce {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.3); }
-}
-
-@keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.7; transform: scale(1.2); }
-}
-
-@keyframes shake {
-    0%, 100% { transform: rotate(0deg); }
-    25% { transform: rotate(-10deg); }
-    75% { transform: rotate(10deg); }
-}
-
-@keyframes fade {
-    0% { opacity: 1; transform: scale(1); }
-    100% { opacity: 0; transform: scale(0.5); }
-}
-
-.animate-bounce {
-    animation: bounce 0.4s ease-in-out;
-}
-
-.animate-pulse {
-    animation: pulse 0.4s ease-in-out;
-}
-
-.animate-shake {
-    animation: shake 0.3s ease-in-out;
-}
-
-.animate-fade {
-    animation: fade 0.4s ease-out forwards;
-}
-
-/* 3D Flip Card Styles */
+/* Flip card */
 .preserve-3d {
   transform-style: preserve-3d;
 }
 
-.rotate-y-180 {
-  transform: rotateY(180deg);
-}
-
 .backface-hidden {
   backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
 }
 
-/* Card flip transition */
-.flip-card {
-  transition: transform 0.6s ease-in-out;
-}
-
-.flip-card-front, .flip-card-back {
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-
-.flip-card-front {
+.rotateY-180 {
   transform: rotateY(180deg);
-}
-
-.flip-card-back {
-  transform: rotateY(0deg);
-}
-
-/* Card hover effect */
-.card-hover:hover {
-  transform: scale(1.02);
-  transition: transform 0.2s ease;
-}
-
-/* FORCE DARK/LIGHT MODE BACKGROUNDS - FIXED */
-html:not(.dark) body {
-  background-color: #f8fafc !important;
-}
-
-html.dark body {
-  background-color: #0f172a !important;
-}
-
-html:not(.dark) #root {
-  background-color: #f8fafc !important;
-}
-
-html.dark #root {
-  background-color: #0f172a !important;
-}
-
-/* Force all background classes */
-.bg-gray-50, .bg-gray-100, .bg-gray-200 {
-  background-color: #f8fafc !important;
-}
-
-html.dark .bg-gray-50,
-html.dark .bg-gray-100,
-html.dark .bg-gray-200 {
-  background-color: #1e293b !important;
-}
-
-/* Force white background cards */
-.bg-white {
-  background-color: #ffffff !important;
-}
-
-html.dark .bg-white {
-  background-color: #1e293b !important;
 }

@@ -8,6 +8,7 @@ import HomePage from './pages/Home/HomePage';
 import { PlayersPage } from './pages/Players/PlayersPage';
 import { PlayerDetailPage } from './pages/Players/PlayerDetailPage';
 import PlayerRankingsPage from './pages/Players/PlayerRankingsPage';
+import TeamRankingsPage from './pages/Players/Teams/TeamRankingsPage';
 import TournamentsPage from './pages/Tournaments/TournamentsPage';
 import { GamesPage } from './pages/Games/GamesPage';
 import { QuickCricketPage } from './pages/Games/QuickCricketPage';
@@ -46,22 +47,22 @@ function App() {
     return false;
   });
 
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
-  }, [darkMode]);
+useEffect(() => {
+  if (darkMode) {
+    document.documentElement.classList.add('dark');
+    localStorage.setItem('theme', 'dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+    localStorage.setItem('theme', 'light');
+  }
+}, [darkMode]);
 
   return (
     <AuthProvider>
       <BrowserRouter>
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex flex-col">
+        <div className="min-h-screen flex flex-col bg-white dark:bg-[#0f172a]">
           <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
-          <main className="flex-1 bg-gray-50 dark:bg-gray-900">
+          <main className="flex-1">
             <Routes>
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
@@ -69,6 +70,7 @@ function App() {
               <Route path="/players" element={<PlayersPage />} />
               <Route path="/player/:id" element={<PlayerDetailPage />} />
               <Route path="/players/rankings" element={<PlayerRankingsPage />} />
+              <Route path="/team-rankings" element={<TeamRankingsPage />} />
               <Route path="/tournaments" element={<TournamentsPage />} />
               <Route path="/ipl" element={<TournamentsPage />} />
               {/* ODI World Cup Routes */}
