@@ -109,12 +109,18 @@ export const WTCDetailPage: React.FC = () => {
   const cycleYear = `${tournament.year - 2}-${tournament.year}`;
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="space-y-5 min-h-screen bg-[#f9fafb] dark:bg-[#0f172a] text-gray-900 dark:text-white p-4 md:p-6" style={{ backgroundImage: 'none' }}>
       <div className="bg-gradient-to-r from-teal-700 to-emerald-700 py-5">
         <div className="max-w-7xl mx-auto px-4">
           <Link to="/wtc" className="inline-flex items-center text-white/80 hover:text-white text-xs mb-2">← Back to WTC</Link>
           <div className="text-center">
-            <div className="text-3xl mb-1">📋</div>
+            <div className="text-3xl mb-1">
+              <img 
+                  src="/images/icc_wtc.png"
+                  alt="ICC WTC"
+                  className="w-30 h-34 md:w-22 md:h-24 mx-auto mb-3 md:mb-4 object-contain"
+              />
+            </div>
             <h1 className="text-xl md:text-2xl font-bold text-white mb-1">WTC {cycleYear}</h1>
             <p className="text-xs text-teal-100">Hosted by {tournament.host_country} • Final Match Only</p>
           </div>
@@ -180,7 +186,6 @@ const WTCOverview: React.FC<{ tournament: Tournament; cycleYear: string }> = ({ 
   return (
     <div className="space-y-4">
       <div className="bg-gradient-to-r from-teal-500 to-emerald-500 rounded-lg p-5 text-white text-center">
-        <div className="text-4xl mb-2">📋</div>
         <h2 className="text-2xl font-bold mb-1">{tournament.winner_name || 'TBD'}</h2>
         <p className="text-sm">WTC {cycleYear} Champions</p>
         {tournament.runner_up_name && (

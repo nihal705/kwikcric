@@ -39,7 +39,7 @@ export const ChampionsGrid: React.FC<ChampionsGridProps> = ({ tournamentType }) 
   return (
     <div className="mb-6">
       <h3 className="text-base font-bold text-gray-900 dark:text-white text-center mb-3">
-        🏆 {displayName} Champions
+         {displayName} Champions
       </h3>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
         {champions.map((champion, index) => (

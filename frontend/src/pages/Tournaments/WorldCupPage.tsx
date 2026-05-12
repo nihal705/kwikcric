@@ -40,7 +40,7 @@ export const WorldCupPage: React.FC = () => {
   }, [year]);
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-5 min-h-screen bg-[#f9fafb] dark:bg-[#0f172a] text-gray-900 dark:text-white p-4 md:p-6" style={{ backgroundImage: 'none' }}>
       {/* Header - Compact */}
       <div className="text-center">
         <h1 className="text-2xl md:text-3xl font-bold mb-1">ICC Cricket World Cup</h1>

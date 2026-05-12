@@ -96,7 +96,10 @@ const KwikCricketHistoryPage: React.FC = () => {
     : 0;
 
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 py-8">
+    <div 
+      className="min-h-screen bg-[#f9fafb] dark:bg-[#0f172a] text-gray-900 dark:text-white" 
+      style={{ backgroundImage: 'none' }}
+    >
       <div className="max-w-5xl mx-auto px-4">
         {/* Header */}
         <motion.div

@@ -129,7 +129,10 @@ export const PlayersPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div 
+  className="min-h-screen bg-[#f9fafb] dark:bg-[#0f172a] text-gray-900 dark:text-white" 
+  style={{ backgroundImage: 'none' }}
+>
       {/* Hero Section */}
       <div className="bg-gradient-to-r from-green-600 to-blue-600 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

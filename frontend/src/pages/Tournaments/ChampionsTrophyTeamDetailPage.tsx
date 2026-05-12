@@ -96,13 +96,17 @@ export const ChampionsTrophyTeamDetailPage: React.FC = () => {
   const winsCount = team.champions_trophy_wins || victories.length;
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div 
+      className="min-h-screen bg-[#f9fafb] dark:bg-[#0f172a] text-gray-900 dark:text-white" 
+      style={{ backgroundImage: 'none' }}
+    >
       {/* Header */}
       <div className="bg-gradient-to-r from-blue-700 to-cyan-700 py-8">
         <div className="max-w-7xl mx-auto px-6">
           <Link to={getBackLink()} className="inline-flex items-center text-white/80 hover:text-white text-sm mb-3">
             ← Back to Champions Trophy
           </Link>
+          
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div>
               <h1 className="text-4xl md:text-5xl font-bold text-white">{team.name}</h1>
@@ -119,7 +123,7 @@ export const ChampionsTrophyTeamDetailPage: React.FC = () => {
                       : 'bg-white/20 text-white hover:bg-white/30'
                   }`}
                 >
-                  🏆 {v.year}
+                 {v.year}
                 </button>
               ))}
             </div>
@@ -235,7 +239,7 @@ export const ChampionsTrophyTeamDetailPage: React.FC = () => {
               <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
                 <div className="bg-gray-50 dark:bg-gray-700/50 px-4 py-2 border-b border-gray-200 dark:border-gray-700">
                   <h3 className="font-semibold text-gray-700 dark:text-gray-300 text-sm">
-                    🏆 Winning Squad ({selectedVictory.squad?.length || 0} players)
+                     Winning Squad ({selectedVictory.squad?.length || 0} players)
                   </h3>
                 </div>
                 <div className="p-3 max-h-80 overflow-y-auto">

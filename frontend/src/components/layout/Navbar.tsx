@@ -57,28 +57,35 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
   };
 
   const navLinks: NavLink[] = [
-    { path: '/', label: 'Home' },
-    { path: '/players', label: 'Players' },
-    { path: '/players/rankings', label: 'Player Rankings' },
-    { 
-      label: 'Tournaments', 
-      dropdown: [
-        { path: '/world-cup', label: 'ODI World Cup' },
-        { path: '/world-cup/t20', label: 'T20I World Cup' },
-        { path: '/champions-trophy', label: 'Champions Trophy' },
-        { path: '/wtc', label: 'WTC' },
-      ]
-    },
-    { 
-      label: 'Games', 
-      dropdown: [
-        { path: '/games/kwik-cricket', label: 'Kwik Cricket' },
-        { path: '/games/quiz', label: 'Cricket Quiz' },
-        { path: '/games/imposter', label: 'Imposter' },
-        { path: '/games/cricket-cards', label: 'Cricket Cards'},
-      ]
-    },
-  ];
+  { path: '/', label: 'Home' },
+  { path: '/players', label: 'Players' },
+  { 
+    label: 'Rankings',
+    dropdown: [
+      { path: '/team-rankings', label: 'Team Rankings' },
+      { path: '/players/rankings', label: 'Player Rankings' },
+    ]
+  },
+  { 
+    label: 'Tournaments', 
+    dropdown: [
+      { path:'/tournaments/hub', label: 'Tournament Hub'},
+      { path: '/world-cup', label: 'ODI World Cup' },
+      { path: '/world-cup/t20', label: 'T20I World Cup' },
+      { path: '/champions-trophy', label: 'Champions Trophy' },
+      { path: '/wtc', label: 'WTC' },
+    ]
+  },
+  { 
+    label: 'Games', 
+    dropdown: [
+      { path: '/games/kwik-cricket', label: 'Kwik Cricket' },
+      { path: '/games/quiz', label: 'Cricket Quiz' },
+      { path: '/games/imposter', label: 'Imposter' },
+      { path: '/games/cricket-cards', label: 'Cricket Cards'},
+    ]
+  },
+];
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -86,7 +93,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
     if (activeMenu === 'rankings') {
       return {
         label: 'Rankings',
-        items: navLinks.find(l => l.label === 'Rankings')?.dropdown || []
+        items: navLinks.find(l => l.label === 'Rankings')?.dropdown || [] // Changed from 'Rankings'
       };
     }
     if (activeMenu === 'tournaments') {

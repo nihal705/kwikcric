@@ -125,7 +125,7 @@ export const TeamDetailPage: React.FC = () => {
   const winsCount = tournamentType === 't20' ? team.t20_world_cup_wins || 0 : team.world_cup_wins || 0;
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="space-y-5 min-h-screen bg-[#f9fafb] dark:bg-[#0f172a] text-gray-900 dark:text-white p-4 md:p-6" style={{ backgroundImage: 'none' }}>
       {/* Header */}
       <div className={`bg-gradient-to-r ${getGradientColor()} py-6`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

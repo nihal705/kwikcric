@@ -79,7 +79,10 @@ export const ChampionsTrophyDetailPage: React.FC = () => {
   const getAccentColor = () => 'text-blue-600 border-blue-600';
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div 
+      className="min-h-screen bg-[#f9fafb] dark:bg-[#0f172a] text-gray-900 dark:text-white" 
+      style={{ backgroundImage: 'none' }}
+    >
       {/* Header */}
       <div className={`relative bg-gradient-to-r ${getHeaderColor()} py-5 md:py-7`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -87,7 +90,13 @@ export const ChampionsTrophyDetailPage: React.FC = () => {
             ← Back to Champions Trophy
           </Link>
           <div className="text-center">
-            <div className="text-3xl mb-1">🏅</div>
+            <div className="text-3xl mb-1">
+              <img 
+                  src="/images/icc_ct.png"
+                  alt="ICC Champions Trophy Trophy"
+                  className="w-16 h-18 md:w-20 md:h-20 mx-auto mb-3 md:mb-4 object-contain"
+              />
+            </div>
             <h1 className="text-xl md:text-2xl font-bold text-white mb-1">
               ICC Champions Trophy {tournament.year}
             </h1>
@@ -196,7 +205,13 @@ const CTOverviewSection: React.FC<{ tournament: Tournament }> = ({ tournament })
   return (
     <div className="space-y-4 md:space-y-5">
       <div className="bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg p-4 md:p-5 text-white text-center">
-        <div className="text-3xl md:text-4xl mb-2 md:mb-3">🏅</div>
+        <div className="text-3xl md:text-4xl mb-2 md:mb-3">
+          <img 
+                  src="/images/icc_ct.png"
+                  alt="ICC Champions Trophy"
+                  className="w-16 h-18 md:w-20 md:h-20 mx-auto mb-3 md:mb-4 object-contain"
+              />
+        </div>
         <h2 className="text-xl md:text-2xl font-bold mb-1">{winnerText || 'TBD'}</h2>
         <p className="text-sm md:text-base">Champions Trophy {tournament.year} Champions</p>
         {tournament.runner_up_name && !isSharedTrophy && (

@@ -69,7 +69,10 @@ export const T20WorldCupHub: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div 
+      className="min-h-screen bg-[#f9fafb] dark:bg-[#0f172a] text-gray-900 dark:text-white" 
+      style={{ backgroundImage: 'none' }}
+    >
         <div className="bg-gradient-to-r from-purple-700 to-pink-700 py-5 md:py-7">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <Link to="/world-cup/t20" className="inline-flex items-center text-white/80 hover:text-white text-xs mb-2 md:mb-3">
@@ -80,7 +83,13 @@ export const T20WorldCupHub: React.FC = () => {
       {/* Hero Section */}
       <div className="relative bg-gradient-to-r from-purple-700 to-pink-700 py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="text-4xl mb-2">⚡</div>
+          <div className="text-5xl mb-4">
+            <img 
+                src="/images/icc_t20i_wc_trophy.png"
+                alt="ICC T20I World Cup Trophy"
+                className="w-26 h-20 md:w-20 md:h-20 mx-auto mb-3 md:mb-4 object-contain"
+            />
+          </div>
           <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
             ICC T20I World Cup
           </h1>

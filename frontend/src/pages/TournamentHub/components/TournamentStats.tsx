@@ -86,7 +86,7 @@ export const TournamentStats: React.FC<TournamentStatsProps> = ({ tournamentType
       animate={{ opacity: 1, y: 0 }}
       className="bg-gradient-to-r from-yellow-500 to-amber-600 rounded-lg p-4 text-white mt-4"
     >
-      <h3 className="text-sm font-bold text-center mb-3">📊 {titleDisplayName} Statistics</h3>
+      <h3 className="text-sm font-bold text-center mb-3">{titleDisplayName} Statistics</h3>
       
       {!isWTC ? (
         // For ODI, T20, CT - Show runs, wickets, highest score, best bowling

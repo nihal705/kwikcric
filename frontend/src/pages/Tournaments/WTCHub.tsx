@@ -70,11 +70,20 @@ export const WTCHub: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+   <div 
+      className="min-h-screen bg-[#f9fafb] dark:bg-[#0f172a] text-gray-900 dark:text-white" 
+      style={{ backgroundImage: 'none' }}
+    >
       {/* Hero Section */}
       <div className="relative bg-gradient-to-r from-teal-700 to-emerald-700 py-5">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <div className="text-3xl mb-1">📋</div>
+          <div className="text-3xl mb-1">
+            <img 
+                  src="/images/icc_wtc.png"
+                  alt="ICC WTC"
+                  className="w-30 h-34 md:w-22 md:h-24 mx-auto mb-3 md:mb-4 object-contain"
+              />
+          </div>
           <h1 className="text-2xl md:text-3xl font-bold text-white mb-1">
             ICC World Test Championship
           </h1>

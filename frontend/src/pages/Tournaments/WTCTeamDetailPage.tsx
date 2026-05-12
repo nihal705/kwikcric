@@ -56,13 +56,16 @@ export const WTCTeamDetailPage: React.FC = () => {
   const winsCount = team.test_championship_wins || victories.length;
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div 
+      className="min-h-screen bg-[#f9fafb] dark:bg-[#0f172a] text-gray-900 dark:text-white" 
+      style={{ backgroundImage: 'none' }}
+    >
       <div className="bg-gradient-to-r from-teal-700 to-emerald-700 py-4">
         <div className="max-w-7xl mx-auto px-4">
           <Link to="/wtc" className="text-white/80 hover:text-white text-xs">← Back to WTC</Link>
           <div className="flex flex-wrap justify-between items-center gap-3 mt-2">
             <div><h1 className="text-2xl font-bold text-white">{team.name}</h1><p className="text-teal-100 text-xs">{winsCount} WTC Titles</p></div>
-            <div className="flex gap-2">{victories.map(v => (<button key={v.year} onClick={() => setSelectedYear(v.year)} className={`px-3 py-1 rounded-md text-sm font-semibold ${selectedYear === v.year ? 'bg-yellow-500 text-white' : 'bg-white/20 text-white'}`}>🏆 {v.year}</button>))}</div>
+            <div className="flex gap-2">{victories.map(v => (<button key={v.year} onClick={() => setSelectedYear(v.year)} className={`px-3 py-1 rounded-md text-sm font-semibold ${selectedYear === v.year ? 'bg-yellow-500 text-white' : 'bg-white/20 text-white'}`}> {v.year}</button>))}</div>
           </div>
         </div>
       </div>
@@ -76,7 +79,7 @@ export const WTCTeamDetailPage: React.FC = () => {
               <div className="bg-white dark:bg-gray-800 rounded p-3 text-center"><div className="text-xs text-gray-500">Venue</div><div className="font-bold text-sm">{selectedVictory.venue?.split(',')[0]}</div></div>
             </div>
             {selectedVictory.final_match && (<div className="bg-white dark:bg-gray-800 rounded p-4"><h3 className="font-semibold text-sm mb-2">Final Match</h3><div className="space-y-2"><div className="flex justify-between"><span>{selectedVictory.final_match.team1_name}</span><span>{selectedVictory.final_match.team1_score}/{selectedVictory.final_match.team1_wickets}</span></div><div className="flex justify-between"><span>{selectedVictory.final_match.team2_name}</span><span>{selectedVictory.final_match.team2_score}/{selectedVictory.final_match.team2_wickets}</span></div><div className="text-center pt-2"><span className="text-teal-600 text-sm font-semibold">{selectedVictory.final_match.winner_name} won by {selectedVictory.final_match.winner_margin} {selectedVictory.final_match.margin_type}</span></div></div></div>)}
-            <div className="bg-white dark:bg-gray-800 rounded p-3"><h3 className="font-semibold text-xs mb-2">🏆 Winning Squad ({selectedVictory.squad?.length || 0})</h3><div className="grid grid-cols-2 gap-1 max-h-48 overflow-y-auto">{selectedVictory.squad?.map((p, i) => (<div key={i} className="text-[10px] p-1">{p.is_captain && '(c) '}{p.is_wicket_keeper && '† '}{p.name}</div>))}</div></div>
+            <div className="bg-white dark:bg-gray-800 rounded p-3"><h3 className="font-semibold text-xs mb-2"> Winning Squad ({selectedVictory.squad?.length || 0})</h3><div className="grid grid-cols-2 gap-1 max-h-48 overflow-y-auto">{selectedVictory.squad?.map((p, i) => (<div key={i} className="text-[10px] p-1">{p.is_captain && '(c) '}{p.is_wicket_keeper && '† '}{p.name}</div>))}</div></div>
           </div>
         )}
       </div>

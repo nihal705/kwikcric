@@ -19,7 +19,7 @@ const TournamentHubPage: React.FC = () => {
     {
       id: 'odi' as const,
       name: 'ODI World Cup',
-      icon: '🏆',
+      icon: '',
       color: 'from-green-500 to-green-700',
       years: '1975 - 2026',
       editions: 13,
@@ -29,7 +29,7 @@ const TournamentHubPage: React.FC = () => {
     {
       id: 't20' as const,
       name: 'T20 World Cup',
-      icon: '⚡',
+      icon: '',
       color: 'from-purple-500 to-pink-500',
       years: '2007 - 2026',
       editions: 10,
@@ -39,7 +39,7 @@ const TournamentHubPage: React.FC = () => {
     {
       id: 'ct' as const,
       name: 'Champions Trophy',
-      icon: '🏅',
+      icon: '',
       color: 'from-blue-500 to-cyan-500',
       years: '1998 - 2025',
       editions: 9,
@@ -49,7 +49,7 @@ const TournamentHubPage: React.FC = () => {
     {
       id: 'wtc' as const,
       name: 'World Test Championship',
-      icon: '📋',
+      icon: '',
       color: 'from-red-500 to-rose-500',
       years: '2019 - Present',
       editions: 3,
@@ -59,7 +59,10 @@ const TournamentHubPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 py-6">
+    <div 
+  className="min-h-screen bg-[#f9fafb] dark:bg-[#0f172a] text-gray-900 dark:text-white" 
+  style={{ backgroundImage: 'none' }}
+>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header - Compact */}
         <div className="text-center mb-6">
@@ -68,7 +71,7 @@ const TournamentHubPage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
           >
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">🏆 Tournament Hub</h1>
+            <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">Tournament Hub</h1>
             <p className="text-xs text-gray-600 dark:text-gray-400">Explore all major ICC cricket tournaments</p>
           </motion.div>
         </div>

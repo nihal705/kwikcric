@@ -119,15 +119,18 @@ export const WorldCupDetailPage: React.FC = () => {
     const accentColor = getAccentColor();
 
     const tabs: { id: TabType; label: string; icon: string }[] = [
-        { id: 'overview', label: 'Overview', icon: '🏆' },
-        { id: 'pointsTable', label: 'Points Table', icon: '📊' },
-        { id: 'matches', label: 'Matches', icon: '🏏' },
-        { id: 'stats', label: 'Stats', icon: '📈' },
-        { id: 'achievements', label: 'Moments', icon: '⭐' },
+        { id: 'overview', label: 'Overview', icon: '' },
+        { id: 'pointsTable', label: 'Points Table', icon: '' },
+        { id: 'matches', label: 'Matches', icon: '' },
+        { id: 'stats', label: 'Stats', icon: '' },
+        { id: 'achievements', label: 'Moments', icon: '' },
     ];
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+        <div 
+        className="min-h-screen bg-[#f9fafb] dark:bg-[#0f172a] text-gray-900 dark:text-white" 
+        style={{ backgroundImage: 'none' }}
+        >
             {/* Header */}
             <div className={`relative bg-gradient-to-r ${getGradientColor()} py-8 md:py-12`}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -269,17 +272,14 @@ const OverviewSection: React.FC<{ tournament: Tournament; tournamentType: string
             {/* Tournament Info Grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6">
                 <div className="bg-white dark:bg-gray-800 rounded-lg md:rounded-xl p-3 md:p-6 shadow text-center border border-gray-200 dark:border-gray-700">
-                    <div className="text-3xl md:text-4xl mb-1 md:mb-2">📍</div>
                     <h3 className="text-xs md:text-sm font-semibold text-gray-500 mb-0.5 md:mb-1">Host Country</h3>
                     <p className="text-sm md:text-xl font-bold">{tournament.host_country}</p>
                 </div>
                 <div className="bg-white dark:bg-gray-800 rounded-lg md:rounded-xl p-3 md:p-6 shadow text-center border border-gray-200 dark:border-gray-700">
-                    <div className="text-3xl md:text-4xl mb-1 md:mb-2">🏏</div>
                     <h3 className="text-xs md:text-sm font-semibold text-gray-500 mb-0.5 md:mb-1">Total Matches</h3>
                     <p className="text-sm md:text-xl font-bold">{tournament.total_matches}</p>
                 </div>
                 <div className="bg-white dark:bg-gray-800 rounded-lg md:rounded-xl p-3 md:p-6 shadow text-center border border-gray-200 dark:border-gray-700">
-                    <div className="text-3xl md:text-4xl mb-1 md:mb-2">👥</div>
                     <h3 className="text-xs md:text-sm font-semibold text-gray-500 mb-0.5 md:mb-1">Teams</h3>
                     <p className="text-sm md:text-xl font-bold">{tournament.total_teams}</p>
                 </div>
@@ -292,7 +292,6 @@ const OverviewSection: React.FC<{ tournament: Tournament; tournamentType: string
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                         {tournament.winner_captain && (
                             <div className="flex items-center gap-2 md:gap-3 p-2 md:p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
-                                <span className="text-xl md:text-2xl">👑</span>
                                 <div>
                                     <div className="text-xs text-gray-500">Winning Captain</div>
                                     <div className="text-sm md:text-base font-semibold">{tournament.winner_captain}</div>
@@ -301,7 +300,6 @@ const OverviewSection: React.FC<{ tournament: Tournament; tournamentType: string
                         )}
                         {tournament.player_of_tournament && (
                             <div className="flex items-center gap-2 md:gap-3 p-2 md:p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
-                                <span className="text-xl md:text-2xl">⭐</span>
                                 <div>
                                     <div className="text-xs text-gray-500">Player of the Tournament</div>
                                     <div className="text-sm md:text-base font-semibold">{tournament.player_of_tournament}</div>

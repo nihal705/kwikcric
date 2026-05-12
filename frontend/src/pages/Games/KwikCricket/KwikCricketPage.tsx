@@ -348,7 +348,10 @@ const KwikCricketPage: React.FC = () => {
     const hasSquadSelected = userSquad.length === 11 && opponentSquad.length === 11;
 
     return (
-        <div className="min-h-screen bg-gray-100 dark:bg-gray-900 py-4">
+        <div 
+        className="min-h-screen bg-[#f9fafb] dark:bg-[#0f172a] text-gray-900 dark:text-white" 
+        style={{ backgroundImage: 'none' }}
+        >
             <div className="max-w-6xl mx-auto px-4">
                 {gameMode === 'setup' && (
                     <MatchSetup 

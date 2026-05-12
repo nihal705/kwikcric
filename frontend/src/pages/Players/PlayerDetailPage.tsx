@@ -690,7 +690,7 @@ const peakRankings = getPeakRankings();
 
 
   return (
-    <div className="space-y-6">
+    <div className="min-h-screen bg-[#f9fafb] dark:bg-[#0f172a] text-gray-900 dark:text-white" style={{ backgroundImage: 'none' }}>
       <Link to="/players" className="inline-flex items-center gap-2 text-gray-500 hover:text-green-600 transition">
         <FiArrowLeft />
         <span>Back to Players</span>

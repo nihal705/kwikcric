@@ -136,7 +136,10 @@ export const T20WorldCupDetailPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div 
+      className="min-h-screen bg-[#f9fafb] dark:bg-[#0f172a] text-gray-900 dark:text-white" 
+      style={{ backgroundImage: 'none' }}
+    >
       {/* Header - T20 Purple Theme */}
       <div className="relative bg-gradient-to-r from-purple-700 to-pink-700 py-8 md:py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -147,7 +150,11 @@ export const T20WorldCupDetailPage: React.FC = () => {
             ← Back to T20 World Cup
           </Link>
           <div className="text-center">
-            <div className="text-4xl md:text-5xl mb-3 md:mb-4">⚡</div>
+            <img 
+        src="/images/icc_t20i_wc_trophy.png"
+        alt="ICC Cricket World Cup Trophy"
+        className="w-16 h-16 md:w-20 md:h-20 mx-auto mb-3 md:mb-4 object-contain"
+    />
             <h1 className="text-2xl md:text-4xl font-bold text-white mb-2">
               ICC T20 World Cup {tournament.year}
             </h1>
@@ -246,7 +253,11 @@ const T20OverviewSection: React.FC<{ tournament: Tournament }> = ({ tournament }
     <div className="space-y-5 md:space-y-6">
       {/* Winner Card */}
       <div className="bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl p-5 md:p-8 text-white text-center">
-        <div className="text-4xl md:text-5xl mb-3 md:mb-4">⚡🏆</div>
+        <img 
+        src="/images/icc_t20i_wc_trophy.png"
+        alt="ICC Cricket World Cup Trophy"
+        className="w-26 h-20 md:w-20 md:h-20 mx-auto mb-3 md:mb-4 object-contain"
+        />
         <h2 className="text-2xl md:text-3xl font-bold mb-1 md:mb-2">{tournament.winner_name || 'TBD'}</h2>
         <p className="text-base md:text-lg">T20 World Cup {tournament.year} Champions</p>
         {tournament.runner_up_name && (
@@ -259,17 +270,14 @@ const T20OverviewSection: React.FC<{ tournament: Tournament }> = ({ tournament }
       {/* Tournament Info Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6">
         <div className="bg-white dark:bg-gray-800 rounded-lg md:rounded-xl p-3 md:p-6 shadow text-center border border-gray-200 dark:border-gray-700">
-          <div className="text-3xl md:text-4xl mb-1 md:mb-2">📍</div>
           <h3 className="text-xs md:text-sm font-semibold text-gray-500 mb-0.5 md:mb-1">Host Country</h3>
           <p className="text-sm md:text-xl font-bold">{tournament.host_country}</p>
         </div>
         <div className="bg-white dark:bg-gray-800 rounded-lg md:rounded-xl p-3 md:p-6 shadow text-center border border-gray-200 dark:border-gray-700">
-          <div className="text-3xl md:text-4xl mb-1 md:mb-2">🏏</div>
           <h3 className="text-xs md:text-sm font-semibold text-gray-500 mb-0.5 md:mb-1">Total Matches</h3>
           <p className="text-sm md:text-xl font-bold">{tournament.total_matches}</p>
         </div>
         <div className="bg-white dark:bg-gray-800 rounded-lg md:rounded-xl p-3 md:p-6 shadow text-center border border-gray-200 dark:border-gray-700">
-          <div className="text-3xl md:text-4xl mb-1 md:mb-2">👥</div>
           <h3 className="text-xs md:text-sm font-semibold text-gray-500 mb-0.5 md:mb-1">Teams</h3>
           <p className="text-sm md:text-xl font-bold">{tournament.total_teams}</p>
         </div>
@@ -282,7 +290,6 @@ const T20OverviewSection: React.FC<{ tournament: Tournament }> = ({ tournament }
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
             {tournament.winner_captain && (
               <div className="flex items-center gap-2 md:gap-3 p-2 md:p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
-                <span className="text-xl md:text-2xl">👑</span>
                 <div>
                   <div className="text-xs text-gray-500">Winning Captain</div>
                   <div className="text-sm md:text-base font-semibold">{tournament.winner_captain}</div>
@@ -291,7 +298,6 @@ const T20OverviewSection: React.FC<{ tournament: Tournament }> = ({ tournament }
             )}
             {tournament.player_of_tournament && (
               <div className="flex items-center gap-2 md:gap-3 p-2 md:p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
-                <span className="text-xl md:text-2xl">⭐</span>
                 <div>
                   <div className="text-xs text-gray-500">Player of the Tournament</div>
                   <div className="text-sm md:text-base font-semibold">{tournament.player_of_tournament}</div>
@@ -513,7 +519,7 @@ const T20MatchesSection: React.FC<{ matches: Match[] }> = ({ matches }) => {
       {/* Knockout Stage Section */}
       {(filter === 'all' || filter === 'knockout') && knockoutMatches.length > 0 && (
         <div className="space-y-3 md:space-y-4">
-          <h3 className="text-lg md:text-xl font-bold text-center text-gray-700 dark:text-gray-300">🏆 Knockout Stage</h3>
+          <h3 className="text-lg md:text-xl font-bold text-center text-gray-700 dark:text-gray-300"> Knockout Stage</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
             {knockoutMatches.map((match) => (
               <T20MatchCard key={match.id} match={match} isKnockout={true} />
@@ -525,7 +531,7 @@ const T20MatchesSection: React.FC<{ matches: Match[] }> = ({ matches }) => {
       {/* Super 12s Stage Section */}
       {(filter === 'all' || filter === 'super12') && superTwelveMatches.length > 0 && (
         <div className="space-y-3 md:space-y-4">
-          <h3 className="text-lg md:text-xl font-bold text-center text-gray-700 dark:text-gray-300">⚡ Super 12s</h3>
+          <h3 className="text-lg md:text-xl font-bold text-center text-gray-700 dark:text-gray-300"> Super 12s</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
             {superTwelveMatches.map((match) => (
               <T20MatchCard key={match.id} match={match} isKnockout={false} />
@@ -537,7 +543,7 @@ const T20MatchesSection: React.FC<{ matches: Match[] }> = ({ matches }) => {
       {/* Super 10s Stage Section */}
       {(filter === 'all' || filter === 'super10') && superTenMatches.length > 0 && (
         <div className="space-y-3 md:space-y-4">
-          <h3 className="text-lg md:text-xl font-bold text-center text-gray-700 dark:text-gray-300">⚡ Super 10s</h3>
+          <h3 className="text-lg md:text-xl font-bold text-center text-gray-700 dark:text-gray-300"> Super 10s</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
             {superTenMatches.map((match) => (
               <T20MatchCard key={match.id} match={match} isKnockout={false} />
@@ -549,7 +555,7 @@ const T20MatchesSection: React.FC<{ matches: Match[] }> = ({ matches }) => {
       {/* Super 8s Stage Section */}
       {(filter === 'all' || filter === 'super8') && superEightMatches.length > 0 && (
         <div className="space-y-3 md:space-y-4">
-          <h3 className="text-lg md:text-xl font-bold text-center text-gray-700 dark:text-gray-300">⚡ Super 8s</h3>
+          <h3 className="text-lg md:text-xl font-bold text-center text-gray-700 dark:text-gray-300"> Super 8s</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
             {superEightMatches.map((match) => (
               <T20MatchCard key={match.id} match={match} isKnockout={false} />

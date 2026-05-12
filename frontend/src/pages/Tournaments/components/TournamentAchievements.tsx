@@ -11,6 +11,7 @@ interface Achievement {
 interface TournamentAchievementsProps {
   tournamentId: number;
   year: number;
+  tournamentType?: string;
 }
 
 export const TournamentAchievements: React.FC<TournamentAchievementsProps> = ({ tournamentId}) => {

@@ -10,7 +10,7 @@ const HistoryPage: React.FC = () => {
   const [activeEra, setActiveEra] = useState<EraType>('origins');
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
+    <div className="min-h-screen bg-[#f9fafb] dark:bg-[#0f172a] text-gray-900 dark:text-white" style={{ backgroundImage: 'none' }}>
       {/* Hero Section - Compact */}
       <div className="bg-gradient-to-r from-gray-900 via-green-900 to-gray-900 py-8 text-center">
         <motion.div

@@ -110,7 +110,7 @@ const PlayerRankingsPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
+<div className="min-h-screen bg-[#f9fafb] dark:bg-[#0f172a] text-gray-900 dark:text-white" style={{ backgroundImage: 'none' }}>
       {/* Hero Section */}
       <div className={`relative bg-gradient-to-r ${formatsList.find(f => f.id === format)?.color || 'from-blue-600 to-purple-600'} py-12`}>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -305,7 +305,8 @@ const PlayerRankingsPage: React.FC = () => {
         </div>
 
         {/* Rankings Table */}
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl overflow-hidden border border-gray-200 dark:border-gray-700">
+<div className="bg-white dark:bg-[#1f2937] rounded-xl shadow-2xl overflow-hidden border border-gray-200 dark:border-gray-700">
+
           {loading ? (
             <div className="flex justify-center items-center h-96">
               <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>

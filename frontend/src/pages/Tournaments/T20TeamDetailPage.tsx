@@ -110,7 +110,10 @@ export const T20TeamDetailPage: React.FC = () => {
   const selectedVictory = victories.find(v => v.year === selectedYear);
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div 
+      className="min-h-screen bg-[#f9fafb] dark:bg-[#0f172a] text-gray-900 dark:text-white" 
+      style={{ backgroundImage: 'none' }}
+    >
       {/* Header - T20 Purple Theme */}
       <div className="bg-gradient-to-r from-purple-700 to-pink-700 py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -120,7 +123,13 @@ export const T20TeamDetailPage: React.FC = () => {
           <div className="flex flex-wrap items-center justify-between gap-4">
     <div>
         <div className="flex items-center gap-3">
-            <span className="text-3xl">⚡</span>
+            <span className="text-3xl">
+              <img 
+                  src="/images/icc_t20i_wc_trophy.png"
+                  alt="ICC Cricket World Cup Trophy"
+                  className="w-16 h-18 md:w-20 md:h-20 mx-auto mb-3 md:mb-4 object-contain"
+              />
+            </span>
             <div>
                 <h1 className="text-3xl md:text-4xl font-bold text-white">{team.name}</h1>
                 {/* FIX: Use t20_world_cup_wins instead of world_cup_wins */}
@@ -129,7 +138,7 @@ export const T20TeamDetailPage: React.FC = () => {
         </div>
     </div>
     {/* Trophy Year Selector */}
-    <div className="flex flex-wrap gap-2">
+    <div className="flex flex-wrap gap-3">
         {victories.map((v) => (
             <button
                 key={v.year}
@@ -140,7 +149,7 @@ export const T20TeamDetailPage: React.FC = () => {
                         : 'bg-white/20 text-white hover:bg-white/30'
                 }`}
             >
-                🏆 {v.year}
+              {v.year}
             </button>
         ))}
     </div>
@@ -264,7 +273,7 @@ export const T20TeamDetailPage: React.FC = () => {
 <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
     <div className="bg-gray-50 dark:bg-gray-700/50 px-3 py-1.5 border-b border-gray-200 dark:border-gray-700">
         <h3 className="font-semibold text-gray-700 dark:text-gray-300 text-xs">
-            🏆 Winning Squad ({selectedVictory.squad?.length || 0} players)
+             Winning Squad ({selectedVictory.squad?.length || 0} players)
         </h3>
     </div>
     <div className="p-2 max-h-96 overflow-y-auto">
