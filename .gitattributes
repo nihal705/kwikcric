@@ -4,3 +4,5 @@ frontend/src/data/**/*.ts filter=lfs diff=lfs merge=lfs -text
 frontend/src/data/**/*.json filter=lfs diff=lfs merge=lfs -text
 frontend/src/pages/Games/KwikCricket/data/**/*.ts filter=lfs diff=lfs merge=lfs -text
 frontend/src/pages/Games/KwikCricket/data/**/*.json filter=lfs diff=lfs merge=lfs -text
+frontend/src/pages/Games/CricketCards/data/**/*.ts filter=lfs diff=lfs merge=lfs -text
+frontend/src/pages/Games/CricketCards/data/**/*.json filter=lfs diff=lfs merge=lfs -text
