@@ -124,7 +124,6 @@
 ---
 
 ## Architecture
-bash```
 KwikCric
 ├── Frontend (Port 5173 - Vite/React)
 │ ├── Pages (Home, Players, Games, Tournaments, IPL, History, Auth)
@@ -164,39 +163,44 @@ PostgreSQL Query → Response → Component State → UI Update
 git clone https://github.com/nihalmohammad705-debug/kwikcric.git
 cd kwikcric
 
-Backend Setup
-bash```
+### Backend Setup
+
+```bash
 # Navigate to backend directory
 cd backend
 # Install dependencies
 npm install
 # Create .env file (see Environment Variables section)
-cp .env.example
-```
+cp .env.example .env
 
-# Backend and Frontend Setup
-bash```
-Frontend Setup
+### Frontend Setup
+
+```bash
 # Navigate to frontend directory
 cd frontend
 # Install dependencies
 npm install
 
-Start Backend Server
+### Start Backend Server
+
+```bash
 cd backend
 npm run dev
 # Server runs on http://localhost:3000
 
-Start Frontend Development Server
+### Start Frontend Development Server
+
+```bash
 cd frontend
 npm run dev
 # Application runs on http://localhost:5173
-Production Build
-bash
+
+### Production Build
+
+```bash
 # Frontend build
 cd frontend
 npm run build
-```
 
 API Endpoints
 Players
@@ -497,8 +501,7 @@ Orange Cap and Purple Cap winners
 
 Player Rankings System
 GOAT (Greatest of All Time) Scoring Methodology
-Batsmen Ranking Formula
-text```
+#### Batsmen Ranking Formula
 GOAT Score = (Average × 6) + (Runs/2000) + (Centuries × 2) + (Fifties × 0.5) + (Formats × 8) + Peak Bonus
 Weightage Distribution:
 
@@ -509,10 +512,9 @@ Centuries	15%
 Fifties	10%
 Formats Played	10%
 Peak ICC Rank	10%
-```
 
-Bowlers Ranking Formula
-text```
+
+### Bowlers Ranking Formula
 GOAT Score = (10000/Average) + (Wickets/5) + (5W × 15)
 Weightage Distribution:
 
@@ -523,15 +525,12 @@ Total Wickets	25%
 Economy Rate	10%
 Formats Played	5%
 Peak ICC Rank	5%
-```
 
-All-Rounders Ranking Formula
-text```
+#### All-Rounders Ranking Formula
 GOAT Score = (Batting GOAT Score + Bowling GOAT Score) / 2
 Minimum Requirements:
 
 2000 runs AND 50 wickets in international cricket
-```
 
 Performance Metrics (Player Detail Page)
 
@@ -557,8 +556,9 @@ Type	Description	Capabilities
 Guest	Non-registered user	Play games (stats saved to localStorage), browse content
 Registered User	Authenticated user	Full access, game stats saved to database, leaderboards
 Admin	Admin user	Content management (not exposed in frontend)
-Auth Flow
-text
+
+### Auth Flow
+
 1. User registers → Password hashed with bcrypt → JWT generated
 2. User logs in → Credentials verified → JWT returned
 3. Client stores JWT in localStorage
@@ -617,18 +617,19 @@ rm -rf node_modules package-lock.json
 npm install
 ```
 
-Browser Support
-text```
-Browser	Minimum Version	Status
-Chrome	90+	 Fully Supported
-Firefox	88+	 Fully Supported
-Safari	14+	 Fully Supported
-Edge	90+	 Fully Supported
-Opera	76+	 Supported
-Mobile Chrome	90+	 Supported
-Mobile Safari	14+	 Supported
-Note: Internet Explorer is NOT supported.
-```
+## Browser Support
+
+| Browser | Minimum Version | Status |
+|---------|-----------------|--------|
+| Chrome | 90+ | ✅ Fully Supported |
+| Firefox | 88+ | ✅ Fully Supported |
+| Safari | 14+ | ✅ Fully Supported |
+| Edge | 90+ | ✅ Fully Supported |
+| Opera | 76+ | ✅ Supported |
+| Mobile Chrome | 90+ | ✅ Supported |
+| Mobile Safari | 14+ | ✅ Supported |
+
+**Note:** Internet Explorer is NOT supported.
 
 Performance Optimization
 
