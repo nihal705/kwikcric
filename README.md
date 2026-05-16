@@ -102,6 +102,7 @@
 ---
 
 ## Architecture
+```text
 KwikCric
 ├── Frontend (Port 5173 - Vite/React)
 │ ├── Pages (Home, Players, Games, Tournaments, IPL, History, Auth)
@@ -116,7 +117,7 @@ KwikCric
 ├── Routes (API endpoints)
 ├── Middleware (Auth, CORS, logging)
 └── PostgreSQL Database
-
+```
 
 ### Data Flow
 User Action → React Component → Service Layer → API Call → Express Route →
@@ -187,6 +188,7 @@ npm run build
 ```
 
 ### API Endpoints
+```text
 Players
 Method	Endpoint	Description
 GET	/api/players	Get paginated list of players with filters
@@ -237,6 +239,7 @@ GET	/api/kwik-cricket/stats	Get user statistics
 Health Check
 Method	Endpoint	Description
 GET	/health	Check server and database status
+```
 
 📁 Project Structure
 ```text
