@@ -11,28 +11,6 @@
 
 ---
 
-## Table of Contents
-
-- [Overview](#overview)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Architecture](#architecture)
-- [Installation & Setup](#installation--setup)
-- [Database Setup](#database-setup)
-- [Environment Variables](#environment-variables)
-- [Running the Application](#running-the-application)
-- [API Endpoints](#api-endpoints)
-- [Project Structure](#project-structure)
-- [Key Components](#key-components)
-- [Games Overview](#games-overview)
-- [Tournament Hub](#tournament-hub)
-- [Player Rankings System](#player-rankings-system)
-- [Authentication & Authorization](#authentication--authorization)
-- [Dark Mode Support](#dark-mode-support)
-- [License](#license)
-
----
-
 ## Overview
 
 **KwikCric** is a comprehensive cricket platform that combines **extensive cricket statistics**, **interactive games**, **tournament history**, and **player rankings** in one unified web application. Built with modern technologies, KwikCric delivers a seamless experience for cricket enthusiasts to explore data, play games, and track their progress.
@@ -124,6 +102,7 @@
 ---
 
 ## Architecture
+```text
 KwikCric
 ├── Frontend (Port 5173 - Vite/React)
 │ ├── Pages (Home, Players, Games, Tournaments, IPL, History, Auth)
@@ -138,6 +117,7 @@ KwikCric
 ├── Routes (API endpoints)
 ├── Middleware (Auth, CORS, logging)
 └── PostgreSQL Database
+```
 
 ### Data Flow
 User Action → React Component → Service Layer → API Call → Express Route →
@@ -161,46 +141,54 @@ PostgreSQL Query → Response → Component State → UI Update
 ```bash
 git clone https://github.com/nihalmohammad705-debug/kwikcric.git
 cd kwikcric
+```
 
-Backend Setup
-bash```
+### Backend Setup
+
+```bash
 # Navigate to backend directory
 cd backend
 # Install dependencies
 npm install
 # Create .env file (see Environment Variables section)
-cp .env.example
+cp .env.example .env
 ```
 
-# Edit .env with your database credentials
-Frontend Setup
-bash```
+### Frontend Setup
+
+```bash
 # Navigate to frontend directory
 cd frontend
 # Install dependencies
 npm install
 ```
 
-Start Backend Server
-bash```
+### Start Backend Server
+
+```bash
 cd backend
 npm run dev
 # Server runs on http://localhost:3000
 ```
 
-Start Frontend Development Server
-bash```
+### Start Frontend Development Server
+
+```bash
 cd frontend
 npm run dev
 # Application runs on http://localhost:5173
-Production Build
-bash
+```
+
+### Production Build
+
+```bash
 # Frontend build
 cd frontend
 npm run build
 ```
 
-API Endpoints
+### API Endpoints
+```text
 Players
 Method	Endpoint	Description
 GET	/api/players	Get paginated list of players with filters
@@ -251,9 +239,10 @@ GET	/api/kwik-cricket/stats	Get user statistics
 Health Check
 Method	Endpoint	Description
 GET	/health	Check server and database status
+```
 
 📁 Project Structure
-text```
+```text
 kwikcric/
 ├── frontend/
 │   ├── src/
@@ -373,8 +362,10 @@ kwikcric/
 └── README.md
 ```
 
-Games Overview
+### Games Overview
+
 1. Kwik Cricket 
+
 Fast-paced cricket simulation game with full match experience.
 
 Features:
@@ -399,7 +390,7 @@ Game Modes:
 
 Full Match - Complete innings with target chasing
 
-Kwik Play - Quick 1-over challenge
+Kwik Play - Quick 1/2-over challenge
 
 Storage:
 
@@ -408,6 +399,7 @@ Authenticated users: Saved to database
 Guest users: Saved to localStorage
 
 2. Cricket Mastermind 
+
 Test your cricket knowledge with thousands of questions.
 
 Game Modes:
@@ -451,6 +443,7 @@ Accuracy percentage
 Local storage for guest stats
 
 3. Imposter 
+
 Social deduction game where players must identify the imposter among them.
 
 How to Play:
@@ -480,6 +473,7 @@ IPL Teams
 World Cups
 
 4. Cricket Cards 
+
 Collectible card game featuring cricket players.
 
 Features:
@@ -516,8 +510,10 @@ Premium Pack (50 Gems)
 
 Legendary Pack (200 Gems)
 
-Tournament Hub
-ODI World Cup
+### Tournament Hub
+
+ODI World Cup:
+
 Complete history from 1975 to 2023
 
 Team rankings with titles and runner-up counts
@@ -530,7 +526,8 @@ Tournament stats for each edition
 
 Achievements and memorable moments
 
-T20 World Cup
+T20 World Cup:
+
 Complete history from 2007 to 2024
 
 Support for multiple formats (Super 8s, Super 10s, Super 12s)
@@ -539,14 +536,16 @@ Abandoned match handling (rain-affected matches)
 
 Group stage and knockout filters
 
-Champions Trophy
+Champions Trophy:
+
 History from 1998 to 2025
 
 Known as cricket's "Mini World Cup"
 
 Complete edition details
 
-World Test Championship
+World Test Championship:
+
 WTC cycles from 2019-present
 
 Team rankings
@@ -555,21 +554,19 @@ All-time records
 
 Additional stats (wicket-keepers, most catches, highest scores, best bowling)
 
-IPL
-Complete coverage from 2008 to 2024
+IPL:
 
 Team rankings
-
-Season details with points table and playoffs
 
 Player database with IPL-specific stats
 
 Orange Cap and Purple Cap winners
 
-Player Rankings System
+### Player Rankings System
+
 GOAT (Greatest of All Time) Scoring Methodology
-Batsmen Ranking Formula
-text
+
+#### Batsmen Ranking Formula
 GOAT Score = (Average × 6) + (Runs/2000) + (Centuries × 2) + (Fifties × 0.5) + (Formats × 8) + Peak Bonus
 Weightage Distribution:
 
@@ -580,8 +577,9 @@ Centuries	15%
 Fifties	10%
 Formats Played	10%
 Peak ICC Rank	10%
-Bowlers Ranking Formula
-text
+
+
+### Bowlers Ranking Formula
 GOAT Score = (10000/Average) + (Wickets/5) + (5W × 15)
 Weightage Distribution:
 
@@ -592,44 +590,60 @@ Total Wickets	25%
 Economy Rate	10%
 Formats Played	5%
 Peak ICC Rank	5%
-All-Rounders Ranking Formula
-text
+
+#### All-Rounders Ranking Formula
 GOAT Score = (Batting GOAT Score + Bowling GOAT Score) / 2
 Minimum Requirements:
 
 2000 runs AND 50 wickets in international cricket
 
-Performance Metrics (Player Detail Page)
-Batting Metrics
+### Performance Metrics (Player Detail Page)
+
+Batting Metrics:
+
 Metric	Description
+
 Consistency	Based on big scores (50s + 100s×2) per match
+
 Power Hitting	Based on sixes per match
+
 Acceleration	Based on strike rate
+
 Pressure Rating	Based on batting average
+
 Longevity	Based on matches played
-Bowling Metrics
+
+
+Bowling Metrics:
+
 Metric	Description
+
 Accuracy	Based on bowling average (lower is better)
+
 Wicket Taking	Based on wickets per match
+
 Economy	Based on economy rate
+
 Strike Rate	Based on balls per wicket
+
 Match Winning	Based on 5-wicket hauls
 
-Authentication & Authorization
+### Authentication & Authorization
 User Types
 Type	Description	Capabilities
 Guest	Non-registered user	Play games (stats saved to localStorage), browse content
 Registered User	Authenticated user	Full access, game stats saved to database, leaderboards
 Admin	Admin user	Content management (not exposed in frontend)
-Auth Flow
-text
+
+### Auth Flow
+
 1. User registers → Password hashed with bcrypt → JWT generated
 2. User logs in → Credentials verified → JWT returned
 3. Client stores JWT in localStorage
 4. Subsequent requests include JWT in Authorization header
 5. Protected routes verify JWT before rendering
 
-Protected Routes
+### Protected Routes
 The following routes require authentication:
 
 /games/kwik-cricket - Full game experience (guest mode available separately)
@@ -638,7 +652,7 @@ The following routes require authentication:
 
 /profile (if implemented)
 
-Dark Mode Support
+##Dark Mode Support
 KwikCric features full dark mode support with:
 
 System preference detection - Automatically matches OS preference
@@ -681,79 +695,121 @@ rm -rf node_modules package-lock.json
 npm install
 ```
 
-Browser Support
-Browser	Minimum Version	Status
-Chrome	90+	✅ Fully Supported
-Firefox	88+	✅ Fully Supported
-Safari	14+	✅ Fully Supported
-Edge	90+	✅ Fully Supported
-Opera	76+	✅ Supported
-Mobile Chrome	90+	✅ Supported
-Mobile Safari	14+	✅ Supported
-Note: Internet Explorer is NOT supported.
+## Browser Support
 
-Performance Optimization
+| Browser | Minimum Version | Status |
+|---------|-----------------|--------|
+| Chrome | 90+ | Fully Supported |
+| Firefox | 88+ | Fully Supported |
+| Safari | 14+ | Fully Supported |
+| Edge | 90+ | Fully Supported |
+| Opera | 76+ | Supported |
+| Mobile Chrome | 90+ | Supported |
+| Mobile Safari | 14+ | Supported |
+
+**Note:** Internet Explorer is NOT supported.
+
+### Performance Optimization
+
 Frontend Optimizations Implemented
+
 Technique	Implementation
+
 Code Splitting	Lazy loading for pages using React.lazy()
+
 Image Optimization	Player images with fallback SVGs
+
 Infinite Scroll	Reduces initial load time for player lists (24 items per batch)
+
 Debounced Search	500ms delay reduces API calls during typing
+
 Memoization	React.memo for frequently rendered components
+
 Tailwind JIT	Just-in-time compilation for minimal CSS
+
 Backend Optimizations Implemented
+
 Technique	Implementation
+
 Database Indexes	Indexed columns: player_name, format, tournament_id
+
 Query Optimization	Using appropriate JOINs and WHERE clauses
+
 Connection Pooling	PostgreSQL connection reuse via pg.Pool
+
 Pagination	Limit/offset for all list endpoints
+
 Caching Ready	Structure supports Redis caching (optional)
+
 Lighthouse Scores (Expected)
+
 Metric	Score
+
 Performance	85-95
+
 Accessibility	90-95
+
 Best Practices	90-100
+
 SEO	85-95
-Security Features
+
+### Security Features
+
 Feature	Implementation
+
 JWT Authentication	Stateless authentication with 7-day expiration
+
 Password Hashing	bcrypt with 10 salt rounds
+
 SQL Injection Prevention	Parameterized queries throughout
+
 CORS Configuration	Restricted to allowed origins only
+
 Environment Variables	Sensitive data never hardcoded
+
 Guest Mode Isolation	Guest data only in localStorage, never sent to backend
+
 Input Validation	All API inputs validated before processing
-Security Headers (Recommended for Production)
-javascript
-// Add to Express backend
-app.use(helmet());
-app.use(rateLimit({ windowMs: 15 * 60 * 1000, max: 100 }));
 
 ⚠️ Note
 KwikCric is a personal project created and maintained by Nihal. While every effort is made to respond to inquiries, response times may vary based on availability.
 
-Acknowledgments
+### Acknowledgments
+
 Data Sources
+
 ICC - Tournament structures and official records
+
 ESPNcricinfo - Historical cricket statistics and player data
+
 Wikipedia - Tournament history and results
 
 Open Source Libraries
+
 Library	Purpose
+
 React	UI Framework
+
 Tailwind CSS	Styling
+
 Framer Motion	Animations
+
 Recharts	Data visualization
+
 React Hot Toast	Notifications
+
 Express	Backend framework
+
 PostgreSQL	Database
+
 Special Thanks
+
 Cricket community for inspiration and feedback
 
 Open source contributors of all dependencies used in this project
 
-Proprietary License
-text```
+### Proprietary License
+```text
 License Summary
 License Type	Proprietary / All Rights Reserved
 Copyright Holder	Mohammad Nihal
@@ -764,8 +820,8 @@ Source Code Access	🔒 Restricted
 Attribution	✅ Required if permitted in writing
 ```
 
-Disclaimer
-text```
+### Disclaimer
+```text
 KwikCric is an independent project and is not affiliated, associated, authorized, endorsed by, or in any way officially connected with:
 
 International Cricket Council (ICC)
@@ -779,7 +835,7 @@ Any cricket board or official cricket organization
 All data displayed is for informational and entertainment purposes only. Player images and team logos are property of their respective owners. If you are a copyright holder and believe any content on this platform infringes upon your rights, please contact the developer for prompt resolution.
 ```
 
-Final Notes
+### Final Notes
 KwikCric is the result of countless hours of development, database design, and a deep passion for cricket. Every feature, from the GOAT ranking algorithm to the interactive games, was built with cricket fans in mind.
 
 If you enjoy using KwikCric, consider:
@@ -792,19 +848,27 @@ Suggesting features you'd like to see
 
 Sharing feedback via email
 
-Contact & Support
+### Contact & Support
 KwikCric is a solo-developed project by Nihal, here are the ways to get in touch:
 
 GitHub: github.com/nihalmohammad705-debug
 
 📧 Email
+
 nihalmohammad705@gmail.com
+
 (For bugs, feature requests, licensing inquiries, or collaborations)
 
 Bug Reports
+
 For reporting bugs or issues, please include:
+
 Detailed description of the issue
+
 Steps to reproduce
+
 Screenshot or screen recording (if applicable)
+
 Browser and OS version
+
 Console errors (if any)
