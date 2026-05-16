@@ -74,6 +74,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
       { path: '/world-cup/t20', label: 'T20I World Cup' },
       { path: '/champions-trophy', label: 'Champions Trophy' },
       { path: '/wtc', label: 'WTC' },
+      { path: '/ipl', label: 'IPL' }, 
     ]
   },
   { 

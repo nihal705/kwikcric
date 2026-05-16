@@ -9,7 +9,6 @@ import { PlayersPage } from './pages/Players/PlayersPage';
 import { PlayerDetailPage } from './pages/Players/PlayerDetailPage';
 import PlayerRankingsPage from './pages/Players/PlayerRankingsPage';
 import TeamRankingsPage from './pages/Players/Teams/TeamRankingsPage';
-import TournamentsPage from './pages/Tournaments/TournamentsPage';
 import { GamesPage } from './pages/Games/GamesPage';
 import { QuickCricketPage } from './pages/Games/QuickCricketPage';
 import { LiveScoresPage } from './pages/Live/LiveScoresPage';
@@ -37,6 +36,10 @@ import CricketMastermindPage from './pages/Games/CricketMastermind/CricketMaster
 import GamesHistoryHubPage from './pages/Games/GamesHistoryHubPage';
 import ImposterPage from './pages/Games/Imposter/ImposterPage';
 import CricketCardsPage from './pages/Games/CricketCards/CricketCardsPage';
+import { IPLHub } from './pages/IPL/IPLHub';
+import { IPLSeasonDetailPage } from './pages/IPL/IPLSeasonDetailPage';
+import { IPLPlayersPage } from './pages/IPL/IPLPlayersPage';
+import { IPLPlayerDetailPage } from './pages/IPL/IPLPlayerDetailPage';
 
 function App() {
   const [darkMode, setDarkMode] = useState(() => {
@@ -71,8 +74,6 @@ useEffect(() => {
               <Route path="/player/:id" element={<PlayerDetailPage />} />
               <Route path="/players/rankings" element={<PlayerRankingsPage />} />
               <Route path="/team-rankings" element={<TeamRankingsPage />} />
-              <Route path="/tournaments" element={<TournamentsPage />} />
-              <Route path="/ipl" element={<TournamentsPage />} />
               {/* ODI World Cup Routes */}
               <Route path="/world-cup" element={<WorldCupHub />} />
               <Route path="/world-cup/:year" element={<WorldCupDetailPage />} />
@@ -107,6 +108,10 @@ useEffect(() => {
               <Route path="/wtc/team/:teamName" element={<WTCTeamDetailPage />} />
               <Route path="/games/imposter" element={<ImposterPage />} />
               <Route path="/games/cricket-cards" element={<CricketCardsPage />} />
+              <Route path="/ipl" element={<IPLHub />} />
+              <Route path="/ipl/:year" element={<IPLSeasonDetailPage />} />
+              <Route path="/ipl/players" element={<IPLPlayersPage />} />
+              <Route path="/ipl/player/:id" element={<IPLPlayerDetailPage />} />
             </Routes>
           </main>
           <Footer />
