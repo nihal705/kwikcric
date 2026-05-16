@@ -22,13 +22,12 @@ export const GamesPreview: React.FC = () => {
       tag: "1000+ Questions",
     },
     {
-      title: "Coming Soon",
+      title: "Cricket Players Card",
       icon: "",
-      description: "Guess the player from hints and clues",
-      link: "#",
+      description: "Collect your favourite player card",
+      link: "/games/cricket-cards",
       color: "from-blue-500 to-cyan-600",
-      tag: "Coming Soon",
-      disabled: true,
+      tag: "Mythic, Legendry, Elite",
     },
   ];
 
@@ -59,14 +58,7 @@ export const GamesPreview: React.FC = () => {
               viewport={{ once: true }}
               whileHover={{ y: -4 }}
             >
-              {game.disabled ? (
-                <div className={`bg-gradient-to-br ${game.color} rounded-xl p-5 text-white text-center opacity-75 cursor-not-allowed`}>
-                  <div className="text-4xl mb-2">{game.icon}</div>
-                  <h3 className="text-lg font-bold mb-1">{game.title}</h3>
-                  <p className="text-white/80 text-xs mb-3">{game.description}</p>
-                  <div className="text-[10px] bg-white/20 rounded-full px-2 py-0.5 inline-block">{game.tag}</div>
-                </div>
-              ) : (
+              {(
                 <Link to={game.link}>
                   <div className={`bg-gradient-to-br ${game.color} rounded-xl p-5 text-white text-center hover:scale-105 transition-all duration-300 shadow-lg cursor-pointer`}>
                     <div className="text-4xl mb-2">{game.icon}</div>

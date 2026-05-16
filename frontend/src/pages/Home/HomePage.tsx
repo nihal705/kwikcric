@@ -19,7 +19,6 @@ const HomePage: React.FC = () => {
   }, []);
 
   return (
-    // CHANGE THIS LINE - REMOVE dark:bg-gray-900
     <div className="min-h-screen bg-gray-50">
       <HeroSection />
       <StatsDashboard />
