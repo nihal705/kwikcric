@@ -124,6 +124,7 @@
 ---
 
 ## Architecture
+text```
 KwikCric
 ├── Frontend (Port 5173 - Vite/React)
 │ ├── Pages (Home, Players, Games, Tournaments, IPL, History, Auth)
@@ -138,6 +139,7 @@ KwikCric
 ├── Routes (API endpoints)
 ├── Middleware (Auth, CORS, logging)
 └── PostgreSQL Database
+```
 
 ### Data Flow
 User Action → React Component → Service Layer → API Call → Express Route →
@@ -172,24 +174,20 @@ npm install
 cp .env.example
 ```
 
-# Edit .env with your database credentials
-Frontend Setup
+# Backend and Frontend Setup
 bash```
+Frontend Setup
 # Navigate to frontend directory
 cd frontend
 # Install dependencies
 npm install
-```
 
 Start Backend Server
-bash```
 cd backend
 npm run dev
 # Server runs on http://localhost:3000
-```
 
 Start Frontend Development Server
-bash```
 cd frontend
 npm run dev
 # Application runs on http://localhost:5173
@@ -374,202 +372,133 @@ kwikcric/
 ```
 
 Games Overview
+
 1. Kwik Cricket 
 Fast-paced cricket simulation game with full match experience.
 
 Features:
-
 Multiple overs (1, 2, 4, 6, 10 overs)
-
 AI opponent with difficulty levels (Easy, Medium, Hard)
-
 Two-player mode
-
 Squad selection from real players
-
 Batting order customization
-
 Live commentary
-
 Full scorecard with batting/bowling stats
-
 Match history and statistics tracking
 
 Game Modes:
-
 Full Match - Complete innings with target chasing
-
-Kwik Play - Quick 1-over challenge
+Kwik Play - Quick 1/2-over challenge
 
 Storage:
-
 Authenticated users: Saved to database
-
 Guest users: Saved to localStorage
 
 2. Cricket Mastermind 
 Test your cricket knowledge with thousands of questions.
 
 Game Modes:
-
 Quick Quiz - Random questions with time limit
-
 Challenge Mode - Progressive difficulty with lives
-
 Fill the Table - Complete missing data in cricket tables
 
 Categories:
-
 All-Mode (mix of all categories)
-
 Players & Records
-
 World Cups
-
 IPL
-
 Cricket History
 
 Difficulty Levels:
-
 Easy - Basic cricket knowledge
-
 Medium - Intermediate questions
-
 Hard - Expert-level trivia
 
 Features:
-
 Score tracking
-
 Streak bonuses
-
 Best streak records
-
 Accuracy percentage
-
 Local storage for guest stats
 
 3. Imposter 
 Social deduction game where players must identify the imposter among them.
 
 How to Play:
-
 Choose game mode (Local Multiplayer or VS Bots)
-
 Select theme (Cricket Players, IPL Teams, World Cups)
-
 Players receive cards - one player gets a different hint (imposter)
-
 Each player describes their card without revealing it
-
 Players vote on who they think is the imposter
 
 Game Modes:
-
 Local Multiplayer - Pass-and-play with friends
-
 VS Bots - Play against AI opponents
 
 Themes:
-
 Cricket Players
-
 IPL Teams
-
 World Cups
 
 4. Cricket Cards 
 Collectible card game featuring cricket players.
 
 Features:
-
 Card Packs - Open standard, premium, and legendary packs
-
 Daily Rewards - Claim rewards for consecutive logins
-
 Achievements - Unlock achievements for collecting cards
-
 Currency System - Earn KwikCric Coins and Gems
-
 Card Rarities - Common, Rare, Epic, Legendary, Mythic
-
 Collection Sets - Complete themed sets for bonus rewards
-
 Favorites - Mark your favorite cards
 
 Card Types:
-
 Batsmen cards
-
 Bowler cards
-
 All-rounder cards
-
 Wicket-keeper cards
 
 Shop Items:
-
 Standard Pack (100 Coins)
-
 Premium Pack (50 Gems)
-
 Legendary Pack (200 Gems)
 
 Tournament Hub
-ODI World Cup
+
+ODI World Cup:
 Complete history from 1975 to 2023
-
 Team rankings with titles and runner-up counts
-
 All-time records (most runs, wickets, sixes, hundreds)
-
 Greatest matches (highest scoring, closest finishes)
-
 Tournament stats for each edition
-
 Achievements and memorable moments
 
-T20 World Cup
+T20 World Cup:
 Complete history from 2007 to 2024
-
 Support for multiple formats (Super 8s, Super 10s, Super 12s)
-
 Abandoned match handling (rain-affected matches)
-
 Group stage and knockout filters
 
-Champions Trophy
+Champions Trophy:
 History from 1998 to 2025
-
 Known as cricket's "Mini World Cup"
-
 Complete edition details
 
-World Test Championship
+World Test Championship:
 WTC cycles from 2019-present
-
 Team rankings
-
 All-time records
-
 Additional stats (wicket-keepers, most catches, highest scores, best bowling)
 
-IPL
-Complete coverage from 2008 to 2024
-
+IPL:
 Team rankings
-
-Season details with points table and playoffs
-
 Player database with IPL-specific stats
-
 Orange Cap and Purple Cap winners
 
 Player Rankings System
 GOAT (Greatest of All Time) Scoring Methodology
 Batsmen Ranking Formula
-text
+text```
 GOAT Score = (Average × 6) + (Runs/2000) + (Centuries × 2) + (Fifties × 0.5) + (Formats × 8) + Peak Bonus
 Weightage Distribution:
 
@@ -580,8 +509,10 @@ Centuries	15%
 Fifties	10%
 Formats Played	10%
 Peak ICC Rank	10%
+```
+
 Bowlers Ranking Formula
-text
+text```
 GOAT Score = (10000/Average) + (Wickets/5) + (5W × 15)
 Weightage Distribution:
 
@@ -592,14 +523,18 @@ Total Wickets	25%
 Economy Rate	10%
 Formats Played	5%
 Peak ICC Rank	5%
+```
+
 All-Rounders Ranking Formula
-text
+text```
 GOAT Score = (Batting GOAT Score + Bowling GOAT Score) / 2
 Minimum Requirements:
 
 2000 runs AND 50 wickets in international cricket
+```
 
 Performance Metrics (Player Detail Page)
+
 Batting Metrics
 Metric	Description
 Consistency	Based on big scores (50s + 100s×2) per match
@@ -607,6 +542,7 @@ Power Hitting	Based on sixes per match
 Acceleration	Based on strike rate
 Pressure Rating	Based on batting average
 Longevity	Based on matches played
+
 Bowling Metrics
 Metric	Description
 Accuracy	Based on bowling average (lower is better)
@@ -682,17 +618,20 @@ npm install
 ```
 
 Browser Support
+text```
 Browser	Minimum Version	Status
-Chrome	90+	✅ Fully Supported
-Firefox	88+	✅ Fully Supported
-Safari	14+	✅ Fully Supported
-Edge	90+	✅ Fully Supported
-Opera	76+	✅ Supported
-Mobile Chrome	90+	✅ Supported
-Mobile Safari	14+	✅ Supported
+Chrome	90+	 Fully Supported
+Firefox	88+	 Fully Supported
+Safari	14+	 Fully Supported
+Edge	90+	 Fully Supported
+Opera	76+	 Supported
+Mobile Chrome	90+	 Supported
+Mobile Safari	14+	 Supported
 Note: Internet Explorer is NOT supported.
+```
 
 Performance Optimization
+
 Frontend Optimizations Implemented
 Technique	Implementation
 Code Splitting	Lazy loading for pages using React.lazy()
@@ -701,6 +640,7 @@ Infinite Scroll	Reduces initial load time for player lists (24 items per batch)
 Debounced Search	500ms delay reduces API calls during typing
 Memoization	React.memo for frequently rendered components
 Tailwind JIT	Just-in-time compilation for minimal CSS
+
 Backend Optimizations Implemented
 Technique	Implementation
 Database Indexes	Indexed columns: player_name, format, tournament_id
@@ -714,6 +654,7 @@ Performance	85-95
 Accessibility	90-95
 Best Practices	90-100
 SEO	85-95
+
 Security Features
 Feature	Implementation
 JWT Authentication	Stateless authentication with 7-day expiration
@@ -723,11 +664,6 @@ CORS Configuration	Restricted to allowed origins only
 Environment Variables	Sensitive data never hardcoded
 Guest Mode Isolation	Guest data only in localStorage, never sent to backend
 Input Validation	All API inputs validated before processing
-Security Headers (Recommended for Production)
-javascript
-// Add to Express backend
-app.use(helmet());
-app.use(rateLimit({ windowMs: 15 * 60 * 1000, max: 100 }));
 
 ⚠️ Note
 KwikCric is a personal project created and maintained by Nihal. While every effort is made to respond to inquiries, response times may vary based on availability.
@@ -783,13 +719,9 @@ Final Notes
 KwikCric is the result of countless hours of development, database design, and a deep passion for cricket. Every feature, from the GOAT ranking algorithm to the interactive games, was built with cricket fans in mind.
 
 If you enjoy using KwikCric, consider:
-
 Starring the repository on GitHub
-
 Reporting bugs you encounter
-
 Suggesting features you'd like to see
-
 Sharing feedback via email
 
 Contact & Support
