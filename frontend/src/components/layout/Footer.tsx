@@ -1,72 +1,52 @@
 // src/components/layout/Footer.tsx
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
-  const sections = [
-    {
-      title: 'Explore',
-      links: [
-        { label: 'Player Rankings', path: '/players/rankings' },
-        { label: 'Team Rankings', path: '/teams/rankings' },
-        { label: 'Tournaments', path: '/tournaments' },
-      ]
-    },
-    {
-      title: 'Games',
-      links: [
-        { label: 'Quick Cricket', path: '/games/quick-cricket' },
-        { label: 'Cricket Quiz', path: '/games/quiz' },
-      ]
-    },
-    {
-      title: 'Resources',
-      links: [
-        { label: 'About Us', path: '/about' },
-        { label: 'Contact', path: '/contact' },
-        { label: 'Privacy Policy', path: '/privacy' },
-      ]
-    },
-  ];
-
   return (
-    <footer className="bg-gray-900 text-white mt-auto">
-      <div className="max-w-7xl mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Brand */}
-          <div>
-            <Link to="/" className="flex-shrink-0">
-                        <span className="text-xl font-bold tracking-tight text-white-900 dark:text-white">
-                          Kwik<span className="text-green-600 dark:text-green-500">Cric</span>
-                        </span>
-                      </Link>
-            <p className="text-gray-400 text-sm">
-              The ultimate cricket analytics platform featuring player rankings, team statistics, 
-              tournament history, and interactive games.
-            </p>
-          </div>
+    <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 mt-auto">
+      <div className="max-w-7xl mx-auto px-4 py-4">
+        {/* Everything in one row */}
+        <div className="flex items-center justify-between">
+          
+          {/* Logo + Name - Left */}
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            className="flex items-center gap-2"
+          >
+            <img 
+              src="/images/KwikCric_logo.png" 
+              alt="KwikCric Logo" 
+              className="w-6 h-6 object-contain"
+            />
+            <Link to="/">
+              <span className="text-lg font-bold tracking-tight text-gray-900 dark:text-white">
+                Kwik<span className="text-green-600 dark:text-green-500">Cric</span>
+              </span>
+            </Link>
+          </motion.div>
 
-          {/* Links */}
-          {sections.map((section) => (
-            <div key={section.title}>
-              <h3 className="font-semibold text-lg mb-4">{section.title}</h3>
-              <ul className="space-y-2">
-                {section.links.map((link) => (
-                  <li key={link.path}>
-                    <Link to={link.path} className="text-gray-400 hover:text-green-400 transition">
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+          {/* Copyright - Center */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className="text-xs text-gray-400 dark:text-gray-500"
+          >
+            © {currentYear} KwikCric. All rights reserved.
+          </motion.p>
 
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
-          <p>&copy; {currentYear} Cricket Universe. All rights reserved.</p>
+          {/* Animated Bat - Right (invisible spacer to balance) */}
+          <motion.div
+            animate={{ rotate: [-5, 5, -5] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="text-2xl opacity-30"
+          >
+            🏏
+          </motion.div>
         </div>
       </div>
     </footer>
