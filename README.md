@@ -139,7 +139,7 @@ KwikCric
 ├── Routes (API endpoints)
 ├── Middleware (Auth, CORS, logging)
 └── PostgreSQL Database
-```
+
 
 ### Data Flow
 User Action → React Component → Service Layer → API Call → Express Route →
