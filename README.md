@@ -124,7 +124,7 @@
 ---
 
 ## Architecture
-text```
+bash```
 KwikCric
 ├── Frontend (Port 5173 - Vite/React)
 │ ├── Pages (Home, Players, Games, Tournaments, IPL, History, Auth)
