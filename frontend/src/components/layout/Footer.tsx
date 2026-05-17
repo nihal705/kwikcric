@@ -29,17 +29,30 @@ export const Footer: React.FC = () => {
             </Link>
           </motion.div>
 
-          {/* Copyright - Center */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className="text-xs text-gray-400 dark:text-gray-500"
-          >
-            © {currentYear} KwikCric. All rights reserved.
-          </motion.p>
+          {/* Copyright + GitHub - Center */}
+          <div className="text-center">
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3 }}
+              className="text-xs text-gray-400 dark:text-gray-500"
+            >
+              © {currentYear} KwikCric. All rights reserved.
+            </motion.p>
+            <motion.a
+              href="https://github.com/nihalmohammad705-debug"
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
+              className="text-xs text-gray-400 dark:text-gray-500 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-200 flex items-center justify-center gap-1 mt-1"
+            >
+              <span>GITHUB : </span> nihalmohammad705-debug
+            </motion.a>
+          </div>
 
-          {/* Animated Bat - Right (invisible spacer to balance) */}
+          {/* Animated Bat - Right */}
           <motion.div
             animate={{ rotate: [-5, 5, -5] }}
             transition={{ duration: 2, repeat: Infinity }}

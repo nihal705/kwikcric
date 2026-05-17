@@ -7,9 +7,9 @@ const router = express.Router();
 const pool = new Pool({
     host: 'localhost',
     port: 5432,
-    database: 'cricket_universe',
-    user: 'postgres',
-    password: 'Nihal@786313',
+    database: 'Your_db_name',
+    user: 'your_user_name',
+    password: 'your_password_here',
 });
 
 // Save game session
