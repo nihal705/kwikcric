@@ -5,6 +5,8 @@
 *.backup
 backend/.env
 frontend/.env
+frontend/.env.development
+backend/src/server.js
 
 # Files with passwords - EXCLUDE FROM PUSH
 backend/src/config/database/postgres.ts

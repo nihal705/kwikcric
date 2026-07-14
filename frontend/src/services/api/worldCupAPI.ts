@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { Tournament, TeamRanking, Match, PointsTableEntry, FullTournamentDetails } from './types';
+import { API_BASE_URL } from './config';
 
 // Add these types for stats
 export interface TournamentLeader {
@@ -53,8 +54,6 @@ export interface GreatestMatch {
   margin_type: string;
   venue: string;
 }
-
-const API_BASE_URL = 'http://localhost:3000/api';
 
 class WorldCupAPI {
   private baseUrl = `${API_BASE_URL}/world-cup`;

@@ -4,6 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const { Pool } = require('pg');
 require('dotenv').config();
+console.log('DATABASE_URL:', process.env.DATABASE_URL ? '✅ Loaded' : '❌ Not found');
 const pollRoutes = require('./router/v1/pollRoutes');
 const kwikCricketRoutes = require('./router/v1/kwikCricketRoutes');
 const authRoutes = require('./router/v1/authRoutes');
@@ -24,11 +25,7 @@ const io = socketIo(server, {
 });
 
 const pool = new Pool({
-    host: 'localhost',
-    port: 5432,
-    database: 'your_db_name_here',
-    user: 'your_user_name',
-    password: 'your_password_here',
+    connectionString: process.env.DATABASE_URL || 'postgresql://postgres:Nihal@786313@localhost:5432/cricket_universe',
 });
 
 const imposterRooms = new Map();
