@@ -20,7 +20,6 @@ scripts/bulkMapPlayers.js
 scripts/find-passwords.js
 scripts/
 
-data/
 *.yaml
 *.yml
 
