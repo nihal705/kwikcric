@@ -72,7 +72,6 @@ backend/src/sockets/
 
 # Root files
 package-lock.json
-package.json
 
 # Deployment and documentation files
 DEPLOYMENT.md
@@ -113,6 +112,4 @@ database/t20_wc_match_details.sql
 
 # Root files
 package-lock.json
-package.json
 players_overall_goat_ranking.md
-

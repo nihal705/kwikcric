@@ -25,7 +25,7 @@ const io = socketIo(server, {
 });
 
 const pool = new Pool({
-    connectionString: process.env.DATABASE_URL || 'postgresql://postgres:Nihal@786313@localhost:5432/cricket_universe',
+    connectionString: process.env.DATABASE_URL,
 });
 
 const imposterRooms = new Map();
