@@ -1,6 +1,6 @@
 // frontend/src/pages/Games/CricketMastermind/logic/questionSelector.ts
 import { Question, Difficulty } from '../types/quiz.types';
-import { allQuestions, getQuestionsByCategory, getRandomQuestions } from '../data/questions';
+import { allQuestions } from '../data/questions';
 
 interface QuestionPool {
     easy: Question[];

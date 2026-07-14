@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { HomePage } from '../pages/Home/HomePage';
+import HomePage  from '../pages/Home/HomePage';
 import { PlayersPage } from '../pages/Players/PlayersPage';
 import { PlayerDetailPage } from '../pages/Players/PlayerDetailPage';
 import { IPLPage } from '../pages/Tournaments/IPLPage';

@@ -28,29 +28,29 @@ export const SearchBar: React.FC = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  useEffect(() => {
-    const searchPlayers = async () => {
-      if (query.length >= 2) {
-        setIsLoading(true);
-        try {
-          const response = await axios.get(`/api/players/search?q=${encodeURIComponent(query)}`);
-          setResults(response.data.data || []);
-          setIsOpen(true);
-        } catch (error) {
-          console.error('Search error:', error);
-          setResults([]);
-        } finally {
-          setIsLoading(false);
-        }
-      } else {
+useEffect(() => {
+  const searchPlayers = async () => {
+    if (query.length >= 2) {
+      setIsLoading(true);
+      try {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:3000/api'}/players/search?q=${encodeURIComponent(query)}`);
+        setResults(response.data.data || []);
+        setIsOpen(true);
+      } catch (error) {
+        console.error('Search error:', error);
         setResults([]);
-        setIsOpen(false);
+      } finally {
+        setIsLoading(false);
       }
-    };
+    } else {
+      setResults([]);
+      setIsOpen(false);
+    }
+  };
 
-    const debounce = setTimeout(searchPlayers, 300);
-    return () => clearTimeout(debounce);
-  }, [query]);
+  const debounce = setTimeout(searchPlayers, 300);
+  return () => clearTimeout(debounce);
+}, [query]);
 
   const handleSelect = (playerId: number) => {
     setQuery('');
