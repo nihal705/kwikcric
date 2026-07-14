@@ -48,7 +48,11 @@ export const Footer: React.FC = () => {
               transition={{ delay: 0.4 }}
               className="text-xs text-gray-400 dark:text-gray-500 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-200 flex items-center justify-center gap-1 mt-1"
             >
+<<<<<<< HEAD
               <span>GITHUB : </span> nihalmohammad705-debug
+=======
+              <span>🐙</span> nihalmohammad705-debug
+>>>>>>> bc50cf5066f5ef32b8c135551288729c92bd6caa
             </motion.a>
           </div>
 
