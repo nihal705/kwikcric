@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build --emptyOutDir",
+    "build:vercel": "vite build --emptyOutDir",
     "preview": "vite preview"
   },
   "dependencies": {
