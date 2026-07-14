@@ -1,5 +1,7 @@
 {
-  "buildCommand": "apt-get update && apt-get install -y git-lfs && git lfs pull && npm run build",
-  "installCommand": "npm install",
+  "git": {
+    "lfs": true
+  },
+  "buildCommand": "npm run build",
   "framework": "vite"
 }
