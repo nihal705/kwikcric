@@ -13,7 +13,7 @@ const socketIo = require('socket.io');
 const rewardsRouter = require('./api/rewards');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const server = http.createServer(app);
 const io = socketIo(server, {
@@ -3587,7 +3587,7 @@ app.get('/health', async (req, res) => {
 // START SERVER
 // ============================================
 
-server.listen(PORT, () => {
+server.listen(PORT, '0.0.0.0', () => {
     console.log(`\n🚀 Server running on http://localhost:${PORT}`);
     console.log(`📊 Database connected`);
     console.log(`\n📋 Available Endpoints:`);
