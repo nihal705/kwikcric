@@ -1,5 +1,8 @@
-<<<<<<< HEAD
+
 # KwikCric
+
+## 🚀 Live Demo
+[View Live Demo](https://kwikcric.vercel.app)
 
 ### Complete Cricket Stats Platform with Interactive Games
 
@@ -1748,4 +1751,3 @@ Screenshot or screen recording (if applicable)
 Browser and OS version
 
 Console errors (if any)
->>>>>>> 6bae423dba6c6e078274cea8a584da955dc69393
