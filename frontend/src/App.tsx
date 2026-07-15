@@ -40,6 +40,63 @@ import { IPLHub } from './pages/IPL/IPLHub';
 import { IPLSeasonDetailPage } from './pages/IPL/IPLSeasonDetailPage';
 import { IPLPlayersPage } from './pages/IPL/IPLPlayersPage';
 import { IPLPlayerDetailPage } from './pages/IPL/IPLPlayerDetailPage';
+import { motion } from 'framer-motion';
+
+const GlobalBanner = () => {
+  const [isVisible, setIsVisible] = useState(true);
+
+  if (!isVisible) return null;
+
+  return (
+    <motion.div
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ type: 'spring', stiffness: 100 }}
+      className="bg-gradient-to-r from-amber-500/20 to-yellow-500/20 dark:from-amber-500/10 dark:to-yellow-500/10 border-b border-amber-200 dark:border-amber-800 px-4 py-2.5 relative z-50"
+    >
+      <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-center gap-3 text-xs">
+        {/* Animated emoji */}
+        <motion.span
+          animate={{ rotate: [0, 10, -10, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="text-base"
+        >
+          🚧
+        </motion.span>
+        
+        <span className="text-amber-800 dark:text-amber-400 font-medium">
+          <span className="font-bold">Development Mode</span>
+        </span>
+        
+        <span className="text-amber-700 dark:text-amber-500">•</span>
+        
+        <span className="text-amber-700 dark:text-amber-500">
+          Authentication is <span className="font-semibold">not functional</span>
+        </span>
+        
+        <span className="text-amber-700 dark:text-amber-500">•</span>
+        
+        <span className="text-amber-700 dark:text-amber-500">
+          Games are in <span className="font-semibold">Beta</span>
+        </span>
+        
+        <span className="text-amber-700 dark:text-amber-500">•</span>
+        
+        <span className="text-amber-700 dark:text-amber-500">
+          Some data may be <span className="font-semibold">outdated</span>
+        </span>
+
+        {/* Close button */}
+        <button
+          onClick={() => setIsVisible(false)}
+          className="ml-2 text-amber-500 hover:text-amber-700 dark:text-amber-400 dark:hover:text-amber-300 transition-colors"
+        >
+          ✕
+        </button>
+      </div>
+    </motion.div>
+  );
+};
 
 function App() {
   const [darkMode, setDarkMode] = useState(() => {
@@ -64,6 +121,7 @@ useEffect(() => {
     <AuthProvider>
       <BrowserRouter>
         <div className="min-h-screen flex flex-col bg-white dark:bg-[#0f172a]">
+          <GlobalBanner />
           <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
           <main className="flex-1">
             <Routes>

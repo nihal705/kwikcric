@@ -74,5 +74,6 @@ export const GamesPreview: React.FC = () => {
         </div>
       </div>
     </section>
+    
   );
 };

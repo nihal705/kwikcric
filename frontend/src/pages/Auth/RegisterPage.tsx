@@ -66,9 +66,31 @@ export const RegisterPage: React.FC = () => {
         <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-700">
           {/* Header */}
           <div className="text-center mb-5">
-            <div className="w-12 h-12 bg-gradient-to-br from-green-600 to-green-800 rounded-xl flex items-center justify-center mx-auto mb-3">
-              <span className="text-2xl">⚡</span>
-            </div>
+            <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        className="bg-yellow-50 dark:bg-yellow-900/20 border-2 border-yellow-400 dark:border-yellow-600 rounded-xl p-4"
+      >
+        <div className="flex items-start gap-3">
+          <motion.div
+            animate={{ scale: [1, 1.2, 1] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+          >
+          </motion.div>
+          <div>
+            <p className="text-sm font-bold text-yellow-800 dark:text-yellow-400">
+              Authentication Under Development
+            </p>
+            <p className="text-xs text-yellow-700 dark:text-yellow-500 mt-1">
+              Login and registration features are currently not functional.
+              Please continue browsing as a <span className="font-semibold">Guest</span>.
+            </p>
+            <p className="text-xs text-yellow-600 dark:text-yellow-500 mt-1">
+              Game progress will <span className="font-bold">not</span> be saved.
+            </p>
+          </div>
+        </div>
+      </motion.div>
             <h1 className="text-xl font-bold text-gray-900 dark:text-white">Create Account</h1>
             <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
               Join the KwikCric community
