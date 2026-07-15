@@ -1,3 +1,81 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e71c0067f7e2503d941170ca8766df6f2d5af411246bc064ce6529c607caa274
-size 5769
+// frontend/src/data/tournamentData.ts
+export const tournamentData = {
+  odi: [
+    { year: 1975, winner: "West Indies", runnerUp: "Australia", venue: "Lord's, London", captain: "Clive Lloyd", image: "🏆" },
+    { year: 1979, winner: "West Indies", runnerUp: "England", venue: "Lord's, London", captain: "Clive Lloyd", image: "🏆" },
+    { year: 1983, winner: "India", runnerUp: "West Indies", venue: "Lord's, London", captain: "Kapil Dev", image: "🇮🇳" },
+    { year: 1987, winner: "Australia", runnerUp: "England", venue: "Eden Gardens, Kolkata", captain: "Allan Border", image: "🇦🇺" },
+    { year: 1992, winner: "Pakistan", runnerUp: "England", venue: "MCG, Melbourne", captain: "Imran Khan", image: "🇵🇰" },
+    { year: 1996, winner: "Sri Lanka", runnerUp: "Australia", venue: "Gaddafi Stadium, Lahore", captain: "Arjuna Ranatunga", image: "🇱🇰" },
+    { year: 1999, winner: "Australia", runnerUp: "Pakistan", venue: "Lord's, London", captain: "Steve Waugh", image: "🇦🇺" },
+    { year: 2003, winner: "Australia", runnerUp: "India", venue: "Wanderers, Johannesburg", captain: "Ricky Ponting", image: "🇦🇺" },
+    { year: 2007, winner: "Australia", runnerUp: "Sri Lanka", venue: "Kensington Oval, Barbados", captain: "Ricky Ponting", image: "🇦🇺" },
+    { year: 2011, winner: "India", runnerUp: "Sri Lanka", venue: "Wankhede, Mumbai", captain: "MS Dhoni", image: "🇮🇳" },
+    { year: 2015, winner: "Australia", runnerUp: "New Zealand", venue: "MCG, Melbourne", captain: "Michael Clarke", image: "🇦🇺" },
+    { year: 2019, winner: "England", runnerUp: "New Zealand", venue: "Lord's, London", captain: "Eoin Morgan", image: "🏴󠁧󠁢󠁥󠁮󠁧󠁿" },
+    { year: 2023, winner: "Australia", runnerUp: "India", venue: "Narendra Modi Stadium", captain: "Pat Cummins", image: "🇦🇺" },
+  ],
+  t20: [
+    { year: 2007, winner: "India", runnerUp: "Pakistan", venue: "Johannesburg", captain: "MS Dhoni", image: "🇮🇳" },
+    { year: 2009, winner: "Pakistan", runnerUp: "Sri Lanka", venue: "Lord's, London", captain: "Younis Khan", image: "🇵🇰" },
+    { year: 2010, winner: "England", runnerUp: "Australia", venue: "Barbados", captain: "Paul Collingwood", image: "🏴󠁧󠁢󠁥󠁮󠁧󠁿" },
+    { year: 2012, winner: "West Indies", runnerUp: "Sri Lanka", venue: "Colombo", captain: "Darren Sammy", image: "🌴" },
+    { year: 2014, winner: "Sri Lanka", runnerUp: "India", venue: "Dhaka", captain: "Lasith Malinga", image: "🇱🇰" },
+    { year: 2016, winner: "West Indies", runnerUp: "England", venue: "Kolkata", captain: "Darren Sammy", image: "🌴" },
+    { year: 2021, winner: "Australia", runnerUp: "New Zealand", venue: "Dubai", captain: "Aaron Finch", image: "🇦🇺" },
+    { year: 2022, winner: "England", runnerUp: "Pakistan", venue: "Melbourne", captain: "Jos Buttler", image: "🏴󠁧󠁢󠁥󠁮󠁧󠁿" },
+    { year: 2024, winner: "India", runnerUp: "South Africa", venue: "Barbados", captain: "Rohit Sharma", image: "🇮🇳" },
+    { year: 2026, winner: "India", runnerUp: "New Zealand", venue: "Ahmedabad", captain: "Suryakumar Yadav", image: "🇮🇳" },
+  ],
+  ct: [
+    { year: 1998, winner: "South Africa", runnerUp: "West Indies", venue: "Dhaka", captain: "Hansie Cronje", image: "🇿🇦" },
+    { year: 2000, winner: "New Zealand", runnerUp: "India", venue: "Nairobi", captain: "Stephen Fleming", image: "🇳🇿" },
+    { year: 2002, winner: "India & Sri Lanka", runnerUp: "Shared", venue: "Colombo", captain: "Sourav Ganguly", image: "🏆" },
+    { year: 2004, winner: "West Indies", runnerUp: "England", venue: "London", captain: "Brian Lara", image: "🌴" },
+    { year: 2006, winner: "Australia", runnerUp: "West Indies", venue: "Mumbai", captain: "Ricky Ponting", image: "🇦🇺" },
+    { year: 2009, winner: "Australia", runnerUp: "New Zealand", venue: "Centurion", captain: "Ricky Ponting", image: "🇦🇺" },
+    { year: 2013, winner: "India", runnerUp: "England", venue: "London", captain: "MS Dhoni", image: "🇮🇳" },
+    { year: 2017, winner: "Pakistan", runnerUp: "India", venue: "London", captain: "Sarfaraz Ahmed", image: "🇵🇰" },
+    { year: 2025, winner: "India", runnerUp: "England", venue: "Lahore", captain: "Rohit Sharma", image: "🇮🇳" },
+  ],
+  wtc: [
+    { year: "2019-21", winner: "New Zealand", runnerUp: "India", venue: "Southampton", captain: "Kane Williamson", image: "🇳🇿" },
+    { year: "2021-23", winner: "Australia", runnerUp: "India", venue: "The Oval", captain: "Pat Cummins", image: "🇦🇺" },
+    { year: "2023-25", winner: "South Africa", runnerUp: "Australia", venue: "Lord's", captain: "Temba Bavuma", image: "🇿🇦" },
+  ],
+};
+
+export const tournamentStatsData = {
+  odi: {
+    totalEditions: 13,
+    mostWins: "Australia (6)",
+    mostRuns: "Sachin Tendulkar",
+    mostWickets: "Glenn McGrath",
+    highestScore: "417/6 (IND vs SL, 2014)",
+    bestBowling: "7/15 (Glenn McGrath, 2003)",
+  },
+  t20: {
+    totalEditions: 10,
+    mostWins: "India (3) | West Indies (2) | England (2)",
+    mostRuns: "Virat Kohli",
+    mostWickets: "Shakib Al Hasan",
+    highestScore: "260/6 (SL vs KEN, 2007)",
+    bestBowling: "6/8 (Ajantha Mendis, 2012)",
+  },
+  ct: {
+    totalEditions: 9,
+    mostWins: "India (3) | Australia (2)",
+    mostRuns: "Chris Gayle",
+    mostWickets: "Kyle Mills",
+    highestScore: "352/5 (AUS vs PAK, 2009)",
+    bestBowling: "6/14 (Mitchell McClenaghan, 2013)",
+  },
+  wtc: {
+    totalEditions: 3,
+    mostWins: "New Zealand, Australia, South Africa (1 each)",
+    mostPoints: "South Africa (2023-25)",
+    mostFinals: "India (2 finals)",
+    highestScore: "N/A",
+    bestBowling: "N/A",
+  },
+};

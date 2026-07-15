@@ -1,3 +1,283 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e586f3e24e18fbfc5aee51aeb9fcd0ebb7a501d4af2c15cce83867d6b959074b
-size 10411
+// frontend/src/pages/Games/CricketMastermind/data/questions/records.ts
+import { Question } from '../../types/quiz.types';
+
+export const recordsQuestions: Question[] = [
+    // Batting Records
+    {
+        id: 7001,
+        category: 'Records',
+        subCategory: 'Batting',
+        difficulty: 'hard',
+        type: 'mcq',
+        text: 'Who holds the record for most international centuries?',
+        options: ['Sachin Tendulkar', 'Virat Kohli', 'Ricky Ponting', 'Kumar Sangakkara'],
+        correctAnswer: 'Sachin Tendulkar',
+        explanation: 'Sachin Tendulkar has 100 international centuries.',
+        points: 50,
+        hint: 'He has 51 Test and 49 ODI centuries'
+    },
+    {
+        id: 7002,
+        category: 'Records',
+        subCategory: 'Batting',
+        difficulty: 'hard',
+        type: 'mcq',
+        text: 'Who holds the record for most international runs?',
+        options: ['Sachin Tendulkar', 'Kumar Sangakkara', 'Ricky Ponting', 'Virat Kohli'],
+        correctAnswer: 'Sachin Tendulkar',
+        explanation: 'Sachin Tendulkar scored 34,357 international runs.',
+        points: 50,
+        hint: 'He played for 24 years'
+    },
+    {
+        id: 7003,
+        category: 'Records',
+        subCategory: 'Batting',
+        difficulty: 'hard',
+        type: 'mcq',
+        text: 'Who scored the fastest century in ODI cricket?',
+        options: ['AB de Villiers', 'Shahid Afridi', 'Corey Anderson', 'Glenn Maxwell'],
+        correctAnswer: 'AB de Villiers',
+        explanation: 'AB de Villiers scored a 31-ball century against West Indies in 2015.',
+        points: 50,
+        hint: 'He scored 149 off 44 balls in that innings'
+    },
+    {
+        id: 7004,
+        category: 'Records',
+        subCategory: 'Batting',
+        difficulty: 'easy',
+        type: 'mcq',
+        text: 'Who scored the first double century in ODI cricket?',
+        options: ['Sachin Tendulkar', 'Virender Sehwag', 'Rohit Sharma', 'Martin Guptill'],
+        correctAnswer: 'Sachin Tendulkar',
+        explanation: 'Sachin Tendulkar scored 200* against South Africa in 2010.',
+        points: 10,
+        hint: 'He is called "The Master Blaster"'
+    },
+    {
+        id: 7004,
+        category: 'Records',
+        subCategory: 'Batting',
+        difficulty: 'hard',
+        type: 'mcq',
+        text: 'What is the highest individual score in ODI cricket?',
+        options: ['264', '237', '215', '200'],
+        correctAnswer: '264',
+        explanation: 'Rohit Sharma scored 264 against Sri Lanka in 2014.',
+        points: 50,
+        hint: 'It was made by an Indian opener in 2014'
+    },
+    {
+        id: 7005,
+        category: 'Records',
+        subCategory: 'Batting',
+        difficulty: 'hard',
+        type: 'mcq',
+        text: 'Who has scored the most runs in a single ODI?',
+        options: ['Rohit Sharma', 'Martin Guptill', 'Virender Sehwag', 'Sachin Tendulkar'],
+        correctAnswer: 'Rohit Sharma',
+        explanation: 'Rohit Sharma scored 264 runs against Sri Lanka in 2014.',
+        points: 50,
+        hint: 'He is called "Hitman"'
+    },
+    {
+        id: 7006,
+        category: 'Records',
+        subCategory: 'Batting',
+        difficulty: 'medium',
+        type: 'mcq',
+        text: 'Who has scored the most sixes in international cricket?',
+        options: ['Chris Gayle', 'Shahid Afridi', 'Rohit Sharma', 'MS Dhoni'],
+        correctAnswer: 'Chris Gayle',
+        explanation: 'Chris Gayle has hit over 550 sixes in international cricket.',
+        points: 20,
+        hint: 'He is called the "Universal Boss"'
+    },
+    {
+        id: 7007,
+        category: 'Records',
+        subCategory: 'Batting',
+        difficulty: 'medium',
+        type: 'mcq',
+        text: 'Who has faced the most balls in Test cricket?',
+        options: ['Rahul Dravid', 'Sachin Tendulkar', 'Jacques Kallis', 'Alastair Cook'],
+        correctAnswer: 'Rahul Dravid',
+        explanation: 'Rahul Dravid faced 31,258 balls in Test cricket.',
+        points: 20,
+        hint: 'He is known as "The Wall"'
+    },
+    // Bowling Records
+    {
+        id: 7008,
+        category: 'Records',
+        subCategory: 'Bowling',
+        difficulty: 'hard',
+        type: 'mcq',
+        text: 'Who holds the record for most wickets in international cricket?',
+        options: ['Muttiah Muralitharan', 'Shane Warne', 'James Anderson', 'Anil Kumble'],
+        correctAnswer: 'Muttiah Muralitharan',
+        explanation: 'Muralitharan took 1347 international wickets.',
+        points: 50,
+        hint: 'He is from Sri Lanka'
+    },
+    {
+        id: 7009,
+        category: 'Records',
+        subCategory: 'Bowling',
+        difficulty: 'hard',
+        type: 'mcq',
+        text: 'What is the best bowling figure in an ODI innings?',
+        options: ['8/19', '7/15', '6/4', '7/30'],
+        correctAnswer: '8/19',
+        explanation: 'Chaminda Vaas took 8/19 against Zimbabwe in 2001.',
+        points: 50,
+        hint: 'It was taken by a Sri Lankan bowler'
+    },
+    {
+        id: 7010,
+        category: 'Records',
+        subCategory: 'Bowling',
+        difficulty: 'hard',
+        type: 'mcq',
+        text: 'What is the best bowling figure in a Test innings?',
+        options: ['10/53', '9/51', '8/34', '10/74'],
+        correctAnswer: '10/53',
+        explanation: 'Jim Laker took 10/53 for England against Australia in 1956.',
+        points: 50,
+        hint: 'He took all 10 wickets in an innings'
+    },
+    {
+        id: 7011,
+        category: 'Records',
+        subCategory: 'Bowling',
+        difficulty: 'medium',
+        type: 'mcq',
+        text: 'Who has taken the most hat-tricks in international cricket?',
+        options: ['Lasith Malinga', 'Wasim Akram', 'Saqlain Mushtaq', 'Muttiah Muralitharan'],
+        correctAnswer: 'Lasith Malinga',
+        explanation: 'Lasith Malinga has taken 6 international hat-tricks.',
+        points: 20,
+        hint: 'He is from Sri Lanka'
+    },
+    {
+        id: 7012,
+        category: 'Records',
+        subCategory: 'Bowling',
+        difficulty: 'medium',
+        type: 'mcq',
+        text: 'Who took the first hat-trick in ODI history?',
+        options: ['Jalal-ud-Din', 'Wasim Akram', 'Saqlain Mushtaq', 'Chetan Sharma'],
+        correctAnswer: 'Jalal-ud-Din',
+        explanation: 'Jalal-ud-Din of Pakistan took the first ODI hat-trick in 1982.',
+        points: 20,
+        hint: 'He is from Pakistan'
+    },
+    // Fielding Records
+    {
+        id: 7013,
+        category: 'Records',
+        subCategory: 'Fielding',
+        difficulty: 'hard',
+        type: 'mcq',
+        text: 'Who has taken the most catches in international cricket?',
+        options: ['Mahela Jayawardene', 'Ricky Ponting', 'Jacques Kallis', 'Rahul Dravid'],
+        correctAnswer: 'Mahela Jayawardene',
+        explanation: 'Mahela Jayawardene took 440 international catches.',
+        points: 50,
+        hint: 'He is from Sri Lanka'
+    },
+    {
+        id: 7014,
+        category: 'Records',
+        subCategory: 'Wicketkeeping',
+        difficulty: 'hard',
+        type: 'mcq',
+        text: 'Who has taken the most dismissals in international cricket?',
+        options: ['MS Dhoni', 'Adam Gilchrist', 'Kumar Sangakkara', 'Mark Boucher'],
+        correctAnswer: 'Mark Boucher',
+        explanation: 'Mark Boucher took 999 international dismissals.',
+        points: 50,
+        hint: 'He is from South Africa'
+    },
+    // Partnership Records
+    {
+        id: 7015,
+        category: 'Records',
+        subCategory: 'Partnerships',
+        difficulty: 'medium',
+        type: 'mcq',
+        text: 'What is the highest partnership in ODI cricket?',
+        options: ['372', '365', '350', '380'],
+        correctAnswer: '372',
+        explanation: 'Sachin Tendulkar and Rahul Dravid put on 372 for India.',
+        points: 20,
+        hint: 'Made by two Indian batsmen'
+    },
+    {
+        id: 7016,
+        category: 'Records',
+        subCategory: 'Partnerships',
+        difficulty: 'hard',
+        type: 'mcq',
+        text: 'What is the highest partnership in Test cricket?',
+        options: ['624', '576', '451', '501'],
+        correctAnswer: '624',
+        explanation: 'Kumar Sangakkara and Mahela Jayawardene put on 624 for Sri Lanka.',
+        points: 50,
+        hint: 'Both players are from Sri Lanka'
+    },
+    // Team Records
+    {
+        id: 7017,
+        category: 'Records',
+        subCategory: 'Team',
+        difficulty: 'easy',
+        type: 'mcq',
+        text: 'What is the highest team total in ODI cricket?',
+        options: ['498/4', '481/6', '500/1', '475/3'],
+        correctAnswer: '498/4',
+        explanation: 'England scored 498/4 against the Netherlands in 2022.',
+        points: 10,
+        hint: 'Set by England in 2022'
+    },
+    {
+        id: 7018,
+        category: 'Records',
+        subCategory: 'Team',
+        difficulty: 'easy',
+        type: 'mcq',
+        text: 'What is the highest successful run chase in ODI cricket?',
+        options: ['438/9', '434/8', '400/4', '415/4'],
+        correctAnswer: '438/9',
+        explanation: 'South Africa chased 435 against Australia in 2006.',
+        points: 10,
+        hint: 'Known as the "438 Game"'
+    },
+    {
+        id: 7019,
+        category: 'Records',
+        subCategory: 'Team',
+        difficulty: 'medium',
+        type: 'mcq',
+        text: 'Which team has the longest winning streak in ODIs?',
+        options: ['Australia', 'India', 'South Africa', 'England'],
+        correctAnswer: 'Australia',
+        explanation: 'Australia won 21 consecutive ODIs in 2003.',
+        points: 20,
+        hint: 'They won 3 consecutive World Cups'
+    },
+    {
+        id: 7020,
+        category: 'Records',
+        subCategory: 'Individual',
+        difficulty: 'hard',
+        type: 'mcq',
+        text: 'Who has hit 6 sixes in an over in international cricket?',
+        options: ['Yuvraj Singh', 'Herschelle Gibbs', 'Kieron Pollard', 'All of the above'],
+        correctAnswer: 'All of the above',
+        explanation: 'Yuvraj Singh (2007), Gibbs (2007), and Pollard (2021) all hit 6 sixes.',
+        points: 50,
+        hint: 'It happened in T20Is'
+    }
+];
