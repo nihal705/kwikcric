@@ -3,9 +3,9 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FiSearch, FiFilter, FiX } from 'react-icons/fi';
-import axios from 'axios';
 import toast from 'react-hot-toast';
 import { IPLPlayerCard } from './components/IPLPlayerCard';
+import { apiClient } from '../../services/api/client';
 
 interface IPLPlayer {
   id: number;
@@ -74,7 +74,7 @@ export const IPLPlayersPage: React.FC = () => {
         setLoading(true);
       }
 
-      const response = await axios.get('http://localhost:3000/api/ipl/players', {
+      const response = await apiClient.get('/ipl/players', {
         params: {
           page: pageNum,
           limit: 24,

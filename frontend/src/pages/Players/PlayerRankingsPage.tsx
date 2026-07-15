@@ -1,9 +1,9 @@
 // src/pages/Players/PlayerRankingsPage.tsx
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { motion, AnimatePresence } from 'framer-motion';
 import toast from 'react-hot-toast';
 import { getPlayerImageUrl, getPlayerFallbackImage } from '../../utils/playerImage';
+import { apiClient } from '../../services/api/client';
 
 interface Ranking {
   rank: number;
@@ -54,8 +54,7 @@ const PlayerRankingsPage: React.FC = () => {
   const fetchRankings = async () => {
     setLoading(true);
     try {
-      const url = `http://localhost:3000/api/rankings/${format}/${category}?limit=${limit}`;
-      const response = await axios.get(url);
+      const response = await apiClient.get(`/rankings/${format}/${category}`, { params: { limit } });
       let data = response.data.data || [];
       
       if (format === 'overall' && category === 'allrounder') {

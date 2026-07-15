@@ -1,9 +1,9 @@
 // src/pages/Teams/TeamRankingsPage.tsx
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import { motion } from 'framer-motion';
 import toast from 'react-hot-toast';
+import { apiClient } from '../../../services/api/client';
 
 interface TeamRanking {
   rank: number;
@@ -30,7 +30,7 @@ const TeamRankingsPage: React.FC = () => {
   const fetchRankings = async () => {
   setLoading(true);
   try {
-    const response = await axios.get(`http://localhost:3000/api/team-rankings/${format.toLowerCase()}?limit=50`);
+    const response = await apiClient.get(`/team-rankings/${format.toLowerCase()}`,{ params: { limit: 50 } });
     let allTeams = response.data.data || [];
     
     if (format === 't20') {

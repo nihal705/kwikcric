@@ -1,10 +1,10 @@
 import React, { useState, useEffect} from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import axios from 'axios';
 import { FiSearch, FiFilter, FiX } from 'react-icons/fi';
 import toast from 'react-hot-toast';
 import { PlayerCard } from './PlayerCard';
+import { apiClient } from '../../services/api/client';
 
 interface Player {
   id: number;
@@ -64,7 +64,7 @@ export const PlayersPage: React.FC = () => {
         setLoading(true);
       }
       
-      const response = await axios.get('http://localhost:3000/api/players', {
+      const response = await apiClient.get('/players', {
         params: { 
           page: pageNum, 
           limit: 24,
