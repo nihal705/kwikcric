@@ -1,8 +1,6 @@
 
-# KwikCric
-
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=30&duration=3000&pause=500&color=00FF00&center=true&vCenter=true&width=500&lines=+KwikCric;Complete+Cricket+Stats+Platform;Interactive+Games+Hub;Made+with+%E2%9D%A4%EF%B8%8F" alt="Typing Animation" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=30&duration=3000&pause=500&color=00FF00&center=true&vCenter=true&width=500&lines=+KwikCric;Cricket+Stats+Platform;Interactive+Games+Hub;Made+with+%E2%9D%A4%EF%B8%8F" alt="Typing Animation" />
 </p>
 
 <p align="center">
@@ -27,25 +25,8 @@
 </p>
 
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=kwikcric&label=Profile%20Views&color=0e75b6&style=for-the-badge" alt="Profile Views" />
-  <img src="https://img.shields.io/github/stars/nihalmohammad705-debug/kwikcric?style=for-the-badge&logo=github" alt="GitHub Stars" />
-  <img src="https://img.shields.io/github/forks/nihalmohammad705-debug/kwikcric?style=for-the-badge&logo=github" alt="GitHub Forks" />
-  <img src="https://img.shields.io/github/issues/nihalmohammad705-debug/kwikcric?style=for-the-badge&logo=github" alt="Issues" />
+  <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 </p>
-
-## Live Demo
-[View Live Demo](https://kwikcric.vercel.app)
-
-### Complete Cricket Stats Platform with Interactive Games
-
-![Version](https://img.shields.io/badge/version-2.0.0-blue)
-![License](https://img.shields.io/badge/license-Proprietary-red)
-![React](https://img.shields.io/badge/React-18.2.0-61dafb)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.0.0-3178c6)
-![Node](https://img.shields.io/badge/Node-18.x-339933)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15.x-4169e1)
-
----
 
 ## Overview
 
@@ -63,6 +44,14 @@
 | **Dark/Light Mode** | Full theme support with system preference detection |
 
 ---
+
+<p align="center">
+  <img src="https://progress-bar.dev/100/?title=Features%20Implemented&width=500&color=00C7B7" alt="Progress" />
+</p>
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+</p>
 
 ## Features
 
@@ -104,6 +93,11 @@
 - Game history and stats persistence
 
 ---
+
+<p align="center">
+  <img src="https://img.shields.io/badge/📊_Players-500+-blue?style=for-the-badge" alt="Players" />
+  <img src="https://img.shields.io/badge/🎮_Games-4-active?style=for-the-badge" alt="Games" />
+</p>
 
 ## Tech Stack
 
