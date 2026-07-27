@@ -1,7 +1,39 @@
 
 # KwikCric
 
-## 🚀 Live Demo
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=30&duration=3000&pause=500&color=00FF00&center=true&vCenter=true&width=500&lines=+KwikCric;Complete+Cricket+Stats+Platform;Interactive+Games+Hub;Made+with+%E2%9D%A4%EF%B8%8F" alt="Typing Animation" />
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/version-2.0.0-blue?style=for-the-badge&logo=vercel" alt="Version" />
+  <img src="https://img.shields.io/badge/license-Proprietary-red?style=for-the-badge" alt="License" />
+  <img src="https://img.shields.io/badge/React-18.2.0-61dafb?style=for-the-badge&logo=react" alt="React" />
+  <img src="https://img.shields.io/badge/TypeScript-5.0.0-3178c6?style=for-the-badge&logo=typescript" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Node-18.x-339933?style=for-the-badge&logo=node.js" alt="Node" />
+  <img src="https://img.shields.io/badge/PostgreSQL-15.x-4169e1?style=for-the-badge&logo=postgresql" alt="PostgreSQL" />
+</p>
+
+<p align="center">
+  <a href="https://kwikcric.vercel.app">
+    <img src="https://img.shields.io/badge/_Live_Demo-View_Now-00C7B7?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo" />
+  </a>
+  <a href="https://github.com/nihalmohammad705-debug">
+    <img src="https://img.shields.io/badge/_GitHub-Follow-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+  </a>
+  <a href="mailto:nihalmohammad705@gmail.com">
+    <img src="https://img.shields.io/badge/_Email-Contact-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
+  </a>
+</p>
+
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=kwikcric&label=Profile%20Views&color=0e75b6&style=for-the-badge" alt="Profile Views" />
+  <img src="https://img.shields.io/github/stars/nihalmohammad705-debug/kwikcric?style=for-the-badge&logo=github" alt="GitHub Stars" />
+  <img src="https://img.shields.io/github/forks/nihalmohammad705-debug/kwikcric?style=for-the-badge&logo=github" alt="GitHub Forks" />
+  <img src="https://img.shields.io/github/issues/nihalmohammad705-debug/kwikcric?style=for-the-badge&logo=github" alt="Issues" />
+</p>
+
+## Live Demo
 [View Live Demo](https://kwikcric.vercel.app)
 
 ### Complete Cricket Stats Platform with Interactive Games
@@ -368,278 +400,217 @@ kwikcric/
 
 ### Games Overview
 
-1. Kwik Cricket 
-
+#### 1. Kwik Cricket
 Fast-paced cricket simulation game with full match experience.
 
-Features:
+**Features:**
+- Multiple overs (1, 2, 4, 6, 10 overs)
+- AI opponent with difficulty levels (Easy, Medium, Hard)
+- Two-player mode
+- Squad selection from real players
+- Batting order customization
+- Live commentary
+- Full scorecard with batting/bowling stats
+- Match history and statistics tracking
 
-Multiple overs (1, 2, 4, 6, 10 overs)
+**Game Modes:**
+- **Full Match** - Complete innings with target chasing
+- **Kwik Play** - Quick 1/2-over challenge
 
-AI opponent with difficulty levels (Easy, Medium, Hard)
+**Storage:**
+- Authenticated users: Saved to database
+- Guest users: Saved to localStorage
 
-Two-player mode
+---
 
-Squad selection from real players
-
-Batting order customization
-
-Live commentary
-
-Full scorecard with batting/bowling stats
-
-Match history and statistics tracking
-
-Game Modes:
-
-Full Match - Complete innings with target chasing
-
-Kwik Play - Quick 1/2-over challenge
-
-Storage:
-
-Authenticated users: Saved to database
-
-Guest users: Saved to localStorage
-
-2. Cricket Mastermind 
-
+#### 2. Cricket Mastermind
 Test your cricket knowledge with thousands of questions.
 
-Game Modes:
+**Game Modes:**
+- **Quick Quiz** - Random questions with time limit
+- **Challenge Mode** - Progressive difficulty with lives
+- **Fill the Table** - Complete missing data in cricket tables
 
-Quick Quiz - Random questions with time limit
+**Categories:**
+- All-Mode (mix of all categories)
+- Players & Records
+- World Cups
+- IPL
+- Cricket History
 
-Challenge Mode - Progressive difficulty with lives
+**Difficulty Levels:**
+- Easy - Basic cricket knowledge
+- Medium - Intermediate questions
+- Hard - Expert-level trivia
 
-Fill the Table - Complete missing data in cricket tables
+**Features:**
+- Score tracking
+- Streak bonuses
+- Best streak records
+- Accuracy percentage
+- Local storage for guest stats
 
-Categories:
+---
 
-All-Mode (mix of all categories)
-
-Players & Records
-
-World Cups
-
-IPL
-
-Cricket History
-
-Difficulty Levels:
-
-Easy - Basic cricket knowledge
-
-Medium - Intermediate questions
-
-Hard - Expert-level trivia
-
-Features:
-
-Score tracking
-
-Streak bonuses
-
-Best streak records
-
-Accuracy percentage
-
-Local storage for guest stats
-
-3. Imposter 
-
+#### 3. Imposter
 Social deduction game where players must identify the imposter among them.
 
-How to Play:
+**How to Play:**
+1. Choose game mode (Local Multiplayer or VS Bots)
+2. Select theme (Cricket Players, IPL Teams, World Cups)
+3. Players receive cards - one player gets a different hint (imposter)
+4. Each player describes their card without revealing it
+5. Players vote on who they think is the imposter
 
-Choose game mode (Local Multiplayer or VS Bots)
+**Game Modes:**
+- **Local Multiplayer** - Pass-and-play with friends
+- **VS Bots** - Play against AI opponents
 
-Select theme (Cricket Players, IPL Teams, World Cups)
+**Themes:**
+- Cricket Players
+- IPL Teams
+- World Cups
 
-Players receive cards - one player gets a different hint (imposter)
+---
 
-Each player describes their card without revealing it
-
-Players vote on who they think is the imposter
-
-Game Modes:
-
-Local Multiplayer - Pass-and-play with friends
-
-VS Bots - Play against AI opponents
-
-Themes:
-
-Cricket Players
-
-IPL Teams
-
-World Cups
-
-4. Cricket Cards 
-
+#### 4. Cricket Cards
 Collectible card game featuring cricket players.
 
-Features:
+**Card Types:**
+- Batsmen cards
+- Bowler cards
+- All-rounder cards
+- Wicket-keeper cards
 
-Card Packs - Open standard, premium, and legendary packs
+**Card Rarities:**
+- Common, Rare, Epic, Legendary, Mythic
 
-Daily Rewards - Claim rewards for consecutive logins
+**Features:**
+- **Card Packs** - Open standard, premium, and legendary packs
+- **Daily Rewards** - Claim rewards for consecutive logins
+- **Achievements** - Unlock achievements for collecting cards
+- **Currency System** - Earn KwikCric Coins and Gems
+- **Collection Sets** - Complete themed sets for bonus rewards
+- **Favorites** - Mark your favorite cards
 
-Achievements - Unlock achievements for collecting cards
-
-Currency System - Earn KwikCric Coins and Gems
-
-Card Rarities - Common, Rare, Epic, Legendary, Mythic
-
-Collection Sets - Complete themed sets for bonus rewards
-
-Favorites - Mark your favorite cards
-
-Card Types:
-
-Batsmen cards
-
-Bowler cards
-
-All-rounder cards
-
-Wicket-keeper cards
-
-Shop Items:
-
-Standard Pack (100 Coins)
-
-Premium Pack (50 Gems)
-
-Legendary Pack (200 Gems)
+**Shop Items:**
+- Standard Pack (100 Coins)
+- Premium Pack (50 Gems)
+- Legendary Pack (200 Gems)
 
 ### Tournament Hub
 
-ODI World Cup:
+#### ODI World Cup 
+- Complete history from 1975 to 2023
+- Team rankings with titles and runner-up counts
+- All-time records (most runs, wickets, sixes, hundreds)
+- Greatest matches (highest scoring, closest finishes)
+- Tournament stats for each edition
+- Achievements and memorable moments
 
-Complete history from 1975 to 2023
+#### T20 World Cup 
+- Complete history from 2007 to 2024
+- Support for multiple formats (Super 8s, Super 10s, Super 12s)
+- Abandoned match handling (rain-affected matches)
+- Group stage and knockout filters
 
-Team rankings with titles and runner-up counts
+#### Champions Trophy 
+- History from 1998 to 2025
+- Known as cricket's "Mini World Cup"
+- Complete edition details
 
-All-time records (most runs, wickets, sixes, hundreds)
+#### World Test Championship 
+- WTC cycles from 2019-present
+- Team rankings
+- All-time records
+- Additional stats (wicket-keepers, most catches, highest scores, best bowling)
 
-Greatest matches (highest scoring, closest finishes)
+#### IPL 
+- Team rankings
+- Player database with IPL-specific stats
+- Orange Cap and Purple Cap winners
 
-Tournament stats for each edition
-
-Achievements and memorable moments
-
-T20 World Cup:
-
-Complete history from 2007 to 2024
-
-Support for multiple formats (Super 8s, Super 10s, Super 12s)
-
-Abandoned match handling (rain-affected matches)
-
-Group stage and knockout filters
-
-Champions Trophy:
-
-History from 1998 to 2025
-
-Known as cricket's "Mini World Cup"
-
-Complete edition details
-
-World Test Championship:
-
-WTC cycles from 2019-present
-
-Team rankings
-
-All-time records
-
-Additional stats (wicket-keepers, most catches, highest scores, best bowling)
-
-IPL:
-
-Team rankings
-
-Player database with IPL-specific stats
-
-Orange Cap and Purple Cap winners
 
 ### Player Rankings System
 
-GOAT (Greatest of All Time) Scoring Methodology
+#### GOAT (Greatest of All Time) Scoring Methodology
 
-#### Batsmen Ranking Formula
-GOAT Score = (Average × 6) + (Runs/2000) + (Centuries × 2) + (Fifties × 0.5) + (Formats × 8) + Peak Bonus
+##### Batsmen Ranking Formula
+
+- GOAT Score = (Average × 6) + (Runs/2000) + (Centuries × 2) + (Fifties × 0.5) + (Formats × 8) + Peak Bonus
 Weightage Distribution:
 
-Component	Weight
-Batting Average	35%
-Total Runs	20%
-Centuries	15%
-Fifties	10%
-Formats Played	10%
-Peak ICC Rank	10%
+**Weightage Distribution:**
+
+| Component | Weight |
+|-----------|--------|
+| Batting Average | 35% |
+| Total Runs | 20% |
+| Centuries | 15% |
+| Fifties | 10% |
+| Formats Played | 10% |
+| Peak ICC Rank | 10% |
 
 
-### Bowlers Ranking Formula
-GOAT Score = (10000/Average) + (Wickets/5) + (5W × 15)
+##### Bowlers Ranking Formula
+
+- GOAT Score = (10000/Average) + (Wickets/5) + (5W × 15)
 Weightage Distribution:
 
-Component	Weight
-Bowling Average	35%
-Total Wickets	25%
-5-Wicket Hauls	20%
-Economy Rate	10%
-Formats Played	5%
-Peak ICC Rank	5%
 
-#### All-Rounders Ranking Formula
-GOAT Score = (Batting GOAT Score + Bowling GOAT Score) / 2
-Minimum Requirements:
+**Weightage Distribution:**
 
-2000 runs AND 50 wickets in international cricket
+| Component | Weight |
+|-----------|--------|
+| Bowling Average | 35% |
+| Total Wickets | 25% |
+| 5-Wicket Hauls | 20% |
+| Economy Rate | 10% |
+| Formats Played | 5% |
+| Peak ICC Rank | 5% |
+
+##### All-Rounders Ranking Formula
+
+- GOAT Score = (Batting GOAT Score + Bowling GOAT Score) / 2
+
+**Minimum Requirements:**
+- 2000 runs AND 50 wickets in international cricket
+
 
 ### Performance Metrics (Player Detail Page)
 
-Batting Metrics:
+**Batting Metrics:**
 
-Metric	Description
+| Metric | Description |
+|--------|-------------|
+| Consistency | Based on big scores (50s + 100s×2) per match |
+| Power Hitting | Based on sixes per match |
+| Acceleration | Based on strike rate |
+| Pressure Rating | Based on batting average |
+| Longevity | Based on matches played |
 
-Consistency	Based on big scores (50s + 100s×2) per match
+**Bowling Metrics:**
 
-Power Hitting	Based on sixes per match
+| Metric | Description |
+|--------|-------------|
+| Accuracy | Based on bowling average (lower is better) |
+| Wicket Taking | Based on wickets per match |
+| Economy | Based on economy rate |
+| Strike Rate | Based on balls per wicket |
+| Match Winning | Based on 5-wicket hauls |
 
-Acceleration	Based on strike rate
-
-Pressure Rating	Based on batting average
-
-Longevity	Based on matches played
-
-
-Bowling Metrics:
-
-Metric	Description
-
-Accuracy	Based on bowling average (lower is better)
-
-Wicket Taking	Based on wickets per match
-
-Economy	Based on economy rate
-
-Strike Rate	Based on balls per wicket
-
-Match Winning	Based on 5-wicket hauls
 
 ### Authentication & Authorization
-User Types
-Type	Description	Capabilities
-Guest	Non-registered user	Play games (stats saved to localStorage), browse content
-Registered User	Authenticated user	Full access, game stats saved to database, leaderboards
-Admin	Admin user	Content management (not exposed in frontend)
 
-### Auth Flow
+#### User Types
+
+| Type | Description | Capabilities |
+|------|-------------|--------------|
+| Guest | Non-registered user | Play games (stats saved to localStorage), browse content |
+| Registered User | Authenticated user | Full access, game stats saved to database, leaderboards |
+| Admin | Admin user | Content management (not exposed in frontend) |
+
+#### Auth Flow
 
 1. User registers → Password hashed with bcrypt → JWT generated
 2. User logs in → Credentials verified → JWT returned
@@ -647,26 +618,18 @@ Admin	Admin user	Content management (not exposed in frontend)
 4. Subsequent requests include JWT in Authorization header
 5. Protected routes verify JWT before rendering
 
-### Protected Routes
+#### Protected Routes
+
 The following routes require authentication:
+- `/games/kwik-cricket` - Full game experience (guest mode available separately)
 
-/games/kwik-cricket - Full game experience (guest mode available separately)
+### Dark Mode Support
 
-/dashboard (if implemented)
-
-/profile (if implemented)
-
-##Dark Mode Support
 KwikCric features full dark mode support with:
-
-System preference detection - Automatically matches OS preference
-
-Manual toggle - User can switch via navbar button
-
-Persistent storage - Preference saved to localStorage
-
-All components styled - Cards, tables, modals, and all UI elements
-
+- **System preference detection** - Automatically matches OS preference
+- **Manual toggle** - User can switch via navbar button
+- **Persistent storage** - Preference saved to localStorage
+- **All components styled** - Cards, tables, modals, and all UI elements
 ---
 
 ## Troubleshooting & Common Issues
@@ -715,164 +678,146 @@ npm install
 
 ### Performance Optimization
 
-Frontend Optimizations Implemented
+#### Frontend Optimizations
 
-Technique	Implementation
+| Technique | Implementation |
+|-----------|----------------|
+| Code Splitting | Lazy loading for pages using React.lazy() |
+| Image Optimization | Player images with fallback SVGs |
+| Infinite Scroll | Reduces initial load time (24 items per batch) |
+| Debounced Search | 500ms delay reduces API calls during typing |
+| Memoization | React.memo for frequently rendered components |
+| Tailwind JIT | Just-in-time compilation for minimal CSS |
 
-Code Splitting	Lazy loading for pages using React.lazy()
+#### Backend Optimizations
 
-Image Optimization	Player images with fallback SVGs
-
-Infinite Scroll	Reduces initial load time for player lists (24 items per batch)
-
-Debounced Search	500ms delay reduces API calls during typing
-
-Memoization	React.memo for frequently rendered components
-
-Tailwind JIT	Just-in-time compilation for minimal CSS
-
-Backend Optimizations Implemented
-
-Technique	Implementation
-
-Database Indexes	Indexed columns: player_name, format, tournament_id
-
-Query Optimization	Using appropriate JOINs and WHERE clauses
-
-Connection Pooling	PostgreSQL connection reuse via pg.Pool
-
-Pagination	Limit/offset for all list endpoints
-
-Caching Ready	Structure supports Redis caching (optional)
-
-Lighthouse Scores (Expected)
-
-Metric	Score
-
-Performance	85-95
-
-Accessibility	90-95
-
-Best Practices	90-100
-
-SEO	85-95
+| Technique | Implementation |
+|-----------|----------------|
+| Database Indexes | Indexed columns: player_name, format, tournament_id |
+| Query Optimization | Using appropriate JOINs and WHERE clauses |
+| Connection Pooling | PostgreSQL connection reuse via pg.Pool |
+| Pagination | Limit/offset for all list endpoints |
+| Caching Ready | Structure supports Redis caching (optional) |
 
 ### Security Features
 
-Feature	Implementation
+| Feature | Implementation |
+|---------|----------------|
+| JWT Authentication | Stateless authentication with 7-day expiration |
+| Password Hashing | bcrypt with 10 salt rounds |
+| SQL Injection Prevention | Parameterized queries throughout |
+| CORS Configuration | Restricted to allowed origins only |
+| Environment Variables | Sensitive data never hardcoded |
+| Guest Mode Isolation | Guest data only in localStorage, never sent to backend |
+| Input Validation | All API inputs validated before processing |
 
-JWT Authentication	Stateless authentication with 7-day expiration
-
-Password Hashing	bcrypt with 10 salt rounds
-
-SQL Injection Prevention	Parameterized queries throughout
-
-CORS Configuration	Restricted to allowed origins only
-
-Environment Variables	Sensitive data never hardcoded
-
-Guest Mode Isolation	Guest data only in localStorage, never sent to backend
-
-Input Validation	All API inputs validated before processing
-
-⚠️ Note
-KwikCric is a personal project created and maintained by Nihal. While every effort is made to respond to inquiries, response times may vary based on availability.
+#### ⚠️ Note:
+- KwikCric is a personal project created and maintained by Nihal. While every effort is made to respond to inquiries, response times may vary based on availability.
 
 ### Acknowledgments
 
-Data Sources
+- Data Sources
+- ICC - Tournament structures and official records
+- ESPNcricinfo - Historical cricket statistics and player data
+- Wikipedia - Tournament history and results
+- Open Source Libraries
+- Library	Purpose
+- React	UI Framework
+- Tailwind CSS	Styling
+- Framer Motion	Animations
+- Recharts	Data visualization
+- React Hot Toast	Notifications
+- Express	Backend framework
+- PostgreSQL	Database
+- Special Thanks to Cricket community for inspiration and feedback
+- Open source contributors of all dependencies used in this project
 
-ICC - Tournament structures and official records
-
-ESPNcricinfo - Historical cricket statistics and player data
-
-Wikipedia - Tournament history and results
-
-Open Source Libraries
-
-Library	Purpose
-
-React	UI Framework
-
-Tailwind CSS	Styling
-
-Framer Motion	Animations
-
-Recharts	Data visualization
-
-React Hot Toast	Notifications
-
-Express	Backend framework
-
-PostgreSQL	Database
-
-Special Thanks
-
-Cricket community for inspiration and feedback
-
-Open source contributors of all dependencies used in this project
 
 ### Proprietary License
-```text
-License Summary
-License Type	Proprietary / All Rights Reserved
-Copyright Holder	Mohammad Nihal
-Commercial Use	❌ Not permitted without written consent
-Modification	❌ Not permitted
-Distribution	❌ Not permitted
-Source Code Access	🔒 Restricted
-Attribution	✅ Required if permitted in writing
-```
+
+#### License Summary:
+- License Type: Proprietary / All Rights Reserved
+- Copyright Holder: G Nihal
+- Commercial Use:	❌ Not permitted without written consent
+- Modification:	❌ Not permitted
+- Distribution:	❌ Not permitted
+- Source Code Access:	Permitted for fair use
+- Attribution	✅ Required if permitted in writing
+
+
+
+---
 
 ### Disclaimer
-```text
-KwikCric is an independent project and is not affiliated, associated, authorized, endorsed by, or in any way officially connected with:
 
-International Cricket Council (ICC)
+> **Disclaimer:** KwikCric is an independent project and is not affiliated, associated, authorized, endorsed by, or in any way officially connected with:
+> - International Cricket Council (ICC)
+> - Board of Control for Cricket in India (BCCI)
+> - Indian Premier League (IPL)
+> - Any cricket board or official cricket organization
+>
+> All data displayed is for informational and entertainment purposes only. Player images and team logos are property of their respective owners. If you are a copyright holder and believe any content on this platform infringes upon your rights, please contact the developer for prompt resolution.
 
-Board of Control for Cricket in India (BCCI)
-
-Indian Premier League (IPL)
-
-Any cricket board or official cricket organization
-
-All data displayed is for informational and entertainment purposes only. Player images and team logos are property of their respective owners. If you are a copyright holder and believe any content on this platform infringes upon your rights, please contact the developer for prompt resolution.
-```
+---
 
 ### Final Notes
+
 KwikCric is the result of countless hours of development, database design, and a deep passion for cricket. Every feature, from the GOAT ranking algorithm to the interactive games, was built with cricket fans in mind.
 
-If you enjoy using KwikCric, consider:
+**If you enjoy using KwikCric, consider:**
+- ⭐ Starring the repository on GitHub
+- 🐛 Reporting bugs you encounter
+- 💡 Suggesting features you'd like to see
+- 📧 Sharing feedback via email
 
-Starring the repository on GitHub
-
-Reporting bugs you encounter
-
-Suggesting features you'd like to see
-
-Sharing feedback via email
+---
 
 ### Contact & Support
-KwikCric is a solo-developed project by Nihal, here are the ways to get in touch:
 
-GitHub: github.com/nihalmohammad705-debug
+KwikCric is a solo-developed project by **G Nihal**.
 
-📧 Email
+**Connect with me:**
+- **GitHub:** [github.com/nihalmohammad705-debug](https://github.com/nihalmohammad705-debug)
+- **Email:** nihalmohammad705@gmail.com
+  *(For bugs, feature requests, licensing inquiries, or collaborations)*
 
-nihalmohammad705@gmail.com
-
-(For bugs, feature requests, licensing inquiries, or collaborations)
-
-Bug Reports
+#### Bug Reports
 
 For reporting bugs or issues, please include:
+- Detailed description of the issue
+- Steps to reproduce
+- Screenshot or screen recording (if applicable)
+- Browser and OS version
+- Console errors (if any)
 
-Detailed description of the issue
+---
 
-Steps to reproduce
+## 👨‍💻 Created By
 
-Screenshot or screen recording (if applicable)
+**G Nihal**
 
-Browser and OS version
+[![GitHub](https://img.shields.io/badge/GitHub-nihalmohammad705--debug-181717?style=for-the-badge&logo=github)](https://github.com/nihalmohammad705-debug)
+[![Email](https://img.shields.io/badge/Email-nihalmohammad705@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:nihalmohammad705@gmail.com)
 
-Console errors (if any)
+---
+
+### 📅 Version History
+
+| Version | Date | Changes |
+|---------|------|---------|
+| 2.0.0 | 2026 | Complete redesign with games, tournaments, and player rankings |
+| 1.0.0 | 2026 | Initial release with player stats and rankings |
+
+---
+
+### Made with ❤️ for Cricket Fans
+
+*"Cricket is not just a sport, it's an emotion that unites millions."*
+
+---
+
+**© 2026 G Nihal. All Rights Reserved.**
+
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=100&section=footer" width="100%"/>
+</p>
