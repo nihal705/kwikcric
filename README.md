@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=30&duration=3000&pause=500&color=00FF00&center=true&vCenter=true&width=600&lines=🏏+KwikCric;Complete+Cricket+Stats+Platform;Interactive+Games+Hub;Made+with+%E2%9D%A4%EF%B8%8F;500%2B+Players+%7C+1000%2B+Matches;4+Interactive+Games;Real-time+Rankings+%26+Stats;GOAT+Player+Rankings;ODI+%7C+T20+%7C+IPL+%7C+Test;Tournament+History+Hub;ICC+World+Cup+%7C+Champions+Trophy;WTC+%7C+IPL+Seasons;Built+by+Cricket+Fans+for+Cricket+Fans;Join+10K%2B+Users+Today!;Live+Demo+Available+Now!;Star+on+GitHub+⭐" alt="Typing Animation" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=30&duration=3000&pause=500&color=00FF00&center=true&vCenter=true&width=500&lines=+KwikCric;Cricket+Stats+Platform;Interactive+Games+Hub;Made+with+%E2%9D%A4%EF%B8%8F" alt="Typing Animation" />
 </p>
 
 <p align="center">
