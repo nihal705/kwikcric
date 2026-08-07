@@ -16,7 +16,7 @@
   <a href="https://kwikcric.vercel.app">
     <img src="https://img.shields.io/badge/_Live_Demo-View_Now-00C7B7?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo" />
   </a>
-  <a href="https://github.com/nihalmohammad705-debug">
+  <a href="https://github.com/nihal705">
     <img src="https://img.shields.io/badge/_GitHub-Follow-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
   </a>
   <a href="mailto:nihalmohammad705@gmail.com">
@@ -161,7 +161,7 @@ PostgreSQL Query → Response → Component State → UI Update
 ### Clone Repository
 
 ```bash
-git clone https://github.com/nihalmohammad705-debug/kwikcric.git
+git clone https://github.com/nihal705/kwikcric.git
 cd kwikcric
 ```
 
@@ -763,7 +763,7 @@ KwikCric is the result of countless hours of development, database design, and a
 KwikCric is a solo-developed project by **G Nihal**.
 
 **Connect with me:**
-- **GitHub:** [github.com/nihalmohammad705-debug](https://github.com/nihalmohammad705-debug)
+- **GitHub:** [github.com/nihal705](https://github.com/nihal705)
 - **Email:** nihalmohammad705@gmail.com
   *(For bugs, feature requests, licensing inquiries, or collaborations)*
 
@@ -782,7 +782,7 @@ For reporting bugs or issues, please include:
 
 **G Nihal**
 
-[![GitHub](https://img.shields.io/badge/GitHub-nihalmohammad705--debug-181717?style=for-the-badge&logo=github)](https://github.com/nihalmohammad705-debug)
+[![GitHub](https://img.shields.io/badge/GitHub-nihal705-181717?style=for-the-badge&logo=github)](https://github.com/nihal705)
 [![Email](https://img.shields.io/badge/Email-nihalmohammad705@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:nihalmohammad705@gmail.com)
 
 ---
