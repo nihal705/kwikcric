@@ -40,7 +40,7 @@ export const Footer: React.FC = () => {
               © {currentYear} KwikCric. All rights reserved.
             </motion.p>
             <motion.a
-              href="https://github.com/nihalmohammad705-debug"
+              href="https://github.com/nihal705/kwikcric"
               target="_blank"
               rel="noopener noreferrer"
               initial={{ opacity: 0 }}
@@ -48,7 +48,7 @@ export const Footer: React.FC = () => {
               transition={{ delay: 0.4 }}
               className="text-xs text-gray-400 dark:text-gray-500 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-200 flex items-center justify-center gap-1 mt-1"
             >
-              <span>GITHUB : </span> nihalmohammad705-debug
+              <span>GITHUB : </span> nihal705
             </motion.a>
           </div>
 
