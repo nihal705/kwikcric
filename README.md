@@ -209,59 +209,51 @@ cd frontend
 npm run build
 ```
 
-### API Endpoints
-```text
-Players
-Method	Endpoint	Description
-GET	/api/players	Get paginated list of players with filters
-GET	/api/players/:id/complete	Get complete player details with stats
-GET	/api/players/search	Search players by name
-Rankings
-Method	Endpoint	Description
-GET	/api/rankings/:format/:category	Get player rankings (format: odi/test/t20i/overall, category: batting/bowling/allrounder)
-GET	/api/rankings/goat	Get GOAT rankings across all formats
-Team Rankings
-Method	Endpoint	Description
-GET	/api/team-rankings/:format	Get team rankings (format: overall/odi/t20/test)
-GET	/api/team-rankings/all	Get combined team rankings
-GET	/api/teams/list	Get list of all teams
+## API Endpoints
 
-World Cup
-Method	Endpoint	Description
-GET	/api/world-cup/tournaments	Get all tournaments by type
-GET	/api/world-cup/tournaments/year/:year	Get tournament by year
-GET	/api/world-cup/:year/full-details	Get complete tournament details
-GET	/api/world-cup/team-rankings	Get team rankings by tournament type
-GET	/api/world-cup/team/:teamName	Get team details with victories
-GET	/api/world-cup/all-time-records	Get all-time records
+### Players
+- `GET /api/players` - Get paginated list of players
+- `GET /api/players/:id/complete` - Get complete player details
+- `GET /api/players/search` - Search players by name
 
-IPL
-Method	Endpoint	Description
-GET	/api/ipl/seasons	Get all IPL seasons
-GET	/api/ipl/seasons/:year	Get IPL season by year
-GET	/api/ipl/team-rankings	Get IPL team rankings
-GET	/api/ipl/players	Get IPL players list
-GET	/api/ipl/players/:id	Get IPL player details
-GET	/api/ipl/cap-winners	Get Orange Cap and Purple Cap winners
-GET	/api/ipl/all-time-records	Get IPL all-time records
+### Rankings
+- `GET /api/rankings/:format/:category` - Get player rankings (odi/test/t20i/overall)
+- `GET /api/rankings/goat` - Get GOAT rankings
 
-Authentication
-Method	Endpoint	Description
-POST	/api/auth/register	Register new user
-POST	/api/auth/login	Login user
-GET	/api/auth/me	Get current user info
-POST	/api/auth/logout	Logout user
+### Team Rankings
+- `GET /api/team-rankings/:format` - Get team rankings
+- `GET /api/team-rankings/all` - Get combined team rankings
+- `GET /api/teams/list` - Get list of all teams
 
-Games
-Method	Endpoint	Description
-POST	/api/kwik-cricket/save	Save match result
-GET	/api/kwik-cricket/history	Get match history
-GET	/api/kwik-cricket/stats	Get user statistics
+### World Cup
+- `GET /api/world-cup/tournaments` - Get all tournaments
+- `GET /api/world-cup/tournaments/year/:year` - Get tournament by year
+- `GET /api/world-cup/:year/full-details` - Get complete tournament details
+- `GET /api/world-cup/team-rankings` - Get team rankings
+- `GET /api/world-cup/team/:teamName` - Get team details with victories
+- `GET /api/world-cup/all-time-records` - Get all-time records
 
-Health Check
-Method	Endpoint	Description
-GET	/health	Check server and database status
-```
+### IPL
+- `GET /api/ipl/seasons` - Get all IPL seasons
+- `GET /api/ipl/seasons/:year` - Get IPL season by year
+- `GET /api/ipl/team-rankings` - Get IPL team rankings
+- `GET /api/ipl/players` - Get IPL players list
+- `GET /api/ipl/players/:id` - Get IPL player details
+- `GET /api/ipl/cap-winners` - Get Orange Cap and Purple Cap winners
+- `GET /api/ipl/all-time-records` - Get IPL all-time records
+
+### Authentication
+- `POST /api/auth/register` - Register new user
+- `POST /api/auth/login` - Login user
+- `GET /api/auth/me` - Get current user info
+
+### Games
+- `POST /api/kwik-cricket/save` - Save match result
+- `GET /api/kwik-cricket/history` - Get match history
+- `GET /api/kwik-cricket/stats` - Get user statistics
+
+### Health
+- `GET /health` - Check server and database status
 
 📁 Project Structure
 ```text
