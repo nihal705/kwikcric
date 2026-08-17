@@ -378,14 +378,7 @@ async function getCareerStatsName(fullName, playerId) {
     return `${firstInitial} ${lastName}`;
 }
 
-// ============================================
-// PLAYER RANKINGS API ENDPOINTS
-// ============================================
-
 // Get all player rankings by format and category
-// ============================================
-// COMPLETE RANKINGS API ENDPOINTS
-// ============================================
 
 app.get('/api/rankings/:format/:category', async (req, res) => {
     const { format, category } = req.params;
@@ -445,10 +438,6 @@ app.get('/api/rankings/goat', async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 });
-
-// ============================================
-// TEAM RANKINGS API ENDPOINTS
-// ============================================
 
 // Get all team rankings by format
 app.get('/api/team-rankings/:format', async (req, res) => {
@@ -566,11 +555,7 @@ app.get('/api/teams/list', async (req, res) => {
     }
 });
 
-// ============================================
-// PLAYER API ENDPOINTS (Existing)
-// ============================================
-
-// UPDATED: Players with bio + stats using actual playing_role
+// Players with bio + stats using actual playing_role
 app.get('/api/players/qualified', async (req, res) => {
   try {
     const { limit = 20, page = 1, search = '', country = '', role = '', sortBy = 'runs' } = req.query;
@@ -660,10 +645,6 @@ app.get('/api/players/qualified', async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
-
-// ============================================
-// WORLD CUP API ENDPOINTS (NEW)
-// ============================================
 
 // Get all World Cup tournaments
 app.get('/api/world-cup/tournaments', async (req, res) => {
@@ -973,7 +954,6 @@ try {
     }
 });
 
-// Get venue statistics - with better number formatting
 // Get venue statistics - Complete with all three categories
 app.get('/api/world-cup/venue-stats', async (req, res) => {
     try {
@@ -1085,7 +1065,6 @@ app.get('/api/world-cup/venue-stats', async (req, res) => {
     }
 });
 
-// Get all-time records for specific tournament type
 // Get WTC all-time records (in same format as ODI endpoint)
 app.get('/api/world-cup/all-time-records', async (req, res) => {
     try {
