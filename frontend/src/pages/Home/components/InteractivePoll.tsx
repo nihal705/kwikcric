@@ -1,5 +1,6 @@
 // frontend/src/pages/Home/components/InteractivePoll.tsx
 import React, { useState, useEffect } from 'react';
+import { API_BASE_URL } from '../../../services/api/config';
 import axios from 'axios';
 
 interface PollData {
@@ -26,7 +27,7 @@ export const InteractivePoll: React.FC = () => {
   const fetchPoll = async () => {
     setLoading(true);
     try {
-      const response = await axios.get('http://localhost:3000/api/polls/active');
+      const response = await axios.get(`${API_BASE_URL}/api/polls/active`);
       console.log('Poll response:', response.data);
       
       if (response.data.success && response.data.data) {
@@ -45,7 +46,7 @@ export const InteractivePoll: React.FC = () => {
     
     setVoting(true);
     try {
-      const response = await axios.post(`http://localhost:3000/api/polls/${poll.id}/vote`, {
+      const response = await axios.post(`{API_BASE_URL}/api/polls/${poll.id}/vote`, {
         option: selectedOption
       });
       

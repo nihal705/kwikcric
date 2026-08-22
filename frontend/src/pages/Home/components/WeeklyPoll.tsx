@@ -1,5 +1,6 @@
 // frontend/src/pages/Home/components/WeeklyPoll.tsx
 import React, { useState, useEffect } from 'react';
+import { API_BASE_URL } from '../../../services/api/config';
 import axios from 'axios';
 
 interface Question {
@@ -40,7 +41,7 @@ export const WeeklyPoll: React.FC = () => {
   const fetchPoll = async () => {
     setLoading(true);
     try {
-      const response = await axios.get('http://localhost:3000/api/polls/weekly/active');
+      const response = await axios.get(`${API_BASE_URL}/api/polls/weekly/active`);
       console.log('Weekly poll response:', response.data);
       
       if (response.data.success && response.data.data) {
@@ -69,7 +70,7 @@ export const WeeklyPoll: React.FC = () => {
     
     setSubmitting(true);
     try {
-      await axios.post(`http://localhost:3000/api/polls/weekly/${poll.pollId}/answer`, {
+      await axios.post(`${API_BASE_URL}/api/polls/weekly/${poll.pollId}/answer`, {
         questionId: currentQuestion.id,
         option: selectedOption
       });
