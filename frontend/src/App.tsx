@@ -52,7 +52,7 @@ const GlobalBanner = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: 'spring', stiffness: 100 }}
-      className="bg-gradient-to-r from-amber-500/20 to-yellow-500/20 dark:from-amber-500/10 dark:to-yellow-500/10 border-b border-amber-200 dark:border-amber-800 px-4 py-2.5 relative z-50"
+      className="bg-yellow-50 dark:bg-yellow-950/20 border-b border-yellow-200 dark:border-yellow-800 px-4 py-2.5 relative z-50"
     >
       <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-center gap-3 text-xs">
         {/* Animated emoji */}
