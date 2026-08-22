@@ -1,7 +1,8 @@
 // frontend/src/services/kwikCricketAPI.ts
+import { API_BASE_URL } from './api/config';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3000/api/kwik-cricket';
+const API_URL = `${API_BASE_URL}/kwik-cricket`;
 
 export const saveMatch = async (matchData: {
     sessionId?: string;

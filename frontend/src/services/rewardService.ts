@@ -1,4 +1,5 @@
 // frontend/src/services/rewardService.ts
+import { API_BASE_URL } from './api/config';
 
 export interface Reward {
   coins: number;
@@ -15,7 +16,7 @@ export interface RewardResponse {
   error?: string;
 }
 
-const API_URL = 'http://localhost:3000/api';
+const API_URL = API_BASE_URL;
 
 class RewardService {
   private getToken(): string | null {

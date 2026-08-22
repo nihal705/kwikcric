@@ -1,8 +1,9 @@
 // frontend/src/services/authAPI.ts
+import { API_BASE_URL } from './api/config';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3000/api/auth';
-const GAME_API_URL = 'http://localhost:3000/api/kwik-cricket';
+const API_URL = `${API_BASE_URL}/auth`;
+const GAME_API_URL = `${API_BASE_URL}/kwik-cricket`;
 
 const getToken = () => localStorage.getItem('kwik_cricket_token');
 

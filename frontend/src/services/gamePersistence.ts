@@ -1,7 +1,8 @@
 // frontend/src/services/gamePersistence.ts
+import { API_BASE_URL } from './api/config';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3000/api/games';
+const API_URL = `${API_BASE_URL}/games`;
 
 interface SavedGameState {
     gameType: string;
