@@ -1,6 +1,7 @@
 // frontend/src/pages/Tournaments/components/WTCTournamentStats.tsx
 import React, { useState, useEffect } from 'react';
 import { worldCupAPI } from '../../../services/api/worldCupAPI';
+import { API_BASE_URL } from '../../../services/api/config';
 import axios from 'axios';
 
 interface WTCTournamentStatsProps {
@@ -39,7 +40,7 @@ export const WTCTournamentStats: React.FC<WTCTournamentStatsProps> = ({ tourname
 
       // Fetch additional stats from the API
       try {
-        const additionalResponse = await axios.get(`http://localhost:3000/api/wtc/${tournamentId}/additional-stats`);
+        const additionalResponse = await axios.get(`${API_BASE_URL}/api/wtc/${tournamentId}/additional-stats`);
         console.log('Additional WTC Stats:', additionalResponse.data);
         if (additionalResponse.data.success) {
           setAdditionalStats(additionalResponse.data.data);

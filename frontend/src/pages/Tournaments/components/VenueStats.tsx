@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { API_BASE_URL } from '../../../services/api/config';
 import { FiMapPin, FiTrendingUp } from 'react-icons/fi';
 
 interface VenueStat {
@@ -29,7 +30,7 @@ export const VenueStats: React.FC = () => {
   const fetchVenueStats = async () => {
     setLoading(true);
     try {
-      const response = await axios.get('http://localhost:3000/api/world-cup/venue-stats');
+      const response = await axios.get(`${API_BASE_URL}/api/world-cup/venue-stats`);
       console.log('Venue stats response:', response.data);
       setVenueStats(response.data.data);
     } catch (error) {

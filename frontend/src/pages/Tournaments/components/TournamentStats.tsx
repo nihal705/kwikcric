@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { API_BASE_URL } from '../../../services/api/config';
 
 interface TournamentStatsProps {
   tournamentId: number;
@@ -74,7 +75,7 @@ export const TournamentStats: React.FC<TournamentStatsProps> = ({ tournamentId, 
   const fetchTournamentStats = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`http://localhost:3000/api/world-cup/tournaments/${tournamentId}/detailed-stats`);
+      const response = await fetch(`${API_BASE_URL}api/world-cup/tournaments/${tournamentId}/detailed-stats`);
       const data = await response.json();
       console.log('Stats data:', data);
       setStats(data.data);

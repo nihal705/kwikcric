@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { API_BASE_URL } from '../../../services/api/config';
 
 interface Achievement {
   achievement_type: string;
@@ -25,7 +26,7 @@ export const TournamentAchievements: React.FC<TournamentAchievementsProps> = ({ 
   const fetchAchievements = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`http://localhost:3000/api/world-cup/tournaments/${tournamentId}/achievements`);
+      const response = await fetch(`${API_BASE_URL}/api/world-cup/tournaments/${tournamentId}/achievements`);
       const data = await response.json();
       setAchievements(data.data);
     } catch (error) {
