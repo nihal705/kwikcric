@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { worldCupAPI, Tournament, Match, PointsTableEntry } from '../../services/api/worldCupAPI';
 import { WTCTournamentStats } from './components/WTCTournamentStats';
 import { TournamentAchievements } from './components/TournamentAchievements';
+import { API_BASE_URL } from '../../services/api/config';
 import axios from 'axios';
 
 type TabType = 'overview' | 'pointsTable' | 'matches' | 'stats' | 'achievements';
@@ -319,7 +320,7 @@ const WTCMatchesSection: React.FC<{ matches: Match[] }> = ({ matches }) => {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await axios.get(`http://localhost:3000/api/test-match/${matchId}/innings`);
+      const response = await axios.get(`${API_BASE_URL}/api/test-match/${matchId}/innings`);
       console.log('API Response:', response.data);
       
       if (response.data.success && response.data.data) {
