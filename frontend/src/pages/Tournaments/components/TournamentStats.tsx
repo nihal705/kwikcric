@@ -75,7 +75,7 @@ export const TournamentStats: React.FC<TournamentStatsProps> = ({ tournamentId, 
   const fetchTournamentStats = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`${API_BASE_URL}api/world-cup/tournaments/${tournamentId}/detailed-stats`);
+      const response = await fetch(`${API_BASE_URL}/world-cup/tournaments/${tournamentId}/detailed-stats`);
       const data = await response.json();
       console.log('Stats data:', data);
       setStats(data.data);

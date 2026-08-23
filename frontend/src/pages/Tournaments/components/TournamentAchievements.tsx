@@ -26,7 +26,7 @@ export const TournamentAchievements: React.FC<TournamentAchievementsProps> = ({ 
   const fetchAchievements = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`${API_BASE_URL}/api/world-cup/tournaments/${tournamentId}/achievements`);
+      const response = await fetch(`${API_BASE_URL}/world-cup/tournaments/${tournamentId}/achievements`);
       const data = await response.json();
       setAchievements(data.data);
     } catch (error) {
