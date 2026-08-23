@@ -27,7 +27,7 @@ export const InteractivePoll: React.FC = () => {
   const fetchPoll = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`${API_BASE_URL}/api/polls/active`);
+      const response = await axios.get(`${API_BASE_URL}/polls/active`);
       console.log('Poll response:', response.data);
       
       if (response.data.success && response.data.data) {
@@ -46,7 +46,7 @@ export const InteractivePoll: React.FC = () => {
     
     setVoting(true);
     try {
-      const response = await axios.post(`{API_BASE_URL}/api/polls/${poll.id}/vote`, {
+      const response = await axios.post(`{API_BASE_URL}/polls/${poll.id}/vote`, {
         option: selectedOption
       });
       
