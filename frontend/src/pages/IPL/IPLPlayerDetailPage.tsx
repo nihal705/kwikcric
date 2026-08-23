@@ -67,7 +67,7 @@ export const IPLPlayerDetailPage: React.FC = () => {
       if (!id) return;
       setLoading(true);
       try {
-        const response = await axios.get(`${API_BASE_URL}/api/ipl/players/${id}`);
+        const response = await axios.get(`${API_BASE_URL}/ipl/players/${id}`);
         setPlayer(response.data.data);
       } catch (error) {
         console.error('Failed to fetch IPL player:', error);
