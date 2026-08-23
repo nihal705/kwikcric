@@ -40,7 +40,7 @@ export const WTCTournamentStats: React.FC<WTCTournamentStatsProps> = ({ tourname
 
       // Fetch additional stats from the API
       try {
-        const additionalResponse = await axios.get(`${API_BASE_URL}/api/wtc/${tournamentId}/additional-stats`);
+        const additionalResponse = await axios.get(`${API_BASE_URL}/wtc/${tournamentId}/additional-stats`);
         console.log('Additional WTC Stats:', additionalResponse.data);
         if (additionalResponse.data.success) {
           setAdditionalStats(additionalResponse.data.data);

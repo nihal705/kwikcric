@@ -30,7 +30,7 @@ export const VenueStats: React.FC = () => {
   const fetchVenueStats = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`${API_BASE_URL}/api/world-cup/venue-stats`);
+      const response = await axios.get(`${API_BASE_URL}/world-cup/venue-stats`);
       console.log('Venue stats response:', response.data);
       setVenueStats(response.data.data);
     } catch (error) {
