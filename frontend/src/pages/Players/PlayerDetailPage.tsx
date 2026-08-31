@@ -182,7 +182,6 @@ const calculateBattingMetrics = (stats: BattingStats[]) => {
   }
 
   const avgStrikeRate = totalStrikeRate / (formatCount || 1);
-  const avgBattingAvg = totalBattingAvg / (formatCount || 1);
   const bigScores = totalFifties + totalCenturies * 2;
 
   // 1. CONSISTENCY - Kohli: 155 big scores / 400 matches = 38% -> 85-90
