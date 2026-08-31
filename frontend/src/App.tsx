@@ -1,6 +1,6 @@
 // src/App.tsx
 import { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
@@ -170,6 +170,8 @@ useEffect(() => {
               <Route path="/ipl/:year" element={<IPLSeasonDetailPage />} />
               <Route path="/ipl/players" element={<IPLPlayersPage />} />
               <Route path="/ipl/player/:id" element={<IPLPlayerDetailPage />} />
+
+              <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </main>
           <Footer />
