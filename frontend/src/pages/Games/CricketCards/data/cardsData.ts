@@ -4526,18 +4526,7 @@ createCard(760, 'Joe Root', 'batsman', 'England', '', 'mythic',
   { batting: 98, bowling: 38, fielding: 88, leadership: 92, consistency: 100, popularity: 96 },
   'RUN MACHINE ULTIMATE - +40 in Tests', 'Root GOAT', 2021,
   { worldCupWinner: true, iplCaptain: false, indianLegend: false, fastBowler: false, allRounder: false, goatEdition: true })
-    ];
-
-// Temporary debug - add to cardsData.ts
-console.log('Rarity counts:', {
-  common: cardsData.filter(c => c.rarity === 'common').length,
-  standard: cardsData.filter(c => c.rarity === 'standard').length,
-  rare: cardsData.filter(c => c.rarity === 'rare').length,
-  epic: cardsData.filter(c => c.rarity === 'epic').length,
-  elite: cardsData.filter(c => c.rarity === 'elite').length,
-  legendary: cardsData.filter(c => c.rarity === 'legendary').length,
-  mythic: cardsData.filter(c => c.rarity === 'mythic').length,
-});
+  ];
 
 export const getAllCards = (): Card[] => cardsData;
 

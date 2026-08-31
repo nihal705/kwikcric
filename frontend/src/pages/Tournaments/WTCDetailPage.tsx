@@ -321,7 +321,6 @@ const WTCMatchesSection: React.FC<{ matches: Match[] }> = ({ matches }) => {
     setError(null);
     try {
       const response = await axios.get(`${API_BASE_URL}/test-match/${matchId}/innings`);
-      console.log('API Response:', response.data);
       
       if (response.data.success && response.data.data) {
         setInningsData(response.data.data);

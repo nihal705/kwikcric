@@ -28,7 +28,6 @@ export const InteractivePoll: React.FC = () => {
     setLoading(true);
     try {
       const response = await axios.get(`${API_BASE_URL}/polls/active`);
-      console.log('Poll response:', response.data);
       
       if (response.data.success && response.data.data) {
         setPoll(response.data.data);

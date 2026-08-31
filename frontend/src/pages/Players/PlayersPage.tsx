@@ -90,8 +90,6 @@ export const PlayersPage: React.FC = () => {
       const currentTotal = reset ? newPlayers.length : players.length + newPlayers.length;
       setHasMore(currentTotal < total);
       
-      console.log(`Loaded ${currentTotal} of ${total} players`);
-      
     } catch (error) {
       console.error('Failed to fetch players:', error);
       toast.error('Failed to load players');

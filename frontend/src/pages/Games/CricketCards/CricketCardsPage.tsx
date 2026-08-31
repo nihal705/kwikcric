@@ -100,7 +100,6 @@ useEffect(() => {
   }, []);
 
   const handleOpenPack = async (packType: PackType) => {
-    console.log('Opening pack:', packType);
     
     // Find the pack
     const pack = packsData.find(p => p.type === packType);
@@ -109,9 +108,6 @@ useEffect(() => {
       alert('Pack not found!');
       return;
     }
-    
-    console.log('Pack details:', pack);
-    console.log('Current currency:', currency);
     
     // Check if user can afford
     if (pack.costCoins > 0 && currency.coins < pack.costCoins) {
@@ -126,14 +122,10 @@ useEffect(() => {
     // Deduct currency
     let success = false;
     if (pack.costCoins > 0) {
-      console.log('Spending coins:', pack.costCoins);
       success = await spendCurrency(pack.costCoins, 0);
     } else {
-      console.log('Spending gems:', pack.costGems);
       success = await spendCurrency(0, pack.costGems);
     }
-    
-    console.log('Currency deduction success:', success);
     
     if (!success) {
       console.error('Failed to deduct currency!');
@@ -143,7 +135,6 @@ useEffect(() => {
     
     // Open the pack and get cards
     const openedCards = await openPackService(packType);
-    console.log('Cards received:', openedCards.length);
     
     // Add cards to collection
     openedCards.forEach(card => {

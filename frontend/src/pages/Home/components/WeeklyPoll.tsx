@@ -42,7 +42,6 @@ export const WeeklyPoll: React.FC = () => {
     setLoading(true);
     try {
       const response = await axios.get(`${API_BASE_URL}/polls/weekly/active`);
-      console.log('Weekly poll response:', response.data);
       
       if (response.data.success && response.data.data) {
         const pollData = response.data.data;

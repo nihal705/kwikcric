@@ -42,7 +42,6 @@ export const GreatestMatches: React.FC<GreatestMatchesProps> = ({
     setLoading(true);
     try {
       const response = await worldCupAPI.getGreatestMatches(tournamentType);
-      console.log(`${tournamentType} greatest matches:`, response.data);
       setHighestScoring(response.data.highestScoring || []);
       setClosestFinishes(response.data.closestFinishes || []);
     } catch (error) {

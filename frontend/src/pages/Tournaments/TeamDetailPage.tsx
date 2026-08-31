@@ -60,7 +60,6 @@ export const TeamDetailPage: React.FC = () => {
     setLoading(true);
     try {
       const response = await worldCupAPI.getTeamDetails(teamName || '', tournamentType);
-      console.log('Team details response:', response.data);
       setTeamDetail(response.data);
       if (response.data.victories.length > 0) {
         setSelectedYear(response.data.victories[0].year);

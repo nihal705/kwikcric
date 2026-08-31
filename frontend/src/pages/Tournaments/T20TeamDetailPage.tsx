@@ -59,7 +59,6 @@ export const T20TeamDetailPage: React.FC = () => {
     try {
         // Pass 't20' as the tournament type to get only T20 victories
         const response = await worldCupAPI.getTeamDetails(teamName || '', 't20');
-        console.log('T20 Team data:', response.data);
         setTeamDetail(response.data);
         if (response.data.victories.length > 0) {
             setSelectedYear(response.data.victories[0].year);

@@ -58,7 +58,6 @@ export const ChampionsTrophyTeamDetailPage: React.FC = () => {
     setLoading(true);
     try {
       const response = await worldCupAPI.getTeamDetails(teamName || '', 'champions');
-      console.log('Champions Trophy Team data:', response.data);
       setTeamDetail(response.data);
       if (response.data.victories.length > 0) {
         setSelectedYear(response.data.victories[0].year);

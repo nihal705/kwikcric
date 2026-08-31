@@ -68,7 +68,6 @@ export const useCurrency = () => {
     try {
       // Check if user has enough currency
       if (currency.coins < coins || currency.gems < gems) {
-        console.log('Insufficient currency:', { have: { coins: currency.coins, gems: currency.gems }, need: { coins, gems } });
         return false;
       }
       

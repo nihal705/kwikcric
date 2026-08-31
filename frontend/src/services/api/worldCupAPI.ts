@@ -97,13 +97,10 @@ class WorldCupAPI {
   async getAllTimeRecords(type: string = 'odi'): Promise<{ success: boolean; data: AllTimeRecordsData }> {
     // If type is 'ipl', use IPL API endpoint
     if (type === 'ipl') {
-      console.log('Fetching IPL records from IPL API');
       const response = await axios.get(`${API_BASE_URL}/ipl/all-time-records`);
-      console.log('IPL records response:', response.data);
       return response.data;
     }
     // Otherwise use World Cup API
-    console.log('Fetching World Cup records');
     const response = await axios.get(`${this.baseUrl}/all-time-records`, { params: { type } });
     return response.data;
   }
@@ -112,19 +109,15 @@ class WorldCupAPI {
   async getGreatestMatches(type: string = 'odi'): Promise<{ success: boolean; data: { highestScoring: GreatestMatch[]; closestFinishes: GreatestMatch[] } }> {
     // If type is 'ipl', use IPL API endpoint
     if (type === 'ipl') {
-      console.log('Fetching IPL greatest matches from IPL API');
       const response = await axios.get(`${API_BASE_URL}/ipl/greatest-matches`);
-      console.log('IPL greatest matches response:', response.data);
       return response.data;
     }
     // Otherwise use World Cup API
-    console.log('Fetching World Cup greatest matches');
     const response = await axios.get(`${this.baseUrl}/greatest-matches`, { params: { type } });
     return response.data;
   }
 
   async getFullTournamentDetails(year: number, type: string = 'odi'): Promise<FullTournamentDetails> {
-    console.log(`Fetching details for year ${year} with type ${type}`);
     const response = await axios.get(`${this.baseUrl}/${year}/full-details`, { params: { type } });
     return response.data.data;
   }
@@ -133,7 +126,6 @@ class WorldCupAPI {
     const response = await axios.get(`${this.baseUrl}/team/${encodeURIComponent(teamName)}`, { 
         params: { type }
     });
-    console.log('API Response for team details:', response.data);
     return response.data;
   }
 }

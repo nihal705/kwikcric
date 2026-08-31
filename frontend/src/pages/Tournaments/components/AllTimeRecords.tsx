@@ -39,7 +39,6 @@ export const AllTimeRecords: React.FC<AllTimeRecordsProps> = ({
     setLoading(true);
     try {
       const response = await worldCupAPI.getAllTimeRecords(tournamentType);
-      console.log(`${tournamentType} records:`, response.data);
       
       const data = response.data;
       

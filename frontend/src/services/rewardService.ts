@@ -22,7 +22,6 @@ class RewardService {
   private getToken(): string | null {
     // Use the same token key as your AuthContext
     const token = localStorage.getItem('kwik_cricket_token');
-    console.log('Token exists:', !!token);
     return token;
   }
 
@@ -45,12 +44,8 @@ class RewardService {
     }
     
     if (!token && options.method === 'POST') {
-      // Guest users cannot claim rewards
-      console.log('Guest user - skipping reward claim');
       throw new Error('Guest users cannot claim rewards');
     }
-    
-    console.log(`Making ${options.method || 'GET'} request to ${API_URL}/rewards${endpoint}`);
     
     const response = await fetch(`${API_URL}/rewards${endpoint}`, {
       ...options,
@@ -73,7 +68,6 @@ class RewardService {
   ): Promise<Reward | null> {
     // Skip for guest users
     if (!this.getToken()) {
-      console.log('Guest user - skipping reward claim:', game, achievement);
       return null;
     }
     
@@ -96,7 +90,6 @@ class RewardService {
   async claimDailyReward(game: string, achievement: string): Promise<Reward | null> {
     // Skip for guest users
     if (!this.getToken()) {
-      console.log('Guest user - skipping daily reward claim:', game, achievement);
       return null;
     }
     

@@ -35,18 +35,15 @@ export const WTCTournamentStats: React.FC<WTCTournamentStatsProps> = ({ tourname
     try {
       // Fetch main stats (top runs, top wickets)
       const response = await worldCupAPI.getTournamentStats(tournamentId);
-      console.log('WTC Stats data:', response.data);
       setStats(response.data);
 
       // Fetch additional stats from the API
       try {
         const additionalResponse = await axios.get(`${API_BASE_URL}/wtc/${tournamentId}/additional-stats`);
-        console.log('Additional WTC Stats:', additionalResponse.data);
         if (additionalResponse.data.success) {
           setAdditionalStats(additionalResponse.data.data);
         }
       } catch (err) {
-        console.log('No additional stats endpoint yet - using empty data');
         setAdditionalStats({
           wicketKeepers: [],
           mostCatches: [],

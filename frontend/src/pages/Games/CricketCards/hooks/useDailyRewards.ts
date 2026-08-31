@@ -80,7 +80,6 @@ export const useDailyRewards = () => {
     
     // Check if reward exists, already claimed, or can't claim
     if (!reward || reward.isClaimed || !reward.canClaim) {
-      console.log('Cannot claim reward:', { day, isClaimed: reward?.isClaimed, canClaim: reward?.canClaim });
       return null;
     }
     
@@ -106,8 +105,6 @@ export const useDailyRewards = () => {
       lastClaimDate: today,
       claimedDays: newClaimedDays,
     }));
-    
-    console.log('Reward claimed:', { day, coins: reward.coins, gems: reward.gems, freePack: reward.freePack });
     
     return {
       coins: reward.coins,

@@ -81,17 +81,13 @@ export const T20WorldCupDetailPage: React.FC = () => {
       const yearNum = parseInt(year!);
       if (isNaN(yearNum)) throw new Error('Invalid year');
       
-      console.log(`Fetching T20 World Cup data for year: ${yearNum}`);
-      
       // Get tournament by year for T20 type
       const tournamentRes = await worldCupAPI.getTournamentByYear(yearNum, 't20');
       const tournamentData = tournamentRes.data;
-      console.log('T20 Tournament found:', tournamentData);
       setTournament(tournamentData);
       
       // Get matches for this tournament
       const matchesRes = await worldCupAPI.getTournamentMatches(tournamentData.id);
-      console.log(`Found ${matchesRes.data?.length || 0} matches`);
       setMatches(matchesRes.data || []);
       
       // Get points table

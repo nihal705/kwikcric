@@ -339,8 +339,6 @@ router.get('/team/:teamName', async (req: Request, res: Response) => {
         
         const decodedTeamName = decodeURIComponent(teamName as string);
         
-        console.log(`Searching for team: ${decodedTeamName}, type: ${type}`);
-        
         let teamResult = await pool.query(`
             SELECT id, name, country, world_cup_wins, t20_world_cup_wins
             FROM teams 
@@ -379,8 +377,6 @@ router.get('/team/:teamName', async (req: Request, res: Response) => {
             WHERE v.team_id = $1 AND wc.tournament_type = $2
             ORDER BY v.year DESC
         `, [team.id, type]);
-        
-        console.log(`Found ${victoriesResult.rows.length} victories for ${team.name} in ${type} format`);
         
         const victories = [];
         for (const victory of victoriesResult.rows) {

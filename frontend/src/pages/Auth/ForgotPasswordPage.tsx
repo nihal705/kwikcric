@@ -16,7 +16,6 @@ type ForgotFormData = z.infer<typeof forgotSchema>;
 
 // Mock API - will be replaced with real backend
 const mockForgotPassword = async (email: string) => {
-  console.log('Password reset requested for:', email);
   // Simulate API call
   await new Promise(resolve => setTimeout(resolve, 1000));
   return { success: true };
