@@ -1,23 +1,19 @@
-import { useCallback, useRef } from 'react';
+import { useCallback, useRef } from "react";
 
 export const useWebSocket = () => {
   const socketRef = useRef<WebSocket | null>(null);
 
   const connect = useCallback(() => {
-    const wsUrl = import.meta.env.VITE_WS_URL || 'ws://localhost:5000';
+    const wsUrl = import.meta.env.VITE_WS_URL || "ws://localhost:5000";
     socketRef.current = new WebSocket(wsUrl);
-    
-    socketRef.current.onopen = () => {
-      console.log('WebSocket connected');
-    };
-    
+
+    socketRef.current.onopen = () => {};
+
     socketRef.current.onerror = (error) => {
-      console.error('WebSocket error:', error);
+      console.error("WebSocket error:", error);
     };
-    
-    socketRef.current.onclose = () => {
-      console.log('WebSocket disconnected');
-    };
+
+    socketRef.current.onclose = () => {};
   }, []);
 
   const disconnect = useCallback(() => {
