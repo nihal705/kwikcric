@@ -15,10 +15,10 @@ const pool = new Pool({
 // Test connection
 pool.connect((err, client, release) => {
   if (err) {
-    console.log('⚠️ PostgreSQL not connected - using mock mode');
-    console.log('   To fix: Install PostgreSQL or set DB_* env variables');
+    
+    
   } else {
-    console.log('✅ PostgreSQL connected');
+    
     release();
   }
 });
@@ -30,7 +30,7 @@ const query = async (text, params) => {
     const res = await pool.query(text, params);
     const duration = Date.now() - start;
     if (duration > 100) {
-      console.log(`Slow query (${duration}ms):`, text);
+      :`, text);
     }
     return res;
   } catch (error) {

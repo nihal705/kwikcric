@@ -9,9 +9,9 @@ export const connectMongoDB = async () => {
     client = new MongoClient(uri);
     await client.connect();
     db = client.db(process.env.MONGO_DB || 'cricket_logs');
-    console.log('✅ MongoDB connected');
+    
   } catch (error) {
-    console.log('⚠️ MongoDB not connected (running in mock mode)');
+    ');
   }
 };
 
@@ -29,6 +29,6 @@ export const getCollection = (name: string): Collection => {
 export const closeMongoDB = async () => {
   if (client) {
     await client.close();
-    console.log('MongoDB connection closed');
+    
   }
 };

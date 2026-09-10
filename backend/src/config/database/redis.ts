@@ -6,9 +6,9 @@ export const connectRedis = async () => {
   try {
     client = createClient({ url: process.env.REDIS_URL || 'redis://localhost:6379' });
     await client.connect();
-    console.log('✅ Redis connected');
+    
   } catch (error) {
-    console.log('⚠️ Redis not connected (running in mock mode)');
+    ');
   }
 };
 
