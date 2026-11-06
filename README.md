@@ -13,7 +13,7 @@
 </p>
 
 <p align="center">
-  <a href="https://kwikcric.vercel.app">
+  <a href="https://kwikcric.gnihal.com">
     <img src="https://img.shields.io/badge/_Live_Demo-View_Now-00C7B7?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo" />
   </a>
   <a href="https://github.com/nihal705">
