@@ -32,6 +32,8 @@
 
 **KwikCric** is a comprehensive cricket platform that combines **extensive cricket statistics**, **interactive games**, **tournament history**, and **player rankings** in one unified web application. Built with modern technologies, KwikCric delivers a seamless experience for cricket enthusiasts to explore data, play games, and track their progress.
 
+**Live:** [https://inkwell.gnihal.com](https://inkwell.gnihal.com)
+
 ### Key Capabilities
 
 | Category | Description |
